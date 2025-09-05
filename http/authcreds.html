@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NanoAXM Authentication Credentials Save Form</title>
+    <style>
+        body {
+          font-family: sans-serif;
+          background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>NanoAXM Authentication Credentials Save</h1>
+    <form id="authcreds" enctype="multipart/form-data" method="POST">
+        <label for="axm_name">AXM Name</label>
+        <input type="text" id="axm_name" name="axm_name">
+        <br><br>
+
+        <label for="client_id">Client ID</label>
+        <input type="text" id="client_id" name="client_id">
+        <br><br>
+
+        <label for="key_id">Key ID</label>
+        <input type="text" id="key_id" name="key_id">
+        <br><br>
+
+        <label for="private_key">Private Key</label>
+        <input type="file" id="private_key" name="private_key">
+        <br><br>
+
+        <input type="submit" value="Save">
+        <p>
+            <strong>Note:</strong> saving credentials overwrites any
+            previously saved credentials for the given AXM name.
+        </p>
+    </form>
+</body>
+</html>

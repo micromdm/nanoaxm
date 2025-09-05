@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  version: 0.1.0
+  title: NanoAXM server API
+servers:
+  - url: http://[::1]:9005/
+paths:
+  /version:
+    get:
+      description: Returns the running NanoAXM server version.
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties: 
+                  version:
+                    type: string
+                    example: "v0.1.0"
+  /authcreds:
+    get:
+      description: Serves the "authentication credential upload" HTML page.
+      security:
+        - basicAuth: []
+      tags:
+        - authcreds
+      responses:
+        '200':
+          description: The "authentication credential upload" HTML page.
+          content:
+            text/html:
+              schema:
+                type: string
+                format: html
+              example: <!DOCTYPE html></html>
+        '401':
+           $ref: '#/components/responses/UnauthorizedError'
+    post:
+      description: |
+        Upload (save) OAuth authentication credentials. Warning: overwrites any existing credentials with the same name.
+      security:
+        - basicAuth: []
+      tags:
+        - authcreds
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                axm_name:
+                  description: |
+                    "AxM name" for this API account (credentials).
+                  type: string
+                  example: myAxmToken1
+                client_id:
+                  description: Client ID from ABM or ASM portal.
+                  type: string
+                  example: BUSINESSAPI.f6cb33e8-51b3-4d8c-a041-5952c4e18851
+                key_id:
+                  description: Key ID from ABM or ASM portal.
+                  type: string
+                  example: b2100d09-ccd1-45db-9f7b-ee362dc6be6a
+                private_key:
+                  description: Private key downloaded from ABM or ASM portal.
+                  type: string
+                  format: binary
+              required:
+                - axm_name
+                - client_id
+                - key_id
+                - private_key
+      responses:
+        '200':
+          description: Successful upload of authentication credential data provided.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: |
+                  Saved authentication credentials for AXM name: myAxmToken1 (Client ID BUSINESSAPI.f6cb33e8-51b3-4d8c-a041-5952c4e18851)
+        '401':
+           $ref: '#/components/responses/UnauthorizedError'
+        '400':
+           $ref: '#/components/responses/BadRequest'
+        '500':
+           $ref: '#/components/responses/APIError'
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+  responses:
+    UnauthorizedError:
+      description: API key is missing or invalid.
+      headers:
+        WWW-Authenticate:
+          schema:
+            type: string
+    BadRequest:
+      description: There was a problem with the supplied request. The request was in an incorrect format or other request data error.
+    JSONAPIError:
+      description: An error occured on this endpoint.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: "it was sunny outside"
+    APIError:
+      description: An error occured on this endpoint.
