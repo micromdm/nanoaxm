@@ -2,7 +2,7 @@
 
 [![CI/CD](https://github.com/micromdm/nanoaxm/actions/workflows/on-push-pr.yml/badge.svg)](https://github.com/micromdm/nanoaxm/actions/workflows/on-push-pr.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/micromdm/nanoaxm.svg)](https://pkg.go.dev/github.com/micromdm/nanoaxm)
 
-NanoAXM is a set of tools and a Go libraries powering them for communicating with [Apple School and Business Manager API](https://developer.apple.com/documentation/apple-school-and-business-manager-api).
+NanoAXM is a set of tools and Go libraries powering them for communicating with the [Apple School and Business Manager API](https://developer.apple.com/documentation/apple-school-and-business-manager-api).
 
 "AxM" is a sort of initialism representing both "Apple Business Manager" and "Apple School Manager" together.
 
