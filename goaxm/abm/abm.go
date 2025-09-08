@@ -4,6 +4,61 @@ package abm
 
 import "time"
 
+type ErrorLinksJson struct {
+	// About corresponds to the JSON schema field "about".
+	About *string `json:"about,omitempty"`
+
+	// Associated corresponds to the JSON schema field "associated".
+	Associated interface{} `json:"associated,omitempty"`
+}
+
+// The details about an error that returns when an API request isn’t successful.
+type ErrorResponseErrorsJson struct {
+	// A machine-readable code indicating the type of error. The code is a
+	// hierarchical value with levels of specificity separated by a period (.). This
+	// value is parseable for programmatic error handling in code.
+	Code string `json:"code"`
+
+	// A detailed explanation of the error. Don’t use this field for programmatic
+	// error handling.
+	Detail string `json:"detail"`
+
+	// The unique ID of a specific instance of an error, request, and response. Use
+	// this ID when providing feedback to, or debugging issues with, Apple.
+	Id *string `json:"id,omitempty"`
+
+	// Links corresponds to the JSON schema field "links".
+	Links *ErrorLinksJson `json:"links,omitempty"`
+
+	// Meta corresponds to the JSON schema field "meta".
+	Meta map[string]interface{} `json:"meta,omitempty"`
+
+	// One of two possible types of values — source.Parameter when a query parameter
+	// produces the error, or source.JsonPointer when a problem with the entity
+	// produces the error.
+	Source interface{} `json:"source,omitempty"`
+
+	// The HTTP status code of the error. This status code usually matches the
+	// response’s status code. However, if the request produces multiple errors, these
+	// two codes may differ.
+	Status string `json:"status"`
+
+	// A summary of the error. Don’t use this field for programmatic error handling.
+	Title string `json:"title"`
+}
+
+// A response that contains a list of device management service resources.
+type ErrorResponseJson struct {
+	// An array of one or more errors.
+	Errors []ErrorResponseErrorsJson `json:"errors,omitempty"`
+}
+
+// A response that contains a list of device management service resources.
+type JsonPointerJson struct {
+	// A JSON pointer that indicates the location of the error in the request entity.
+	Pointer string `json:"pointer"`
+}
+
 // Attributes that describe a device management service resource.
 type MdmServerAttributesJson struct {
 	// The date and time of the creation of the resource.
@@ -224,6 +279,12 @@ type PagingInformationPagingJson struct {
 
 	// The total number of resources to return.
 	Total *int `json:"total,omitempty"`
+}
+
+// An object that contains the query parameter that produces the error.
+type ParameterJson struct {
+	// The query parameter that produces the error.
+	Parameter string `json:"parameter"`
 }
 
 // Links related to the response document, including self-links.
