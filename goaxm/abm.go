@@ -2,6 +2,7 @@ package goaxm
 
 import (
 	"context"
+	"net/http"
 	"net/url"
 
 	"github.com/micromdm/nanoaxm/goaxm/abm"
@@ -17,5 +18,10 @@ func (c *Client) ABMv1MDMServers(ctx context.Context, axmName string, v url.Valu
 		q = "?" + v.Encode()
 	}
 	out := new(abm.MdmServersResponseJson)
-	return out, c.Do(ctx, axmName, "GET", "https://api-business.apple.com/v1/mdmServers"+q, nil, out)
+	return out, c.Do(ctx, axmName, "GET", "https://api-business.apple.com/v1/mdmServers"+q, nil, out, 0, nil)
+}
+
+func (c *Client) ABMv1OrgDeviceActivities(ctx context.Context, axmName string, req *abm.OrgDeviceActivityCreateRequestJson) (*abm.OrgDeviceActivityResponseJson, error) {
+	out := new(abm.OrgDeviceActivityResponseJson)
+	return out, c.Do(ctx, axmName, http.MethodPost, "https://api-business.apple.com/v1/orgDeviceActivities", req, out, 201, []int{400, 401, 403, 409, 422, 429})
 }
