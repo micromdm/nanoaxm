@@ -4,6 +4,12 @@ package abm
 
 import "time"
 
+// Self-links to documents that can contain information for one or more resources.
+type DocumentLinksJson struct {
+	// The link that produces the current
+	Self string `json:"self"`
+}
+
 type ErrorLinksJson struct {
 	// About corresponds to the JSON schema field "about".
 	About *string `json:"about,omitempty"`
@@ -47,16 +53,11 @@ type ErrorResponseErrorsJson struct {
 	Title string `json:"title"`
 }
 
-// A response that contains a list of device management service resources.
+// The error details that an API returns in the response body whenever the API
+// request isn’t successful.
 type ErrorResponseJson struct {
 	// An array of one or more errors.
 	Errors []ErrorResponseErrorsJson `json:"errors,omitempty"`
-}
-
-// A response that contains a list of device management service resources.
-type JsonPointerJson struct {
-	// A JSON pointer that indicates the location of the error in the request entity.
-	Pointer string `json:"pointer"`
 }
 
 // Attributes that describe a device management service resource.
@@ -137,6 +138,139 @@ type MdmServersResponseJson struct {
 	// Paging information.
 	Meta *PagingInformationJson `json:"meta,omitempty"`
 }
+
+// Attributes that describe an organization device activity resource.
+type OrgDeviceActivityAttributesJson struct {
+	// The date and time of the completion of organization device activity. This is
+	// available only when an activity is in a COMPLETED status.
+	CompletedDateTime *time.Time `json:"completedDateTime,omitempty"`
+
+	// The date and time of the creation of organization device activity.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+
+	// A presigned URL for downloading activity logs in a CSV format. This is
+	// available only when an activity is in a COMPLETED status.
+	DownloadUrl *string `json:"downloadUrl,omitempty"`
+
+	// The top-level status of an activity. For more details, see the table below.
+	// Possible values: COMPLETED, IN_PROGRESS, STOPPED, FAILED
+	Status *OrgDeviceActivityAttributesJsonStatus `json:"status,omitempty"`
+
+	// The low-level status of an activity. For more details, see the table below.
+	// Possible values: SUBMITTED,PRE_PROCESSING,PENDING,PROCESSING,POST_PROCESSING,
+	// STOPPING,COMPLETED_WITH_SUCCESS,COMPLETED_WITH_ERROR,COMPLETED_WITH_FAILURE,COMPLETED_POST_PROCESSING_FAILED
+	SubStatus *OrgDeviceActivityAttributesJsonSubStatus `json:"subStatus,omitempty"`
+}
+
+type OrgDeviceActivityAttributesJsonStatus string
+
+const OrgDeviceActivityAttributesJsonStatusCOMPLETED OrgDeviceActivityAttributesJsonStatus = "COMPLETED"
+const OrgDeviceActivityAttributesJsonStatusFAILED OrgDeviceActivityAttributesJsonStatus = "FAILED"
+const OrgDeviceActivityAttributesJsonStatusINPROGRESS OrgDeviceActivityAttributesJsonStatus = "IN_PROGRESS"
+const OrgDeviceActivityAttributesJsonStatusSTOPPED OrgDeviceActivityAttributesJsonStatus = "STOPPED"
+
+type OrgDeviceActivityAttributesJsonSubStatus string
+
+const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDPOSTPROCESSINGFAILED OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_POST_PROCESSING_FAILED"
+const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDWITHERROR OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_WITH_ERROR"
+const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDWITHFAILURE OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_WITH_FAILURE"
+const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDWITHSUCCESS OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_WITH_SUCCESS"
+const OrgDeviceActivityAttributesJsonSubStatusPENDING OrgDeviceActivityAttributesJsonSubStatus = "PENDING"
+const OrgDeviceActivityAttributesJsonSubStatusPOSTPROCESSING OrgDeviceActivityAttributesJsonSubStatus = "POST_PROCESSING"
+const OrgDeviceActivityAttributesJsonSubStatusPREPROCESSING OrgDeviceActivityAttributesJsonSubStatus = "PRE_PROCESSING"
+const OrgDeviceActivityAttributesJsonSubStatusPROCESSING OrgDeviceActivityAttributesJsonSubStatus = "PROCESSING"
+const OrgDeviceActivityAttributesJsonSubStatusSTOPPING OrgDeviceActivityAttributesJsonSubStatus = "STOPPING"
+const OrgDeviceActivityAttributesJsonSubStatusSUBMITTED OrgDeviceActivityAttributesJsonSubStatus = "SUBMITTED"
+
+// Attributes with values that you’re changing as part of the create request.
+type OrgDeviceActivityCreateRequestDataAttributesJson struct {
+	// The type of activity you want to create.
+	ActivityType OrgDeviceActivityTypeJson `json:"activityType"`
+}
+
+// The request body you use to update the device management service for a device.
+type OrgDeviceActivityCreateRequestDataJson struct {
+	// The resource’s attributes.
+	Attributes OrgDeviceActivityCreateRequestDataAttributesJson `json:"attributes"`
+
+	// The types and IDs of the related data to update.
+	Relationships OrgDeviceActivityCreateRequestDataRelationshipsJson `json:"relationships"`
+
+	// The resource type.
+	Type string `json:"type"`
+}
+
+// The type and ID of a related resource.
+type OrgDeviceActivityCreateRequestDataRelationshipsDevicesDataJson struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	Id string `json:"id"`
+
+	// The resource type.
+	Type string `json:"type"`
+}
+
+// The data that describe the relationship between the resources.
+type OrgDeviceActivityCreateRequestDataRelationshipsDevicesJson struct {
+	// Data corresponds to the JSON schema field "data".
+	Data []OrgDeviceActivityCreateRequestDataRelationshipsDevicesDataJson `json:"data"`
+}
+
+// The relationships you include in the request, and those that you can operate on.
+type OrgDeviceActivityCreateRequestDataRelationshipsJson struct {
+	// Devices corresponds to the JSON schema field "devices".
+	Devices OrgDeviceActivityCreateRequestDataRelationshipsDevicesJson `json:"devices"`
+
+	// MdmServer corresponds to the JSON schema field "mdmServer".
+	MdmServer *OrgDeviceActivityCreateRequestDataRelationshipsMdmServerJson `json:"mdmServer,omitempty"`
+}
+
+// The type and ID of a related resource.
+type OrgDeviceActivityCreateRequestDataRelationshipsMdmServerDataJson struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	Id string `json:"id"`
+
+	// The resource type.
+	Type string `json:"type"`
+}
+
+// The data that describe the relationship between the resources.
+type OrgDeviceActivityCreateRequestDataRelationshipsMdmServerJson struct {
+	// Data corresponds to the JSON schema field "data".
+	Data OrgDeviceActivityCreateRequestDataRelationshipsMdmServerDataJson `json:"data"`
+}
+
+// The request body you use to update the device management service for a device.
+type OrgDeviceActivityCreateRequestJson struct {
+	// The resource data.
+	Data OrgDeviceActivityCreateRequestDataJson `json:"data"`
+}
+
+// The data structure that represents an organization device activity resource.
+type OrgDeviceActivityJson struct {
+	// The resource’s attributes.
+	Attributes *OrgDeviceActivityAttributesJson `json:"attributes,omitempty"`
+
+	// The opaque resource ID that uniquely identifies the resource.
+	Id string `json:"id"`
+
+	// Navigational links that include the self-link.
+	Links *ResourceLinksJson `json:"links,omitempty"`
+
+	// The resource type.
+	Type string `json:"type"`
+}
+
+// A response that contains a single organization device activity resource.
+type OrgDeviceActivityResponseJson struct {
+	// The resource data.
+	Data OrgDeviceActivityJson `json:"data"`
+
+	// Navigational links that include the self-link.
+	Links DocumentLinksJson `json:"links"`
+}
+
+// Strings that represent organization device activities.
+type OrgDeviceActivityTypeJson string
 
 // Attributes that describe an organization device resource.
 type OrgDeviceAttributesJson struct {
@@ -279,12 +413,6 @@ type PagingInformationPagingJson struct {
 
 	// The total number of resources to return.
 	Total *int `json:"total,omitempty"`
-}
-
-// An object that contains the query parameter that produces the error.
-type ParameterJson struct {
-	// The query parameter that produces the error.
-	Parameter string `json:"parameter"`
 }
 
 // Links related to the response document, including self-links.

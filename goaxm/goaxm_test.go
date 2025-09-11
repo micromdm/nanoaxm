@@ -9,6 +9,7 @@ import (
 	"github.com/micromdm/nanoaxm/storage/inmem"
 )
 
+// Example of directly using the `client.Do()` method.
 func Example() {
 	ctx := context.Background()
 
@@ -18,7 +19,7 @@ func Example() {
 
 	var output struct{ Item string }
 
-	err := client.Do(ctx, "test-axm-name", http.MethodGet, "https://api-business.apple.com/v1/mdmServers", nil, output)
+	err := client.Do(ctx, "test-axm-name", http.MethodGet, "https://api-business.apple.com/v1/mdmServers", nil, output, 0, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
