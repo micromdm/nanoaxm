@@ -6,8 +6,21 @@ import "time"
 
 // Self-links to documents that can contain information for one or more resources.
 type DocumentLinksJson struct {
-	// The link that produces the current
+	// The link that produces the current document.
 	Self string `json:"self"`
+}
+
+type ErrorLinksAssociated struct {
+	// Href corresponds to the JSON schema field "href".
+	Href *string `json:"href,omitempty"`
+
+	// Meta corresponds to the JSON schema field "meta".
+	Meta *ErrorLinksAssociatedMeta `json:"meta,omitempty"`
+}
+
+type ErrorLinksAssociatedMeta struct {
+	// Source corresponds to the JSON schema field "source".
+	Source *string `json:"source,omitempty"`
 }
 
 type ErrorLinksJson struct {
@@ -19,7 +32,7 @@ type ErrorLinksJson struct {
 }
 
 // The details about an error that returns when an API request isn’t successful.
-type ErrorResponseErrorsJson struct {
+type ErrorResponseErrors struct {
 	// A machine-readable code indicating the type of error. The code is a
 	// hierarchical value with levels of specificity separated by a period (.). This
 	// value is parseable for programmatic error handling in code.
@@ -57,11 +70,11 @@ type ErrorResponseErrorsJson struct {
 // request isn’t successful.
 type ErrorResponseJson struct {
 	// An array of one or more errors.
-	Errors []ErrorResponseErrorsJson `json:"errors,omitempty"`
+	Errors []ErrorResponseErrors `json:"errors,omitempty"`
 }
 
 // Attributes that describe a device management service resource.
-type MdmServerAttributesJson struct {
+type MdmServerAttributes struct {
 	// The date and time of the creation of the resource.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 
@@ -69,47 +82,44 @@ type MdmServerAttributesJson struct {
 	ServerName *string `json:"serverName,omitempty"`
 
 	// The type of device management service: MDM, APPLE_CONFIGURATOR, APPLE_MDM
-	ServerType *MdmServerAttributesJsonServerType `json:"serverType,omitempty"`
+	ServerType *MdmServerAttributesServerType `json:"serverType,omitempty"`
 
 	// The date and time of the most-recent update for the resource.
 	UpdatedDateTime *time.Time `json:"updatedDateTime,omitempty"`
 }
 
-type MdmServerAttributesJsonServerType string
+type MdmServerAttributesServerType string
 
-const MdmServerAttributesJsonServerTypeAPPLECONFIGURATOR MdmServerAttributesJsonServerType = "APPLE_CONFIGURATOR"
-const MdmServerAttributesJsonServerTypeAPPLEMDM MdmServerAttributesJsonServerType = "APPLE_MDM"
-const MdmServerAttributesJsonServerTypeMDM MdmServerAttributesJsonServerType = "MDM"
+const MdmServerAttributesServerTypeAPPLECONFIGURATOR MdmServerAttributesServerType = "APPLE_CONFIGURATOR"
+const MdmServerAttributesServerTypeAPPLEMDM MdmServerAttributesServerType = "APPLE_MDM"
+const MdmServerAttributesServerTypeMDM MdmServerAttributesServerType = "MDM"
 
 // The data structure that represents a device management service resource in an
 // organization.
 type MdmServerJson struct {
 	// The resource’s attributes.
-	Attributes *MdmServerAttributesJson `json:"attributes,omitempty"`
+	Attributes *MdmServerAttributes `json:"attributes,omitempty"`
 
 	// The opaque resource ID that uniquely identifies the resource.
 	Id string `json:"id"`
 
 	// Navigational links to related data and included resource types and IDs.
-	Relationships *MdmServerRelationshipsJson `json:"relationships,omitempty"`
+	Relationships *MdmServerRelationships `json:"relationships,omitempty"`
 
 	// The resource type.
 	Type string `json:"type"`
 }
 
-// The type and ID of a related resource.
-type MdmServerRelationshipsDevicesDataJson struct {
-	// The opaque resource ID that uniquely identifies the resource.
-	Id string `json:"id"`
-
-	// The resource type.
-	Type interface{} `json:"type"`
+// The relationships you include in the request, and those that you can operate on.
+type MdmServerRelationships struct {
+	// The devices in the device management service.
+	Devices *MdmServerRelationshipsDevices `json:"devices,omitempty"`
 }
 
 // The data and links that describe the relationship between the resources.
-type MdmServerRelationshipsDevicesJson struct {
+type MdmServerRelationshipsDevices struct {
 	// Data corresponds to the JSON schema field "data".
-	Data []MdmServerRelationshipsDevicesDataJson `json:"data,omitempty"`
+	Data []MdmServerRelationshipsDevicesData `json:"data,omitempty"`
 
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinksJson `json:"links,omitempty"`
@@ -118,10 +128,13 @@ type MdmServerRelationshipsDevicesJson struct {
 	Meta *PagingInformationJson `json:"meta,omitempty"`
 }
 
-// The relationships you include in the request, and those that you can operate on.
-type MdmServerRelationshipsJson struct {
-	// The devices in the device management service.
-	Devices *MdmServerRelationshipsDevicesJson `json:"devices,omitempty"`
+// The type and ID of a related resource.
+type MdmServerRelationshipsDevicesData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	Id string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
 }
 
 // A response that contains a list of device management service resources.
@@ -140,7 +153,7 @@ type MdmServersResponseJson struct {
 }
 
 // Attributes that describe an organization device activity resource.
-type OrgDeviceActivityAttributesJson struct {
+type OrgDeviceActivityAttributes struct {
 	// The date and time of the completion of organization device activity. This is
 	// available only when an activity is in a COMPLETED status.
 	CompletedDateTime *time.Time `json:"completedDateTime,omitempty"`
@@ -154,78 +167,69 @@ type OrgDeviceActivityAttributesJson struct {
 
 	// The top-level status of an activity. For more details, see the table below.
 	// Possible values: COMPLETED, IN_PROGRESS, STOPPED, FAILED
-	Status *OrgDeviceActivityAttributesJsonStatus `json:"status,omitempty"`
+	Status *OrgDeviceActivityAttributesStatus `json:"status,omitempty"`
 
 	// The low-level status of an activity. For more details, see the table below.
 	// Possible values: SUBMITTED,PRE_PROCESSING,PENDING,PROCESSING,POST_PROCESSING,
 	// STOPPING,COMPLETED_WITH_SUCCESS,COMPLETED_WITH_ERROR,COMPLETED_WITH_FAILURE,COMPLETED_POST_PROCESSING_FAILED
-	SubStatus *OrgDeviceActivityAttributesJsonSubStatus `json:"subStatus,omitempty"`
+	SubStatus *OrgDeviceActivityAttributesSubStatus `json:"subStatus,omitempty"`
 }
 
-type OrgDeviceActivityAttributesJsonStatus string
+type OrgDeviceActivityAttributesStatus string
 
-const OrgDeviceActivityAttributesJsonStatusCOMPLETED OrgDeviceActivityAttributesJsonStatus = "COMPLETED"
-const OrgDeviceActivityAttributesJsonStatusFAILED OrgDeviceActivityAttributesJsonStatus = "FAILED"
-const OrgDeviceActivityAttributesJsonStatusINPROGRESS OrgDeviceActivityAttributesJsonStatus = "IN_PROGRESS"
-const OrgDeviceActivityAttributesJsonStatusSTOPPED OrgDeviceActivityAttributesJsonStatus = "STOPPED"
+const OrgDeviceActivityAttributesStatusCOMPLETED OrgDeviceActivityAttributesStatus = "COMPLETED"
+const OrgDeviceActivityAttributesStatusFAILED OrgDeviceActivityAttributesStatus = "FAILED"
+const OrgDeviceActivityAttributesStatusINPROGRESS OrgDeviceActivityAttributesStatus = "IN_PROGRESS"
+const OrgDeviceActivityAttributesStatusSTOPPED OrgDeviceActivityAttributesStatus = "STOPPED"
 
-type OrgDeviceActivityAttributesJsonSubStatus string
+type OrgDeviceActivityAttributesSubStatus string
 
-const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDPOSTPROCESSINGFAILED OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_POST_PROCESSING_FAILED"
-const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDWITHERROR OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_WITH_ERROR"
-const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDWITHFAILURE OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_WITH_FAILURE"
-const OrgDeviceActivityAttributesJsonSubStatusCOMPLETEDWITHSUCCESS OrgDeviceActivityAttributesJsonSubStatus = "COMPLETED_WITH_SUCCESS"
-const OrgDeviceActivityAttributesJsonSubStatusPENDING OrgDeviceActivityAttributesJsonSubStatus = "PENDING"
-const OrgDeviceActivityAttributesJsonSubStatusPOSTPROCESSING OrgDeviceActivityAttributesJsonSubStatus = "POST_PROCESSING"
-const OrgDeviceActivityAttributesJsonSubStatusPREPROCESSING OrgDeviceActivityAttributesJsonSubStatus = "PRE_PROCESSING"
-const OrgDeviceActivityAttributesJsonSubStatusPROCESSING OrgDeviceActivityAttributesJsonSubStatus = "PROCESSING"
-const OrgDeviceActivityAttributesJsonSubStatusSTOPPING OrgDeviceActivityAttributesJsonSubStatus = "STOPPING"
-const OrgDeviceActivityAttributesJsonSubStatusSUBMITTED OrgDeviceActivityAttributesJsonSubStatus = "SUBMITTED"
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDPOSTPROCESSINGFAILED OrgDeviceActivityAttributesSubStatus = "COMPLETED_POST_PROCESSING_FAILED"
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHERROR OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_ERROR"
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHFAILURE OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_FAILURE"
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHSUCCESS OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_SUCCESS"
+const OrgDeviceActivityAttributesSubStatusPENDING OrgDeviceActivityAttributesSubStatus = "PENDING"
+const OrgDeviceActivityAttributesSubStatusPOSTPROCESSING OrgDeviceActivityAttributesSubStatus = "POST_PROCESSING"
+const OrgDeviceActivityAttributesSubStatusPREPROCESSING OrgDeviceActivityAttributesSubStatus = "PRE_PROCESSING"
+const OrgDeviceActivityAttributesSubStatusPROCESSING OrgDeviceActivityAttributesSubStatus = "PROCESSING"
+const OrgDeviceActivityAttributesSubStatusSTOPPING OrgDeviceActivityAttributesSubStatus = "STOPPING"
+const OrgDeviceActivityAttributesSubStatusSUBMITTED OrgDeviceActivityAttributesSubStatus = "SUBMITTED"
+
+// The request body you use to update the device management service for a device.
+type OrgDeviceActivityCreateRequestData struct {
+	// The resource’s attributes.
+	Attributes OrgDeviceActivityCreateRequestDataAttributes `json:"attributes"`
+
+	// The types and IDs of the related data to update.
+	Relationships OrgDeviceActivityCreateRequestDataRelationships `json:"relationships"`
+
+	// The resource type.
+	Type string `json:"type"`
+}
 
 // Attributes with values that you’re changing as part of the create request.
-type OrgDeviceActivityCreateRequestDataAttributesJson struct {
+type OrgDeviceActivityCreateRequestDataAttributes struct {
 	// The type of activity you want to create.
 	ActivityType OrgDeviceActivityTypeJson `json:"activityType"`
 }
 
-// The request body you use to update the device management service for a device.
-type OrgDeviceActivityCreateRequestDataJson struct {
-	// The resource’s attributes.
-	Attributes OrgDeviceActivityCreateRequestDataAttributesJson `json:"attributes"`
-
-	// The types and IDs of the related data to update.
-	Relationships OrgDeviceActivityCreateRequestDataRelationshipsJson `json:"relationships"`
-
-	// The resource type.
-	Type string `json:"type"`
-}
-
-// The type and ID of a related resource.
-type OrgDeviceActivityCreateRequestDataRelationshipsDevicesDataJson struct {
-	// The opaque resource ID that uniquely identifies the resource.
-	Id string `json:"id"`
-
-	// The resource type.
-	Type string `json:"type"`
-}
-
-// The data that describe the relationship between the resources.
-type OrgDeviceActivityCreateRequestDataRelationshipsDevicesJson struct {
-	// Data corresponds to the JSON schema field "data".
-	Data []OrgDeviceActivityCreateRequestDataRelationshipsDevicesDataJson `json:"data"`
-}
-
 // The relationships you include in the request, and those that you can operate on.
-type OrgDeviceActivityCreateRequestDataRelationshipsJson struct {
+type OrgDeviceActivityCreateRequestDataRelationships struct {
 	// Devices corresponds to the JSON schema field "devices".
-	Devices OrgDeviceActivityCreateRequestDataRelationshipsDevicesJson `json:"devices"`
+	Devices OrgDeviceActivityCreateRequestDataRelationshipsDevices `json:"devices"`
 
 	// MdmServer corresponds to the JSON schema field "mdmServer".
-	MdmServer *OrgDeviceActivityCreateRequestDataRelationshipsMdmServerJson `json:"mdmServer,omitempty"`
+	MdmServer *OrgDeviceActivityCreateRequestDataRelationshipsMdmServer `json:"mdmServer,omitempty"`
+}
+
+// The data that describe the relationship between the resources.
+type OrgDeviceActivityCreateRequestDataRelationshipsDevices struct {
+	// Data corresponds to the JSON schema field "data".
+	Data []OrgDeviceActivityCreateRequestDataRelationshipsDevicesData `json:"data"`
 }
 
 // The type and ID of a related resource.
-type OrgDeviceActivityCreateRequestDataRelationshipsMdmServerDataJson struct {
+type OrgDeviceActivityCreateRequestDataRelationshipsDevicesData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	Id string `json:"id"`
 
@@ -234,21 +238,30 @@ type OrgDeviceActivityCreateRequestDataRelationshipsMdmServerDataJson struct {
 }
 
 // The data that describe the relationship between the resources.
-type OrgDeviceActivityCreateRequestDataRelationshipsMdmServerJson struct {
+type OrgDeviceActivityCreateRequestDataRelationshipsMdmServer struct {
 	// Data corresponds to the JSON schema field "data".
-	Data OrgDeviceActivityCreateRequestDataRelationshipsMdmServerDataJson `json:"data"`
+	Data OrgDeviceActivityCreateRequestDataRelationshipsMdmServerData `json:"data"`
+}
+
+// The type and ID of a related resource.
+type OrgDeviceActivityCreateRequestDataRelationshipsMdmServerData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	Id string `json:"id"`
+
+	// The resource type.
+	Type string `json:"type"`
 }
 
 // The request body you use to update the device management service for a device.
 type OrgDeviceActivityCreateRequestJson struct {
 	// The resource data.
-	Data OrgDeviceActivityCreateRequestDataJson `json:"data"`
+	Data OrgDeviceActivityCreateRequestData `json:"data"`
 }
 
 // The data structure that represents an organization device activity resource.
 type OrgDeviceActivityJson struct {
 	// The resource’s attributes.
-	Attributes *OrgDeviceActivityAttributesJson `json:"attributes,omitempty"`
+	Attributes *OrgDeviceActivityAttributes `json:"attributes,omitempty"`
 
 	// The opaque resource ID that uniquely identifies the resource.
 	Id string `json:"id"`
@@ -273,7 +286,7 @@ type OrgDeviceActivityResponseJson struct {
 type OrgDeviceActivityTypeJson string
 
 // Attributes that describe an organization device resource.
-type OrgDeviceAttributesJson struct {
+type OrgDeviceAttributes struct {
 	// The date and time of adding the device to an organization.
 	AddedToOrgDateTime *time.Time `json:"addedToOrgDateTime,omitempty"`
 
@@ -308,7 +321,7 @@ type OrgDeviceAttributesJson struct {
 	PartNumber *string `json:"partNumber,omitempty"`
 
 	// The device’s Apple product family: iPhone, iPad,Mac, AppleTV, Watch, or Vision
-	ProductFamily *OrgDeviceAttributesJsonProductFamily `json:"productFamily,omitempty"`
+	ProductFamily *OrgDeviceAttributesProductFamily `json:"productFamily,omitempty"`
 
 	// The device’s product type: (examples: iPhone14,3, iPad13,4, MacBookPro14,2)
 	ProductType *string `json:"productType,omitempty"`
@@ -318,14 +331,14 @@ type OrgDeviceAttributesJson struct {
 	PurchaseSourceId *string `json:"purchaseSourceId,omitempty"`
 
 	// The device’s purchase source type: APPLE, RESELLER, or MANUALLY_ADDED
-	PurchaseSourceType *OrgDeviceAttributesJsonPurchaseSourceType `json:"purchaseSourceType,omitempty"`
+	PurchaseSourceType *OrgDeviceAttributesPurchaseSourceType `json:"purchaseSourceType,omitempty"`
 
 	// The device’s serial number.
 	SerialNumber *string `json:"serialNumber,omitempty"`
 
 	// The devices status: ASSIGNED or UNASSIGNED. If ASSIGNED, use a separate API to
 	// get the information of the assigned server.
-	Status *OrgDeviceAttributesJsonStatus `json:"status,omitempty"`
+	Status *OrgDeviceAttributesStatus `json:"status,omitempty"`
 
 	// The date and time of the most-recent update for the device.
 	UpdatedDateTime *time.Time `json:"updatedDateTime,omitempty"`
@@ -334,30 +347,30 @@ type OrgDeviceAttributesJson struct {
 	WifiMacAddress *string `json:"wifiMacAddress,omitempty"`
 }
 
-type OrgDeviceAttributesJsonProductFamily string
+type OrgDeviceAttributesProductFamily string
 
-const OrgDeviceAttributesJsonProductFamilyAppleTV OrgDeviceAttributesJsonProductFamily = "AppleTV"
-const OrgDeviceAttributesJsonProductFamilyIPad OrgDeviceAttributesJsonProductFamily = "iPad"
-const OrgDeviceAttributesJsonProductFamilyIPhone OrgDeviceAttributesJsonProductFamily = "iPhone"
-const OrgDeviceAttributesJsonProductFamilyMac OrgDeviceAttributesJsonProductFamily = "Mac"
-const OrgDeviceAttributesJsonProductFamilyVision OrgDeviceAttributesJsonProductFamily = "Vision"
-const OrgDeviceAttributesJsonProductFamilyWatch OrgDeviceAttributesJsonProductFamily = "Watch"
+const OrgDeviceAttributesProductFamilyAppleTV OrgDeviceAttributesProductFamily = "AppleTV"
+const OrgDeviceAttributesProductFamilyIPad OrgDeviceAttributesProductFamily = "iPad"
+const OrgDeviceAttributesProductFamilyIPhone OrgDeviceAttributesProductFamily = "iPhone"
+const OrgDeviceAttributesProductFamilyMac OrgDeviceAttributesProductFamily = "Mac"
+const OrgDeviceAttributesProductFamilyVision OrgDeviceAttributesProductFamily = "Vision"
+const OrgDeviceAttributesProductFamilyWatch OrgDeviceAttributesProductFamily = "Watch"
 
-type OrgDeviceAttributesJsonPurchaseSourceType string
+type OrgDeviceAttributesPurchaseSourceType string
 
-const OrgDeviceAttributesJsonPurchaseSourceTypeAPPLE OrgDeviceAttributesJsonPurchaseSourceType = "APPLE"
-const OrgDeviceAttributesJsonPurchaseSourceTypeMANUALLYADDED OrgDeviceAttributesJsonPurchaseSourceType = "MANUALLY_ADDED"
-const OrgDeviceAttributesJsonPurchaseSourceTypeRESELLER OrgDeviceAttributesJsonPurchaseSourceType = "RESELLER"
+const OrgDeviceAttributesPurchaseSourceTypeAPPLE OrgDeviceAttributesPurchaseSourceType = "APPLE"
+const OrgDeviceAttributesPurchaseSourceTypeMANUALLYADDED OrgDeviceAttributesPurchaseSourceType = "MANUALLY_ADDED"
+const OrgDeviceAttributesPurchaseSourceTypeRESELLER OrgDeviceAttributesPurchaseSourceType = "RESELLER"
 
-type OrgDeviceAttributesJsonStatus string
+type OrgDeviceAttributesStatus string
 
-const OrgDeviceAttributesJsonStatusASSIGNED OrgDeviceAttributesJsonStatus = "ASSIGNED"
-const OrgDeviceAttributesJsonStatusUNASSIGNED OrgDeviceAttributesJsonStatus = "UNASSIGNED"
+const OrgDeviceAttributesStatusASSIGNED OrgDeviceAttributesStatus = "ASSIGNED"
+const OrgDeviceAttributesStatusUNASSIGNED OrgDeviceAttributesStatus = "UNASSIGNED"
 
 // The data structure that represents an organization device resource.
 type OrgDeviceJson struct {
 	// The resource’s attributes.
-	Attributes *OrgDeviceAttributesJson `json:"attributes,omitempty"`
+	Attributes *OrgDeviceAttributes `json:"attributes,omitempty"`
 
 	// The opaque resource ID that uniquely identifies the resource.
 	Id string `json:"id"`
@@ -366,23 +379,23 @@ type OrgDeviceJson struct {
 	Links *ResourceLinksJson `json:"links,omitempty"`
 
 	// Navigational links to related data and included resource types and IDs.
-	Relationships *OrgDeviceRelationshipsJson `json:"relationships,omitempty"`
+	Relationships *OrgDeviceRelationships `json:"relationships,omitempty"`
 
 	// The resource type.
 	Type string `json:"type"`
 }
 
-// The links that describe the relationship between the resources.
-type OrgDeviceRelationshipsAssignedServerJson struct {
-	// Links corresponds to the JSON schema field "links".
-	Links *RelationshipLinksJson `json:"links,omitempty"`
-}
-
 // The relationships you include in the request, and those that you can operate on.
-type OrgDeviceRelationshipsJson struct {
+type OrgDeviceRelationships struct {
 	// The relationship representing a device and its assigned device management
 	// service.
-	AssignedServer *OrgDeviceRelationshipsAssignedServerJson `json:"assignedServer,omitempty"`
+	AssignedServer *OrgDeviceRelationshipsAssignedServer `json:"assignedServer,omitempty"`
+}
+
+// The links that describe the relationship between the resources.
+type OrgDeviceRelationshipsAssignedServer struct {
+	// Links corresponds to the JSON schema field "links".
+	Links *RelationshipLinksJson `json:"links,omitempty"`
 }
 
 // Links related to the response document, including paging links.
@@ -400,11 +413,11 @@ type PagedDocumentLinksJson struct {
 // Paging information for data responses.
 type PagingInformationJson struct {
 	// The paging information details.
-	Paging PagingInformationPagingJson `json:"paging"`
+	Paging PagingInformationPaging `json:"paging"`
 }
 
 // Paging details, such as the total number of resources and the per-page limit.
-type PagingInformationPagingJson struct {
+type PagingInformationPaging struct {
 	// The maximum number of resources to return per page.
 	Limit int `json:"limit"`
 
