@@ -16,29 +16,40 @@ The server included in NanoAXM serves two main purposes:
 1. Setup & configuration of the AxM name(s) — that is, the locally-named instances that correspond API users in the Apple Business Manager (ABM) or Apple School Manager (ASM)portals. Configuration includes uploading the Client ID, Key ID, and downloaded private key to the server for storage and later use. See the "API endpoints" section below for more.
 1. Accessing the actual AxM APIs using a transparently-authenticating reverse proxy. After you've configured the authentication tokens using the above APIs the server provides a reverse proxy to talk to the Apple AxM endpoints. You don't have to worry about session management or token authentication: this's taken care of for you. All you need to do is use a special URL path and normal API (HTTP Basic) authentication and you can talk to the AxM APIs unfiltered. See the "Reverse proxy" section below for more.
 
-### Switches
+### Command line flags
 
-Command line switches for the NanoAXM server.
+Command line flags can be specified using command line arguments or environment variables (in NanoAXM versions later than v0.1.0). Flags take precedence over environment variables, which take precedence over default values. Environment variables are denoted in square brackets below (e.g., [HELLO]), and default values are shown in parentheses (e.g., (default "world")). If an environment variable is currently set then the help output will add "is set" as an indicator.
+
+#### -h, -help
+
+Built-in flag that prints all other available flags, environment variables, and defaults.
 
 #### -api string
 
-* API key for API endpoints
+* API key for API endpoints [NANOAXM_API]
 
-Required. API authentication in the NanoAXM server is simply HTTP Basic authentication using "nanoaxm" as the username and the API key (from this switch) as the password.
+Required. API authentication in the NanoAXM server is simply HTTP Basic authentication using "nanoaxm" as the username and the API key (from this flag) as the password.
 
 #### -debug
 
-* log debug messages
+* log debug messages [NANOAXM_DEBUG]
 
 Enable additional debug logging.
 
 #### -listen string
 
-* HTTP listen address (default ":9005")
+* HTTP listen address [NANOAXM_LISTEN] (default ":9005")
 
 Specifies the network listen address (interface and port number) for the server to listen on.
 
 #### -storage, -storage-dsn, & -storage-options
+
+* -storage string
+  * storage backend [NANOAXM_STORAGE] (default "file")
+* -storage-dsn string
+  * storage backend data source name [NANOAXM_STORAGE_DSN]
+* -storage-options string
+  * storage backend options [NANOAXM_STORAGE_OPTIONS]
 
 The `-storage`, `-storage-dsn`, and `-storage-options` flags together configure the storage backend. `-storage` specifies the name of the backend type while `-storage-dsn` specifies the backend data source name (e.g. the connection string). The optional `-storage-options` flag specifies options for the backend if it supports them. If no `-storage` backend is specified then `file` is used as a default.
 
@@ -74,7 +85,7 @@ Configures the MySQL storage backend. The `-dsn` flag should be in the [format t
 
 #### -version
 
-* print version
+* print version and exit
 
 Print version and exit.
 
@@ -178,7 +189,7 @@ These scripts require setting up a few environment variables before use. Please 
 ```bash
 # the URL of the running nanoaxm server
 export BASE_URL='http://[::1]:9005'
-# should match the -api switch of the nanoaxm server
+# should match the -api flag of the nanoaxm server
 export API_KEY=supersecret
 # the AxM name (instance) you want to use
 export AXM_NAME=myAxmToken1

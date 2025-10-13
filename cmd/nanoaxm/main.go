@@ -9,11 +9,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/google/uuid"
 	"github.com/micromdm/nanoaxm/client"
 	axmhttp "github.com/micromdm/nanoaxm/http"
 	"github.com/micromdm/nanoaxm/http/proxy"
 
+	"github.com/google/uuid"
+	"github.com/micromdm/nanolib/envflag"
 	libhttp "github.com/micromdm/nanolib/http"
 	"github.com/micromdm/nanolib/http/trace"
 	"github.com/micromdm/nanolib/log/stdlogfmt"
@@ -31,12 +32,12 @@ func main() {
 		flDebug   = flag.Bool("debug", false, "log debug messages")
 		flListen  = flag.String("listen", ":9005", "HTTP listen address")
 		flAPIKey  = flag.String("api", "", "API key for API endpoints")
-		flVersion = flag.Bool("version", false, "print version")
+		flVersion = flag.Bool("version", false, "print version and exit")
 		flStorage = flag.String("storage", "file", "storage backend")
 		flDSN     = flag.String("storage-dsn", "", "storage backend data source name")
 		flOptions = flag.String("storage-options", "", "storage backend options")
 	)
-	flag.Parse()
+	envflag.Parse("NANOAXM_", []string{"version"})
 
 	if *flVersion {
 		fmt.Println(version)
