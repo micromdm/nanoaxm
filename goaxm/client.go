@@ -6,7 +6,6 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 
@@ -90,11 +89,18 @@ func WithJTI(jtiFn func() string) Option {
 	}
 }
 
-// Do executes the AxM HTTP call against using method and url.
-// OAuth utilizes credentials of axmName.
+// defaultOutStatus is the "success" HTTP status that will allow parsing of the "out."
+var defaultOutStatus = http.StatusOK
+
+// Do executes the AxM HTTP call against url using method.
+// OAuth credentials are looked-up and used by axmName.
 // JSON is marshaled and decoded from the HTTP request and response
 // bodies using in and out respectively.
-func (c *Client) Do(ctx context.Context, axmName, method, url string, in, out any) error {
+// A successful HTTP code is specified in outStatus.
+// A default status will be used if outStatus is 0.
+// To parse potential errors as the AxM Error value, specify them with errStatuses.
+// A default set will be used if errStatuses is empty.
+func (c *Client) Do(ctx context.Context, axmName, method, url string, in, out any, outStatus int, errStatuses []int) error {
 	if c.doer == nil {
 		return errors.New("nil client")
 	}
@@ -128,10 +134,11 @@ func (c *Client) Do(ctx context.Context, axmName, method, url string, in, out an
 	}
 	defer resp.Body.Close()
 
-	if resp.StatusCode == http.StatusUnauthorized {
-		return fmt.Errorf("unhandled auth error: %w", client.NewHTTPError(resp))
-	} else if resp.StatusCode != http.StatusOK {
-		return client.NewHTTPError(resp)
+	if outStatus < 1 {
+		outStatus = defaultOutStatus
+	}
+	if resp.StatusCode != outStatus {
+		return ABMError(resp, errStatuses)
 	}
 
 	if out != nil {
@@ -142,4 +149,31 @@ func (c *Client) Do(ctx context.Context, axmName, method, url string, in, out an
 	}
 
 	return nil
+}
+
+// defaultErrStatuses is the default set of HTTP statuses that will generate HTTP errors.
+var defaultErrStatuses = []int{
+	http.StatusBadRequest,
+	http.StatusUnauthorized,
+	http.StatusForbidden,
+	http.StatusTooManyRequests,
+}
+
+// ABMError searches errStatuses for the response code in r and returns a
+// [ABMErrorResponseError] if found, otherwise an HTTP error.
+func ABMError(r *http.Response, errStatuses []int) error {
+	if errStatuses == nil {
+		errStatuses = defaultErrStatuses
+	}
+	foundErrStatus := false
+	for _, e := range errStatuses {
+		if r.StatusCode == e {
+			foundErrStatus = true
+			break
+		}
+	}
+	if foundErrStatus {
+		return NewABMErrorResponseErrorFromReader(r.Body)
+	}
+	return client.NewHTTPError(r)
 }
