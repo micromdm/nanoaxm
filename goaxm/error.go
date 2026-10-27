@@ -13,12 +13,12 @@ import (
 // ABMErrorResponseError is an error wraps an ABM ErrorResponse JSON struct.
 // See https://developer.apple.com/documentation/applebusinessmanagerapi/errorresponse
 type ABMErrorResponseError struct {
-	*abm.ErrorResponseJson
+	*abm.ErrorResponse
 }
 
 // NewABMErrorResponseError creates the error from the ABM ErrorResponse JSON struct.
-func NewABMErrorResponseError(errorResponse *abm.ErrorResponseJson) *ABMErrorResponseError {
-	return &ABMErrorResponseError{ErrorResponseJson: errorResponse}
+func NewABMErrorResponseError(errorResponse *abm.ErrorResponse) *ABMErrorResponseError {
+	return &ABMErrorResponseError{ErrorResponse: errorResponse}
 }
 
 // NewABMErrorResponseErrorFromReader decodes the ABM ErrorResponse JSON from jsonReader.
@@ -27,7 +27,7 @@ func NewABMErrorResponseErrorFromReader(jsonReader io.Reader) error {
 	if jsonReader == nil {
 		return errors.New("nil reader")
 	}
-	abmErr := new(abm.ErrorResponseJson)
+	abmErr := new(abm.ErrorResponse)
 	err := json.NewDecoder(jsonReader).Decode(abmErr)
 	if err != nil {
 		return fmt.Errorf("decoding ABM error response: %w", err)
@@ -40,8 +40,8 @@ func (e *ABMErrorResponseError) Error() string {
 	if e == nil {
 		return "nil *ABMErrorResponseError"
 	}
-	if e.ErrorResponseJson == nil {
-		return "nil *ErrorResponseJson"
+	if e.ErrorResponse == nil {
+		return "nil *ErrorResponse"
 	}
 	if len(e.Errors) < 1 {
 		return "empty ABM errors"
@@ -50,8 +50,8 @@ func (e *ABMErrorResponseError) Error() string {
 	var errStrs []string
 	for i, e := range e.Errors {
 		errStr := fmt.Sprintf("error %d: %s: %s: %s", i+1, e.Detail, e.Code, e.Status)
-		if e.Id != nil {
-			errStr += ": " + *e.Id
+		if e.ID != nil {
+			errStr += ": " + *e.ID
 		}
 		errStrs = append(errStrs, errStr)
 	}
