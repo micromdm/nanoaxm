@@ -2261,8 +2261,8 @@ type ErrorLinks struct {
 
 // Apple Business API 2.6+
 type ErrorLinksAssociated struct {
-	// Href corresponds to the JSON schema field "href".
-	Href *string `json:"href,omitempty"`
+	// HREF corresponds to the JSON schema field "href".
+	HREF *string `json:"href,omitempty"`
 
 	// Meta corresponds to the JSON schema field "meta".
 	Meta *ErrorLinksAssociatedMeta `json:"meta,omitempty"`
@@ -2309,7 +2309,7 @@ type ErrorResponseErrors struct {
 	// One of two possible types of values — `source.Parameter` when a query parameter
 	// produces the error, or `source.JsonPointer` when a problem with the entity
 	// produces the error.
-	Source *JsonPointer `json:"source,omitempty"`
+	Source *JSONPointer `json:"source,omitempty"`
 
 	// The HTTP status code of the error. This status code usually matches the
 	// response’s status code. However, if the request produces multiple errors, these
@@ -2334,7 +2334,7 @@ type ErrorResponseErrorsMetaAnyKey map[string]interface{}
 // In some cases, the JSON pointer may indicate an element that isn’t in the
 // request entity, but needs to be. For more information about JSON pointers, see
 // the RFC 6901 proposed standards document.
-type JsonPointer struct {
+type JSONPointer struct {
 	// A JSON pointer that indicates the location of the error in the request entity.
 	Pointer string `json:"pointer"`
 }
@@ -2731,7 +2731,7 @@ type Parameter struct {
 	Parameter string `json:"parameter"`
 }
 
-type ErrorResponseErrorsSource_0 = JsonPointer
+type ErrorResponseErrorsSource_0 = JSONPointer
 
 type ErrorResponseErrorsSource_1 = Parameter
 
