@@ -1,4 +1,4 @@
-// Package goaxm provides Go methods and structures for talking to individual AxM API endpoints.
+// Package goaxm provides a generic HTTP client for Apple AxM APIs.
 package goaxm
 
 import (
@@ -25,17 +25,28 @@ const (
 // ErrNilClient happens when an HTTP client is not initialized.
 var ErrNilClient = errors.New("nil client")
 
+// ErrorFunc converts a non-success HTTP response into an error.
+// API-specific packages supply their own to decode their ErrorResponse type.
+type ErrorFunc func(r *http.Response, errStatuses []int) error
+
+func defaultErrorFunc(r *http.Response, _ []int) error {
+	return client.NewHTTPError(r)
+}
+
 type config struct {
 	ua     string
 	client *http.Client
 	jtiFn  func() string
+	errFn  ErrorFunc
 }
 
-// Client is a simple HTTP client for sending requests to
-// Apple Business Manager and Apple School Manager.
+// Client is a simple HTTP client for sending requests to Apple APIs.
+// Embed it in an API-specific client (see goaxm/abm and goaxm/asm) to reuse
+// the transport, OAuth handling, and JSON request/response logic.
 type Client struct {
-	ua   string
-	doer client.Doer
+	ua    string
+	doer  client.Doer
+	errFn ErrorFunc
 }
 
 // Options configure clients.
@@ -46,6 +57,7 @@ func NewClient(store storage.ClientAssertionRefresher, opts ...Option) *Client {
 		ua:     DefaultUserAgent,
 		client: http.DefaultClient,
 		jtiFn:  uuid.NewString,
+		errFn:  defaultErrorFunc,
 	}
 
 	for _, opt := range opts {
@@ -59,8 +71,9 @@ func NewClient(store storage.ClientAssertionRefresher, opts ...Option) *Client {
 	)
 
 	return &Client{
-		ua:   cfg.ua,
-		doer: ct,
+		ua:    cfg.ua,
+		doer:  ct,
+		errFn: cfg.errFn,
 	}
 }
 
@@ -89,6 +102,14 @@ func WithJTI(jtiFn func() string) Option {
 	}
 }
 
+// WithErrorFunc configures how non-success HTTP responses are converted into
+// errors. API-specific packages use this to decode their ErrorResponse types.
+func WithErrorFunc(fn ErrorFunc) Option {
+	return func(c *config) {
+		c.errFn = fn
+	}
+}
+
 // defaultOutStatus is the "success" HTTP status that will allow parsing of the "out."
 var defaultOutStatus = http.StatusOK
 
@@ -98,11 +119,10 @@ var defaultOutStatus = http.StatusOK
 // bodies using in and out respectively.
 // A successful HTTP code is specified in outStatus.
 // A default status will be used if outStatus is 0.
-// To parse potential errors as the AxM Error value, specify them with errStatuses.
-// A default set will be used if errStatuses is empty.
+// To parse potential errors, specify them with errStatuses.
 func (c *Client) Do(ctx context.Context, axmName, method, url string, in, out any, outStatus int, errStatuses []int) error {
 	if c.doer == nil {
-		return errors.New("nil client")
+		return ErrNilClient
 	}
 
 	var body io.Reader
@@ -138,7 +158,10 @@ func (c *Client) Do(ctx context.Context, axmName, method, url string, in, out an
 		outStatus = defaultOutStatus
 	}
 	if resp.StatusCode != outStatus {
-		return ABMError(resp, errStatuses)
+		if c.errFn != nil {
+			return c.errFn(resp, errStatuses)
+		}
+		return client.NewHTTPError(resp)
 	}
 
 	if out != nil {
@@ -149,31 +172,4 @@ func (c *Client) Do(ctx context.Context, axmName, method, url string, in, out an
 	}
 
 	return nil
-}
-
-// defaultErrStatuses is the default set of HTTP statuses that will generate HTTP errors.
-var defaultErrStatuses = []int{
-	http.StatusBadRequest,
-	http.StatusUnauthorized,
-	http.StatusForbidden,
-	http.StatusTooManyRequests,
-}
-
-// ABMError searches errStatuses for the response code in r and returns a
-// [ABMErrorResponseError] if found, otherwise an HTTP error.
-func ABMError(r *http.Response, errStatuses []int) error {
-	if errStatuses == nil {
-		errStatuses = defaultErrStatuses
-	}
-	foundErrStatus := false
-	for _, e := range errStatuses {
-		if r.StatusCode == e {
-			foundErrStatus = true
-			break
-		}
-	}
-	if foundErrStatus {
-		return NewABMErrorResponseErrorFromReader(r.Body)
-	}
-	return client.NewHTTPError(r)
 }

@@ -1,3 +1,3 @@
-package abm
+package asm
 
 //go:generate sh ./generate.sh

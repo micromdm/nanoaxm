@@ -1,23 +1,24 @@
-package goaxm
+package abm
 
 import (
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
+	"net/http"
 	"strings"
 
-	"github.com/micromdm/nanoaxm/goaxm/abm"
+	"github.com/micromdm/nanoaxm/client"
 )
 
 // ABMErrorResponseError is an error wraps an ABM ErrorResponse JSON struct.
 // See https://developer.apple.com/documentation/applebusinessmanagerapi/errorresponse
 type ABMErrorResponseError struct {
-	*abm.ErrorResponse
+	*ErrorResponse
 }
 
 // NewABMErrorResponseError creates the error from the ABM ErrorResponse JSON struct.
-func NewABMErrorResponseError(errorResponse *abm.ErrorResponse) *ABMErrorResponseError {
+func NewABMErrorResponseError(errorResponse *ErrorResponse) *ABMErrorResponseError {
 	return &ABMErrorResponseError{ErrorResponse: errorResponse}
 }
 
@@ -27,7 +28,7 @@ func NewABMErrorResponseErrorFromReader(jsonReader io.Reader) error {
 	if jsonReader == nil {
 		return errors.New("nil reader")
 	}
-	abmErr := new(abm.ErrorResponse)
+	abmErr := new(ErrorResponse)
 	err := json.NewDecoder(jsonReader).Decode(abmErr)
 	if err != nil {
 		return fmt.Errorf("decoding ABM error response: %w", err)
@@ -57,4 +58,31 @@ func (e *ABMErrorResponseError) Error() string {
 	}
 
 	return "ABM error response: " + strings.Join(errStrs, ", ")
+}
+
+// defaultErrStatuses is the default set of HTTP statuses that will generate HTTP errors.
+var defaultErrStatuses = []int{
+	http.StatusBadRequest,
+	http.StatusUnauthorized,
+	http.StatusForbidden,
+	http.StatusTooManyRequests,
+}
+
+// ABMError searches errStatuses for the response code in r and returns a
+// [ABMErrorResponseError] if found, otherwise an HTTP error.
+func ABMError(r *http.Response, errStatuses []int) error {
+	if errStatuses == nil {
+		errStatuses = defaultErrStatuses
+	}
+	foundErrStatus := false
+	for _, e := range errStatuses {
+		if r.StatusCode == e {
+			foundErrStatus = true
+			break
+		}
+	}
+	if foundErrStatus {
+		return NewABMErrorResponseErrorFromReader(r.Body)
+	}
+	return client.NewHTTPError(r)
 }
