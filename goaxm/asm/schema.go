@@ -6,8 +6,6 @@ import "time"
 
 // The data structure that represents the Activation Lock status of an organization
 // device.
-//
-// Apple School Manager API 1.7+
 type ActivationLockStatus struct {
 	// The resource’s attributes.
 	Attributes *ActivationLockStatusAttributes `json:"attributes,omitempty"`
@@ -21,8 +19,6 @@ type ActivationLockStatus struct {
 
 // Attributes for an organization device’s Activation Lock status.
 //
-// Apple School Manager API 1.7+
-//
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
 type ActivationLockStatusAttributes struct {
@@ -35,8 +31,6 @@ type ActivationLockStatusAttributes struct {
 }
 
 // A response that contains the Activation Lock status of an organization device.
-//
-// Apple School Manager API 1.7+
 type ActivationLockStatusResponse struct {
 	// The resource data.
 	Data ActivationLockStatus `json:"data"`
@@ -53,8 +47,6 @@ const ActivationLockTypeUSER ActivationLockType = "USER"
 
 // Additional metadata for an organization device activity, used by device
 // management service migration activity types.
-//
-// Apple School Manager API 1.7+
 type ActivityTypeMetadata struct {
 	// The deadline, in ISO 8601 format, by which a device needs to complete its
 	// device management service migration.
@@ -63,8 +55,6 @@ type ActivityTypeMetadata struct {
 
 // The data structure that represents an AppleCare coverage resource that belongs
 // to an organization device.
-//
-// Apple School Manager API 1.7+
 type AppleCareCoverage struct {
 	// The resource’s attributes.
 	Attributes *AppleCareCoverageAttributes `json:"attributes,omitempty"`
@@ -77,8 +67,6 @@ type AppleCareCoverage struct {
 }
 
 // Attributes for an organization device’s AppleCare coverage resource.
-//
-// Apple School Manager API 1.7+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -127,8 +115,6 @@ const AppleCareCoveragePaymentTypeSUBSCRIPTION AppleCareCoveragePaymentType = "S
 
 // A response that contains a list of AppleCare coverage resources that belongs to
 // an organization device.
-//
-// Apple School Manager API 1.7+
 type AppleCareCoverageResponse struct {
 	// The resource data.
 	Data []AppleCareCoverage `json:"data"`
@@ -146,14 +132,11 @@ const AppleCareCoverageStatusACTIVE AppleCareCoverageStatus = "ACTIVE"
 const AppleCareCoverageStatusINACTIVE AppleCareCoverageStatus = "INACTIVE"
 
 // Self-links to documents that can contain information for one or more resources.
-//
-// Apple School Manager API 1.7+
 type DocumentLinks struct {
 	// The link that produces the current document.
 	Self string `json:"self"`
 }
 
-// Apple School Manager API 1.7+
 type ErrorLinks struct {
 	// About corresponds to the JSON schema field "about".
 	About *string `json:"about,omitempty"`
@@ -162,7 +145,6 @@ type ErrorLinks struct {
 	Associated *string `json:"associated,omitempty"`
 }
 
-// Apple School Manager API 1.7+
 type ErrorLinksAssociated struct {
 	// HREF corresponds to the JSON schema field "href".
 	HREF *string `json:"href,omitempty"`
@@ -171,7 +153,6 @@ type ErrorLinksAssociated struct {
 	Meta *ErrorLinksAssociatedMeta `json:"meta,omitempty"`
 }
 
-// Apple School Manager API 1.7+
 type ErrorLinksAssociatedMeta struct {
 	// Source corresponds to the JSON schema field "source".
 	Source *string `json:"source,omitempty"`
@@ -179,16 +160,12 @@ type ErrorLinksAssociatedMeta struct {
 
 // The error details that an API returns in the response body whenever the API
 // request isn’t successful.
-//
-// Apple School Manager API 1.7+
 type ErrorResponse struct {
 	// An array of one or more errors.
 	Errors []ErrorResponseErrors `json:"errors,omitempty"`
 }
 
 // The details about an error that returns when an API request isn’t successful.
-//
-// Apple School Manager API 1.7+
 type ErrorResponseErrors struct {
 	// A machine-readable code indicating the type of error. The code is a
 	// hierarchical value with levels of specificity separated by a period (.). This
@@ -223,16 +200,12 @@ type ErrorResponseErrors struct {
 	Title string `json:"title"`
 }
 
-// Apple School Manager API 1.7+
 type ErrorResponseErrorsMeta map[string]ErrorResponseErrorsMetaAnyKey
 
-// Apple School Manager API 1.7+
 type ErrorResponseErrorsMetaAnyKey map[string]interface{}
 
 // An object that contains the JSON pointer that indicates the location of the
 // error.
-//
-// Apple School Manager API 1.7+
 //
 // In some cases, the JSON pointer may indicate an element that isn’t in the
 // request entity, but needs to be. For more information about JSON pointers, see
@@ -250,8 +223,6 @@ const MDMMigrationStatusSTARTED MDMMigrationStatus = "STARTED"
 const MDMMigrationStatusSUCCESS MDMMigrationStatus = "SUCCESS"
 
 // The data structure that represents device management services in organizations.
-//
-// Apple School Manager API 1.7+
 type MDMServer struct {
 	// The resource’s attributes.
 	Attributes *MDMServerAttributes `json:"attributes,omitempty"`
@@ -270,8 +241,6 @@ type MDMServer struct {
 }
 
 // Attributes that describe a device management service resource.
-//
-// Apple School Manager API 1.7+
 //
 // > **Note:** You can add new attributes to a resource without a newer version of
 // an API.
@@ -316,8 +285,6 @@ type MDMServerAttributes struct {
 }
 
 // The data and links that describe the relationship between the resources.
-//
-// Apple School Manager API 1.7+
 type MDMServerDevicesLinkagesResponse struct {
 	// The resource data.
 	Data []MDMServerDevicesLinkagesResponseData `json:"data"`
@@ -330,8 +297,6 @@ type MDMServerDevicesLinkagesResponse struct {
 }
 
 // The type and ID of a related resource.
-//
-// Apple School Manager API 1.7+
 type MDMServerDevicesLinkagesResponseData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -351,16 +316,12 @@ const MDMServerProductFamilyVISION MDMServerProductFamily = "VISION"
 const MDMServerProductFamilyWATCH MDMServerProductFamily = "WATCH"
 
 // The relationships you include in the request, and those that you can operate on.
-//
-// Apple School Manager API 1.7+
 type MDMServerRelationships struct {
 	// Relationships representing devices in device management services.
 	Devices *MDMServerRelationshipsDevices `json:"devices,omitempty"`
 }
 
 // The data and links that describe the relationship between the resources.
-//
-// Apple School Manager API 1.7+
 type MDMServerRelationshipsDevices struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []MDMServerRelationshipsDevicesData `json:"data,omitempty"`
@@ -373,8 +334,6 @@ type MDMServerRelationshipsDevices struct {
 }
 
 // The type and ID of a related resource.
-//
-// Apple School Manager API 1.7+
 type MDMServerRelationshipsDevicesData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -384,8 +343,6 @@ type MDMServerRelationshipsDevicesData struct {
 }
 
 // A response that contains a single device management service resource.
-//
-// Apple School Manager API 1.7+
 type MDMServerResponse struct {
 	// The resource data.
 	Data MDMServer `json:"data"`
@@ -404,8 +361,6 @@ const MDMServerStatusDELETED MDMServerStatus = "DELETED"
 const MDMServerStatusINACTIVE MDMServerStatus = "INACTIVE"
 
 // A response that contains a list of device management service resources.
-//
-// Apple School Manager API 1.7+
 type MDMServersResponse struct {
 	// The resource data.
 	Data []MDMServer `json:"data"`
@@ -421,8 +376,6 @@ type MDMServersResponse struct {
 }
 
 // The data structure that represents an organization device resource.
-//
-// Apple School Manager API 1.7+
 type OrgDevice struct {
 	// The resource’s attributes.
 	Attributes *OrgDeviceAttributes `json:"attributes,omitempty"`
@@ -441,8 +394,6 @@ type OrgDevice struct {
 }
 
 // The data structure that represents an organization device activity resource.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivity struct {
 	// The resource’s attributes.
 	Attributes *OrgDeviceActivityAttributes `json:"attributes,omitempty"`
@@ -458,8 +409,6 @@ type OrgDeviceActivity struct {
 }
 
 // Attributes that describe an organization device activity resource.
-//
-// Apple School Manager API 1.7+
 //
 // > **Note:** You can add new attributes to a resource without a newer version of
 // an API.
@@ -507,16 +456,12 @@ const OrgDeviceActivityAttributesSubStatusSTOPPING OrgDeviceActivityAttributesSu
 const OrgDeviceActivityAttributesSubStatusSUBMITTED OrgDeviceActivityAttributesSubStatus = "SUBMITTED"
 
 // The request body you use to update the device management service for a device.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequest struct {
 	// The resource data.
 	Data OrgDeviceActivityCreateRequestData `json:"data"`
 }
 
 // The data element of the request body.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequestData struct {
 	// The resource’s attributes.
 	Attributes OrgDeviceActivityCreateRequestDataAttributes `json:"attributes"`
@@ -529,8 +474,6 @@ type OrgDeviceActivityCreateRequestData struct {
 }
 
 // Attributes with values that you’re changing as part of the create request.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequestDataAttributes struct {
 	// The type of activity you want to create.
 	ActivityType OrgDeviceActivityType `json:"activityType"`
@@ -541,8 +484,6 @@ type OrgDeviceActivityCreateRequestDataAttributes struct {
 }
 
 // The relationships you include in the request, and those that you can operate on.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequestDataRelationships struct {
 	// Devices corresponds to the JSON schema field "devices".
 	Devices OrgDeviceActivityCreateRequestDataRelationshipsDevices `json:"devices"`
@@ -552,16 +493,12 @@ type OrgDeviceActivityCreateRequestDataRelationships struct {
 }
 
 // The data that describe the relationship between the resources.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequestDataRelationshipsDevices struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []OrgDeviceActivityCreateRequestDataRelationshipsDevicesData `json:"data"`
 }
 
 // The type and ID of a related resource.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequestDataRelationshipsDevicesData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -571,16 +508,12 @@ type OrgDeviceActivityCreateRequestDataRelationshipsDevicesData struct {
 }
 
 // The data that describe the relationship between the resources.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequestDataRelationshipsMDMServer struct {
 	// Data corresponds to the JSON schema field "data".
 	Data OrgDeviceActivityCreateRequestDataRelationshipsMDMServerData `json:"data"`
 }
 
 // The type and ID of a related resource.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityCreateRequestDataRelationshipsMDMServerData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -590,8 +523,6 @@ type OrgDeviceActivityCreateRequestDataRelationshipsMDMServerData struct {
 }
 
 // A response that contains a single organization device activity resource.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceActivityResponse struct {
 	// The resource data.
 	Data OrgDeviceActivity `json:"data"`
@@ -609,8 +540,6 @@ const OrgDeviceActivityTypeUNASSIGNDEVICES OrgDeviceActivityType = "UNASSIGN_DEV
 const OrgDeviceActivityTypeUPDATEMDMMIGRATIONDEADLINE OrgDeviceActivityType = "UPDATE_MDM_MIGRATION_DEADLINE"
 
 // The data and links that describe the relationship between the resources.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceAssignedServerLinkageResponse struct {
 	// The resource data.
 	Data OrgDeviceAssignedServerLinkageResponseData `json:"data"`
@@ -620,8 +549,6 @@ type OrgDeviceAssignedServerLinkageResponse struct {
 }
 
 // The type and ID of a related resource.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceAssignedServerLinkageResponseData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -631,8 +558,6 @@ type OrgDeviceAssignedServerLinkageResponseData struct {
 }
 
 // Attributes that describe an organization device resource.
-//
-// Apple School Manager API 1.7+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -720,8 +645,6 @@ type OrgDeviceAttributes struct {
 }
 
 // The relationships you include in the request, and those that you can operate on.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceRelationships struct {
 	// The relationship representing a device and its Activation Lock status.
 	ActivationLockStatus *OrgDeviceRelationshipsActivationLockStatus `json:"activationLockStatus,omitempty"`
@@ -734,29 +657,23 @@ type OrgDeviceRelationships struct {
 	AssignedServer *OrgDeviceRelationshipsAssignedServer `json:"assignedServer,omitempty"`
 }
 
-// Apple School Manager API 1.7+
 type OrgDeviceRelationshipsActivationLockStatus struct {
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinks `json:"links,omitempty"`
 }
 
-// Apple School Manager API 1.7+
 type OrgDeviceRelationshipsAppleCareCoverage struct {
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinks `json:"links,omitempty"`
 }
 
 // The links that describe the relationship between the resources.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceRelationshipsAssignedServer struct {
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinks `json:"links,omitempty"`
 }
 
 // A response that contains a single organization device resource.
-//
-// Apple School Manager API 1.7+
 type OrgDeviceResponse struct {
 	// The resource data.
 	Data OrgDevice `json:"data"`
@@ -766,8 +683,6 @@ type OrgDeviceResponse struct {
 }
 
 // A response that contains a list of organization device resources.
-//
-// Apple School Manager API 1.7+
 type OrgDevicesResponse struct {
 	// The resource data.
 	Data []OrgDevice `json:"data"`
@@ -780,8 +695,6 @@ type OrgDevicesResponse struct {
 }
 
 // Links related to the response document, including paging links.
-//
-// Apple School Manager API 1.7+
 type PagedDocumentLinks struct {
 	// The link to the first page of documents.
 	First *string `json:"first,omitempty"`
@@ -794,8 +707,6 @@ type PagedDocumentLinks struct {
 }
 
 // Paging information for data responses.
-//
-// Apple School Manager API 1.7+
 type PagingInformation struct {
 	// The paging information details.
 	Paging PagingInformationPaging `json:"paging"`
@@ -804,8 +715,6 @@ type PagingInformation struct {
 type ErrorResponseErrorsSource_0 = JSONPointer
 
 // Links related to the response document, including self-links.
-//
-// Apple School Manager API 1.7+
 type RelationshipLinks struct {
 	// Include corresponds to the JSON schema field "include".
 	Include *string `json:"include,omitempty"`
@@ -820,8 +729,6 @@ type RelationshipLinks struct {
 type ErrorResponseErrorsSource_1 = Parameter
 
 // An object that contains the query parameter that produces the error.
-//
-// Apple School Manager API 1.7+
 type Parameter struct {
 	// The query parameter that produces the error.
 	Parameter string `json:"parameter"`
@@ -830,8 +737,6 @@ type Parameter struct {
 type ErrorLinksAssociated_1 = ErrorLinksAssociated
 
 // Paging details, such as the total number of resources and the per-page limit.
-//
-// Apple School Manager API 1.7+
 type PagingInformationPaging struct {
 	// The maximum number of resources to return per page.
 	Limit int `json:"limit"`
@@ -844,8 +749,6 @@ type PagingInformationPaging struct {
 }
 
 // Self-links to requested resources.
-//
-// Apple School Manager API 1.7+
 type ResourceLinks struct {
 	// The link to the resource.
 	Self *string `json:"self,omitempty"`

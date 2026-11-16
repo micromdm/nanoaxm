@@ -13,8 +13,6 @@ const BaseURL = "https://api-school.apple.com"
 //
 // Get a list of device management services in an organization.
 //
-// Apple School Manager API 1.7+
-//
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-device-management-services
 func (c *Client) GetDeviceManagementServices(ctx context.Context, axmName string, v url.Values) (*MDMServersResponse, error) {
 	var q string
@@ -31,8 +29,6 @@ func (c *Client) GetDeviceManagementServices(ctx context.Context, axmName string
 //
 // Get the information for a specific device management service.
 //
-// Apple School Manager API 1.7+
-//
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-mdmserver-information
 func (c *Client) GetMDMServerInformation(ctx context.Context, axmName string, id string, v url.Values) (*MDMServerResponse, error) {
 	var q string
@@ -46,8 +42,6 @@ func (c *Client) GetMDMServerInformation(ctx context.Context, axmName string, id
 }
 
 // GetAllDeviceIDsForADeviceManagementService executes an HTTP GET /v1/mdmServers/{id}/relationships/devices
-//
-// Apple School Manager API 1.7+
 //
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-all-device-ids-for-a-device-management-service
 func (c *Client) GetAllDeviceIDsForADeviceManagementService(ctx context.Context, axmName string, id string, v url.Values) (*MDMServerDevicesLinkagesResponse, error) {
@@ -66,8 +60,6 @@ func (c *Client) GetAllDeviceIDsForADeviceManagementService(ctx context.Context,
 // Assign or unassign devices to a device management service, or manage a
 // device management service for devices.
 //
-// Apple School Manager API 1.7+
-//
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/create-an-orgdeviceactivity
 func (c *Client) CreateAnOrgDeviceActivity(ctx context.Context, axmName string, req *OrgDeviceActivityCreateRequest) (*OrgDeviceActivityResponse, error) {
 	path := "/v1/orgDeviceActivities"
@@ -80,8 +72,6 @@ func (c *Client) CreateAnOrgDeviceActivity(ctx context.Context, axmName string, 
 //
 // Get information for an organization device activity that a device management
 // action, such as assigning or unassigning, creates.
-//
-// Apple School Manager API 1.7+
 //
 // > **Note:** This API supports fetching organization device activity
 // information that the system creates for device management actions, such as
@@ -105,8 +95,6 @@ func (c *Client) GetOrgDeviceActivityInformation(ctx context.Context, axmName st
 // Get a list of devices in an organization that enroll using Automated Device
 // Enrollment.
 //
-// Apple School Manager API 1.7+
-//
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-org-devices
 func (c *Client) GetOrgDevices(ctx context.Context, axmName string, v url.Values) (*OrgDevicesResponse, error) {
 	var q string
@@ -123,8 +111,6 @@ func (c *Client) GetOrgDevices(ctx context.Context, axmName string, v url.Values
 //
 // Get information about a device in an organization.
 //
-// Apple School Manager API 1.7+
-//
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-orgdevice-information
 func (c *Client) GetOrgDeviceInformation(ctx context.Context, axmName string, id string, v url.Values) (*OrgDeviceResponse, error) {
 	var q string
@@ -140,8 +126,6 @@ func (c *Client) GetOrgDeviceInformation(ctx context.Context, axmName string, id
 // GetTheActivationLockStatusInformationForAnOrgDevice executes an HTTP GET /v1/orgDevices/{id}/activationLockStatus
 //
 // Get the Activation Lock status of an organization device.
-//
-// Apple School Manager API 1.7+
 //
 // > **Note:** The request can also fail with an unexpected server error if the
 // device reports an internal-only lock state that isn’t valid for a managed
@@ -163,8 +147,6 @@ func (c *Client) GetTheActivationLockStatusInformationForAnOrgDevice(ctx context
 //
 // Get a list of AppleCare coverage resources for an organization device.
 //
-// Apple School Manager API 1.7+
-//
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-all-applecare-coverage-for-an-orgdevice
 func (c *Client) GetAllAppleCareCoverageForAnOrgDevice(ctx context.Context, axmName string, id string, v url.Values) (*AppleCareCoverageResponse, error) {
 	var q string
@@ -181,8 +163,6 @@ func (c *Client) GetAllAppleCareCoverageForAnOrgDevice(ctx context.Context, axmN
 //
 // Get the assigned device management service information for a device.
 //
-// Apple School Manager API 1.7+
-//
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-the-assigned-device-management-service-information-for-an-orgdevice
 func (c *Client) GetTheAssignedDeviceManagementServiceInformationForAnOrgDevice(ctx context.Context, axmName string, id string, v url.Values) (*MDMServerResponse, error) {
 	var q string
@@ -198,8 +178,6 @@ func (c *Client) GetTheAssignedDeviceManagementServiceInformationForAnOrgDevice(
 // GetTheAssignedDeviceManagementServiceIDForAnOrgDevice executes an HTTP GET /v1/orgDevices/{id}/relationships/assignedServer
 //
 // Get the assigned device management service ID information for a device.
-//
-// Apple School Manager API 1.7+
 //
 // See https://developer.apple.com/documentation/appleschoolmanagerapi/get-the-assigned-device-management-service-id-for-an-orgdevice
 func (c *Client) GetTheAssignedDeviceManagementServiceIDForAnOrgDevice(ctx context.Context, axmName string, id string) (*OrgDeviceAssignedServerLinkageResponse, error) {

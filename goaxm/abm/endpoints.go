@@ -14,8 +14,6 @@ const BaseURL = "https://api-business.apple.com"
 // Get a list of apps for an organization using the built-in device management
 // in Apple Business.
 //
-// Apple Business API 2.6+
-//
 // > **Important:** This endpoint requires the built-in device management
 // service to be turned on for the organization. If you need to manage apps
 // without the built-in device management, use the [Apps and Books for
@@ -38,8 +36,6 @@ func (c *Client) GetApps(ctx context.Context, axmName string, v url.Values) (*Ap
 //
 // Get information about a specific app for an organization using the built-in
 // device management in Apple Business.
-//
-// Apple Business API 2.6+
 //
 // > **Important:** This endpoint requires the built-in device management
 // service to be turned on for the organization. If you need to manage apps
@@ -64,8 +60,6 @@ func (c *Client) GetAppInformation(ctx context.Context, axmName string, id strin
 // Get a list of audit events in an organization that satisfies the query
 // criteria.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-audit-events
 func (c *Client) GetAuditEvents(ctx context.Context, axmName string, v url.Values) (*AuditEventsResponse, error) {
 	var q string
@@ -81,8 +75,6 @@ func (c *Client) GetAuditEvents(ctx context.Context, axmName string, v url.Value
 // GetBlueprints executes an HTTP GET /v1/blueprints
 //
 // Get a list of Blueprints in an organization.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-blueprints
 func (c *Client) GetBlueprints(ctx context.Context, axmName string, v url.Values) (*BlueprintsResponse, error) {
@@ -100,8 +92,6 @@ func (c *Client) GetBlueprints(ctx context.Context, axmName string, v url.Values
 //
 // Create a new Blueprint in an organization.
 //
-// Apple Business API 2.6+
-//
 // > **Note:** Any invalid resource IDs will be dropped from the request during
 // Blueprint creation.
 //
@@ -117,8 +107,6 @@ func (c *Client) CreateABlueprint(ctx context.Context, axmName string, req *Blue
 //
 // Delete a Blueprint from an organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/delete-a-blueprint
 func (c *Client) DeleteABlueprint(ctx context.Context, axmName string, id string) error {
 	path := "/v1/blueprints/" + id
@@ -129,8 +117,6 @@ func (c *Client) DeleteABlueprint(ctx context.Context, axmName string, id string
 // GetBlueprintInformation executes an HTTP GET /v1/blueprints/{id}
 //
 // Get information about a specific Blueprint in an organization.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-blueprint-information
 func (c *Client) GetBlueprintInformation(ctx context.Context, axmName string, id string, v url.Values) (*BlueprintResponse, error) {
@@ -147,8 +133,6 @@ func (c *Client) GetBlueprintInformation(ctx context.Context, axmName string, id
 // UpdateABlueprint executes an HTTP PATCH /v1/blueprints/{id}
 //
 // Update an existing Blueprint in an organization.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** Only the fields included in the request are updated. Any omitted
 // fields retain their existing values.
@@ -168,8 +152,6 @@ func (c *Client) UpdateABlueprint(ctx context.Context, axmName string, id string
 //
 // Remove apps from a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/remove-apps-from-a-blueprint
 func (c *Client) RemoveAppsFromABlueprint(ctx context.Context, axmName string, id string, req *BlueprintAppsLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/apps"
@@ -180,8 +162,6 @@ func (c *Client) RemoveAppsFromABlueprint(ctx context.Context, axmName string, i
 // GetAllAppIDsForABlueprint executes an HTTP GET /v1/blueprints/{id}/relationships/apps
 //
 // Get a list of app IDs associated with a Blueprint.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-app-ids-for-a-blueprint
 func (c *Client) GetAllAppIDsForABlueprint(ctx context.Context, axmName string, id string, v url.Values) (*BlueprintAppsLinkagesResponse, error) {
@@ -199,8 +179,6 @@ func (c *Client) GetAllAppIDsForABlueprint(ctx context.Context, axmName string, 
 //
 // Add apps to a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/add-apps-to-a-blueprint
 func (c *Client) AddAppsToABlueprint(ctx context.Context, axmName string, id string, req *BlueprintAppsLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/apps"
@@ -212,8 +190,6 @@ func (c *Client) AddAppsToABlueprint(ctx context.Context, axmName string, id str
 //
 // Remove Configurations from a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/remove-configurations-from-a-blueprint
 func (c *Client) RemoveConfigurationsFromABlueprint(ctx context.Context, axmName string, id string, req *BlueprintConfigurationsLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/configurations"
@@ -224,8 +200,6 @@ func (c *Client) RemoveConfigurationsFromABlueprint(ctx context.Context, axmName
 // GetAllConfigurationIDsForABlueprint executes an HTTP GET /v1/blueprints/{id}/relationships/configurations
 //
 // Get a list of Configuration IDs associated with a Blueprint.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-configuration-ids-for-a-blueprint
 func (c *Client) GetAllConfigurationIDsForABlueprint(ctx context.Context, axmName string, id string, v url.Values) (*BlueprintConfigurationsLinkagesResponse, error) {
@@ -243,8 +217,6 @@ func (c *Client) GetAllConfigurationIDsForABlueprint(ctx context.Context, axmNam
 //
 // Add Configurations to a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/add-configurations-to-a-blueprint
 func (c *Client) AddConfigurationsToABlueprint(ctx context.Context, axmName string, id string, req *BlueprintConfigurationsLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/configurations"
@@ -256,8 +228,6 @@ func (c *Client) AddConfigurationsToABlueprint(ctx context.Context, axmName stri
 //
 // Remove devices from a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/remove-org-devices-from-a-blueprint
 func (c *Client) RemoveOrgDevicesFromABlueprint(ctx context.Context, axmName string, id string, req *BlueprintOrgDevicesLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/orgDevices"
@@ -268,8 +238,6 @@ func (c *Client) RemoveOrgDevicesFromABlueprint(ctx context.Context, axmName str
 // GetAllOrgDeviceIDsForABlueprint executes an HTTP GET /v1/blueprints/{id}/relationships/orgDevices
 //
 // Get a list of device IDs associated with a Blueprint.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-orgdevice-ids-for-a-blueprint
 func (c *Client) GetAllOrgDeviceIDsForABlueprint(ctx context.Context, axmName string, id string, v url.Values) (*BlueprintOrgDevicesLinkagesResponse, error) {
@@ -287,8 +255,6 @@ func (c *Client) GetAllOrgDeviceIDsForABlueprint(ctx context.Context, axmName st
 //
 // Add devices to a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/add-org-devices-to-a-blueprint
 func (c *Client) AddOrgDevicesToABlueprint(ctx context.Context, axmName string, id string, req *BlueprintOrgDevicesLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/orgDevices"
@@ -300,8 +266,6 @@ func (c *Client) AddOrgDevicesToABlueprint(ctx context.Context, axmName string, 
 //
 // Remove packages from a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/remove-packages-from-a-blueprint
 func (c *Client) RemovePackagesFromABlueprint(ctx context.Context, axmName string, id string, req *BlueprintPackagesLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/packages"
@@ -312,8 +276,6 @@ func (c *Client) RemovePackagesFromABlueprint(ctx context.Context, axmName strin
 // GetAllPackageIDsForABlueprint executes an HTTP GET /v1/blueprints/{id}/relationships/packages
 //
 // Get a list of package IDs associated with a Blueprint.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-package-ids-for-a-blueprint
 func (c *Client) GetAllPackageIDsForABlueprint(ctx context.Context, axmName string, id string, v url.Values) (*BlueprintPackagesLinkagesResponse, error) {
@@ -331,8 +293,6 @@ func (c *Client) GetAllPackageIDsForABlueprint(ctx context.Context, axmName stri
 //
 // Add packages to a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/add-packages-to-a-blueprint
 func (c *Client) AddPackagesToABlueprint(ctx context.Context, axmName string, id string, req *BlueprintPackagesLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/packages"
@@ -344,8 +304,6 @@ func (c *Client) AddPackagesToABlueprint(ctx context.Context, axmName string, id
 //
 // Remove user groups from a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/remove-user-groups-from-a-blueprint
 func (c *Client) RemoveUserGroupsFromABlueprint(ctx context.Context, axmName string, id string, req *BlueprintUserGroupsLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/userGroups"
@@ -356,8 +314,6 @@ func (c *Client) RemoveUserGroupsFromABlueprint(ctx context.Context, axmName str
 // GetAllUserGroupIDsForABlueprint executes an HTTP GET /v1/blueprints/{id}/relationships/userGroups
 //
 // Get a list of user group IDs associated with a Blueprint.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-user-group-ids-for-a-blueprint
 func (c *Client) GetAllUserGroupIDsForABlueprint(ctx context.Context, axmName string, id string, v url.Values) (*BlueprintUserGroupsLinkagesResponse, error) {
@@ -375,8 +331,6 @@ func (c *Client) GetAllUserGroupIDsForABlueprint(ctx context.Context, axmName st
 //
 // Add user groups to a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/add-user-groups-to-a-blueprint
 func (c *Client) AddUserGroupsToABlueprint(ctx context.Context, axmName string, id string, req *BlueprintUserGroupsLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/userGroups"
@@ -388,8 +342,6 @@ func (c *Client) AddUserGroupsToABlueprint(ctx context.Context, axmName string, 
 //
 // Remove users from a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/remove-users-from-a-blueprint
 func (c *Client) RemoveUsersFromABlueprint(ctx context.Context, axmName string, id string, req *BlueprintUsersLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/users"
@@ -400,8 +352,6 @@ func (c *Client) RemoveUsersFromABlueprint(ctx context.Context, axmName string, 
 // GetAllUserIDsForABlueprint executes an HTTP GET /v1/blueprints/{id}/relationships/users
 //
 // Get a list of user IDs associated with a Blueprint.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-user-ids-for-a-blueprint
 func (c *Client) GetAllUserIDsForABlueprint(ctx context.Context, axmName string, id string, v url.Values) (*BlueprintUsersLinkagesResponse, error) {
@@ -419,8 +369,6 @@ func (c *Client) GetAllUserIDsForABlueprint(ctx context.Context, axmName string,
 //
 // Add users to a Blueprint.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/add-users-to-a-blueprint
 func (c *Client) AddUsersToABlueprint(ctx context.Context, axmName string, id string, req *BlueprintUsersLinkagesRequest) error {
 	path := "/v1/blueprints/" + id + "/relationships/users"
@@ -431,8 +379,6 @@ func (c *Client) AddUsersToABlueprint(ctx context.Context, axmName string, id st
 // GetConfigurations executes an HTTP GET /v1/configurations
 //
 // Get a list of Configurations in an organization.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** This API will return `null` for `customSettingsValues` for all
 // configuration types, including of type `CUSTOM_SETTING`. To get the
@@ -456,8 +402,6 @@ func (c *Client) GetConfigurations(ctx context.Context, axmName string, v url.Va
 //
 // Create a new custom Configuration in an organization.
 //
-// Apple Business API 2.6+
-//
 // > **Important:** Only Configurations with type `CUSTOM_SETTING` can be
 // created with the API.
 //
@@ -479,8 +423,6 @@ func (c *Client) CreateAConfiguration(ctx context.Context, axmName string, req *
 //
 // Delete a Configuration from an organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/delete-a-configuration
 func (c *Client) DeleteAConfiguration(ctx context.Context, axmName string, id string) error {
 	path := "/v1/configurations/" + id
@@ -491,8 +433,6 @@ func (c *Client) DeleteAConfiguration(ctx context.Context, axmName string, id st
 // GetConfigurationInformation executes an HTTP GET /v1/configurations/{id}
 //
 // Get information about a specific Configuration in an organization.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** Use this API to retrieve the `customSettingsValues` for a
 // `CUSTOM_SETTING` Configuration.
@@ -512,8 +452,6 @@ func (c *Client) GetConfigurationInformation(ctx context.Context, axmName string
 // UpdateAConfiguration executes an HTTP PATCH /v1/configurations/{id}
 //
 // Update an existing custom Configuration in an organization.
-//
-// Apple Business API 2.6+
 //
 // > **Important:** Only Configurations with type `CUSTOM_SETTING` can be
 // updated via the API.
@@ -539,8 +477,6 @@ func (c *Client) UpdateAConfiguration(ctx context.Context, axmName string, id st
 //
 // Get a list of devices enrolled in Apple Device Management service.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-apple-mdm-enrolled-devices
 func (c *Client) GetAppleMDMEnrolledDevices(ctx context.Context, axmName string, v url.Values) (*MDMDevicesResponse, error) {
 	var q string
@@ -558,8 +494,6 @@ func (c *Client) GetAppleMDMEnrolledDevices(ctx context.Context, axmName string,
 // Get detailed information about a device enrolled in Apple Device Management
 // service.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-the-details-for-apple-mdm-enrolled-device
 func (c *Client) GetTheDetailsForAppleMDMEnrolledDevice(ctx context.Context, axmName string, id string, v url.Values) (*MDMDeviceDetailResponse, error) {
 	var q string
@@ -575,8 +509,6 @@ func (c *Client) GetTheDetailsForAppleMDMEnrolledDevice(ctx context.Context, axm
 // GetMDMServers executes an HTTP GET /v1/mdmServers
 //
 // Get a list of device management services in an organization.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-mdm-servers
 func (c *Client) GetMDMServers(ctx context.Context, axmName string, v url.Values) (*MDMServersResponse, error) {
@@ -594,8 +526,6 @@ func (c *Client) GetMDMServers(ctx context.Context, axmName string, v url.Values
 //
 // Create a new device management service in an organization.
 //
-// Apple Business API 2.6+
-//
 // > **Note:** The `serverName` and `serverCertificate` attributes are
 // required.
 //
@@ -611,8 +541,6 @@ func (c *Client) CreateAnMDMServer(ctx context.Context, axmName string, req *MDM
 //
 // Delete a device management service from an organization.
 //
-// Apple Business API 2.6+
-//
 // > **Note:** A device management service that has devices assigned to it
 // can’t be deleted. Unassign all devices before deleting.
 //
@@ -626,8 +554,6 @@ func (c *Client) DeleteAnMDMServer(ctx context.Context, axmName string, id strin
 // GetMDMServerInformation executes an HTTP GET /v1/mdmServers/{id}
 //
 // Get the information for a specific device management service.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-mdmserver-information
 func (c *Client) GetMDMServerInformation(ctx context.Context, axmName string, id string, v url.Values) (*MDMServerResponse, error) {
@@ -645,8 +571,6 @@ func (c *Client) GetMDMServerInformation(ctx context.Context, axmName string, id
 //
 // Update an existing device management service in an organization.
 //
-// Apple Business API 2.6+
-//
 // > **Note:** Only the fields included in the request are updated. Any omitted
 // fields retain their existing values.
 //
@@ -661,8 +585,6 @@ func (c *Client) UpdateAnMDMServer(ctx context.Context, axmName string, id strin
 // GetAllDeviceIDsForAnMDMServer executes an HTTP GET /v1/mdmServers/{id}/relationships/devices
 //
 // Get a list of device serial numbers assigned to a device management service.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-device-ids-for-an-mdmserver
 func (c *Client) GetAllDeviceIDsForAnMDMServer(ctx context.Context, axmName string, id string, v url.Values) (*MDMServerDevicesLinkagesResponse, error) {
@@ -682,8 +604,6 @@ func (c *Client) GetAllDeviceIDsForAnMDMServer(ctx context.Context, axmName stri
 // management service migration for devices, or release devices from an
 // organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/create-an-orgdeviceactivity
 func (c *Client) CreateAnOrgDeviceActivity(ctx context.Context, axmName string, req *OrgDeviceActivityCreateRequest) (*OrgDeviceActivityResponse, error) {
 	path := "/v1/orgDeviceActivities"
@@ -696,8 +616,6 @@ func (c *Client) CreateAnOrgDeviceActivity(ctx context.Context, axmName string, 
 //
 // Get information for an organization device activity that a device management
 // action, such as assign or unassign, creates.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** This API supports fetching organization device activity
 // information that the system creates for device management actions, such as
@@ -721,8 +639,6 @@ func (c *Client) GetOrgDeviceActivityInformation(ctx context.Context, axmName st
 // Get a list of devices in an organization that enroll using Automated Device
 // Enrollment.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-org-devices
 func (c *Client) GetOrgDevices(ctx context.Context, axmName string, v url.Values) (*OrgDevicesResponse, error) {
 	var q string
@@ -739,8 +655,6 @@ func (c *Client) GetOrgDevices(ctx context.Context, axmName string, v url.Values
 //
 // Get information about a device in an organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-orgdevice-information
 func (c *Client) GetOrgDeviceInformation(ctx context.Context, axmName string, id string, v url.Values) (*OrgDeviceResponse, error) {
 	var q string
@@ -756,8 +670,6 @@ func (c *Client) GetOrgDeviceInformation(ctx context.Context, axmName string, id
 // GetTheActivationLockStatusInformationForAnOrgDevice executes an HTTP GET /v1/orgDevices/{id}/activationLockStatus
 //
 // Get the Activation Lock status of an organization device.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** The request can also fail with an unexpected server error if the
 // device reports an internal-only lock state that isn’t valid for a managed
@@ -779,8 +691,6 @@ func (c *Client) GetTheActivationLockStatusInformationForAnOrgDevice(ctx context
 //
 // Get a list of AppleCare coverage resources for an organization device.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-applecare-coverage-for-an-orgdevice
 func (c *Client) GetAllAppleCareCoverageForAnOrgDevice(ctx context.Context, axmName string, id string, v url.Values) (*AppleCareCoverageResponse, error) {
 	var q string
@@ -796,8 +706,6 @@ func (c *Client) GetAllAppleCareCoverageForAnOrgDevice(ctx context.Context, axmN
 // GetTheAssignedServerInformationForAnOrgDevice executes an HTTP GET /v1/orgDevices/{id}/assignedServer
 //
 // Get the assigned device management service information for a device.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-the-assigned-server-information-for-an-orgdevice
 func (c *Client) GetTheAssignedServerInformationForAnOrgDevice(ctx context.Context, axmName string, id string, v url.Values) (*MDMServerResponse, error) {
@@ -815,8 +723,6 @@ func (c *Client) GetTheAssignedServerInformationForAnOrgDevice(ctx context.Conte
 //
 // Get the assigned device management service ID information for a device.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-the-assigned-server-id-for-an-orgdevice
 func (c *Client) GetTheAssignedServerIDForAnOrgDevice(ctx context.Context, axmName string, id string) (*OrgDeviceAssignedServerLinkageResponse, error) {
 	path := "/v1/orgDevices/" + id + "/relationships/assignedServer"
@@ -828,8 +734,6 @@ func (c *Client) GetTheAssignedServerIDForAnOrgDevice(ctx context.Context, axmNa
 // GetOrganizationalUnits executes an HTTP GET /v1/organizationalUnits
 //
 // Get a list of organizational units in an organization.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-organizational-units
 func (c *Client) GetOrganizationalUnits(ctx context.Context, axmName string, v url.Values) (*OrganizationalUnitsResponse, error) {
@@ -847,8 +751,6 @@ func (c *Client) GetOrganizationalUnits(ctx context.Context, axmName string, v u
 //
 // Get information about a specific organizational unit in an organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-organizationalunit-information
 func (c *Client) GetOrganizationalUnitInformation(ctx context.Context, axmName string, id string, v url.Values) (*OrganizationalUnitResponse, error) {
 	var q string
@@ -863,11 +765,7 @@ func (c *Client) GetOrganizationalUnitInformation(ctx context.Context, axmName s
 
 // GetAllUserIDsForAnOrganizationalUnit executes an HTTP GET /v1/organizationalUnits/{id}/relationships/users
 //
-// Get a list of user IDs for an organizational unit in an organization.
-//
-// Apple Business API 2.6+
-//
-// See https://developer.apple.com/documentation/applebusinessapi/get-all-user-ids-for-an-organizationalunit
+// See https://developer.apple.com/documentation/applebusinessapi/get-all-user-ids-for-an-organizational-unit
 func (c *Client) GetAllUserIDsForAnOrganizationalUnit(ctx context.Context, axmName string, id string, v url.Values) (*OrganizationalUnitUsersLinkagesResponse, error) {
 	var q string
 	if v != nil {
@@ -883,8 +781,6 @@ func (c *Client) GetAllUserIDsForAnOrganizationalUnit(ctx context.Context, axmNa
 //
 // Get a list of packages for an organization using Apple Business’s built-in
 // device management.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-packages
 func (c *Client) GetPackages(ctx context.Context, axmName string, v url.Values) (*PackagesResponse, error) {
@@ -903,8 +799,6 @@ func (c *Client) GetPackages(ctx context.Context, axmName string, v url.Values) 
 // Get information about a specific package for an organization using Apple
 // Business’s built-in device management.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-package-information
 func (c *Client) GetPackageInformation(ctx context.Context, axmName string, id string, v url.Values) (*PackageResponse, error) {
 	var q string
@@ -920,8 +814,6 @@ func (c *Client) GetPackageInformation(ctx context.Context, axmName string, id s
 // GetUserGroups executes an HTTP GET /v1/userGroups
 //
 // Get a list of user groups in an organization.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-user-groups
 func (c *Client) GetUserGroups(ctx context.Context, axmName string, v url.Values) (*UserGroupsResponse, error) {
@@ -939,8 +831,6 @@ func (c *Client) GetUserGroups(ctx context.Context, axmName string, v url.Values
 //
 // Get information about a specific user group in an organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-usergroup-information
 func (c *Client) GetUserGroupInformation(ctx context.Context, axmName string, id string, v url.Values) (*UserGroupResponse, error) {
 	var q string
@@ -956,8 +846,6 @@ func (c *Client) GetUserGroupInformation(ctx context.Context, axmName string, id
 // GetAllUserIDsForAUserGroup executes an HTTP GET /v1/userGroups/{id}/relationships/users
 //
 // Get a list of user IDs for a user group in an organization.
-//
-// Apple Business API 2.6+
 //
 // See https://developer.apple.com/documentation/applebusinessapi/get-all-user-ids-for-a-user-group
 func (c *Client) GetAllUserIDsForAUserGroup(ctx context.Context, axmName string, id string, v url.Values) (*UserGroupUsersLinkagesResponse, error) {
@@ -975,8 +863,6 @@ func (c *Client) GetAllUserIDsForAUserGroup(ctx context.Context, axmName string,
 //
 // Get a list of users in an organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-users
 func (c *Client) GetUsers(ctx context.Context, axmName string, v url.Values) (*UsersResponse, error) {
 	var q string
@@ -993,8 +879,6 @@ func (c *Client) GetUsers(ctx context.Context, axmName string, v url.Values) (*U
 //
 // Get information about a specific user in an organization.
 //
-// Apple Business API 2.6+
-//
 // See https://developer.apple.com/documentation/applebusinessapi/get-user-information
 func (c *Client) GetUserInformation(ctx context.Context, axmName string, id string, v url.Values) (*UserResponse, error) {
 	var q string
@@ -1004,5 +888,115 @@ func (c *Client) GetUserInformation(ctx context.Context, axmName string, id stri
 	path := "/v1/users/" + id + q
 	url := BaseURL + path
 	out := new(UserResponse)
+	return out, c.Do(ctx, axmName, "GET", url, nil, out, 0, []int{400, 401, 403, 404, 429})
+}
+
+// CreateAWebhookdelivery executes an HTTP POST /v1/webhookDeliveries
+//
+// Create a new webhook delivery based on an existing delivery.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/create-a-webhookdelivery
+func (c *Client) CreateAWebhookdelivery(ctx context.Context, axmName string, req *WebhookDeliveryCreateRequest) (*WebhookDeliveryResponse, error) {
+	path := "/v1/webhookDeliveries"
+	url := BaseURL + path
+	out := new(WebhookDeliveryResponse)
+	return out, c.Do(ctx, axmName, "POST", url, req, out, 201, []int{400, 401, 403, 409, 422, 429})
+}
+
+// CreateAWebhookping executes an HTTP POST /v1/webhookPings
+//
+// Send a ping event to a webhook to test that it receives notifications.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/create-a-webhookping
+func (c *Client) CreateAWebhookping(ctx context.Context, axmName string, req *WebhookPingCreateRequest) (*WebhookPingResponse, error) {
+	path := "/v1/webhookPings"
+	url := BaseURL + path
+	out := new(WebhookPingResponse)
+	return out, c.Do(ctx, axmName, "POST", url, req, out, 201, []int{400, 401, 403, 409, 422, 429})
+}
+
+// GetWebhooks executes an HTTP GET /v1/webhooks
+//
+// Get a list of webhooks in an organization.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/get-webhooks
+func (c *Client) GetWebhooks(ctx context.Context, axmName string, v url.Values) (*WebhooksResponse, error) {
+	var q string
+	if v != nil {
+		q = "?" + v.Encode()
+	}
+	path := "/v1/webhooks" + q
+	url := BaseURL + path
+	out := new(WebhooksResponse)
+	return out, c.Do(ctx, axmName, "GET", url, nil, out, 0, []int{400, 401, 403, 429})
+}
+
+// CreateAWebhook executes an HTTP POST /v1/webhooks
+//
+// Create a new webhook in an organization.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/create-a-webhook
+func (c *Client) CreateAWebhook(ctx context.Context, axmName string, req *WebhookCreateRequest) (*WebhookResponse, error) {
+	path := "/v1/webhooks"
+	url := BaseURL + path
+	out := new(WebhookResponse)
+	return out, c.Do(ctx, axmName, "POST", url, req, out, 201, []int{400, 401, 403, 409, 422, 429})
+}
+
+// DeleteAWebhook executes an HTTP DELETE /v1/webhooks/{id}
+//
+// Delete a webhook from an organization.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/delete-a-webhook
+func (c *Client) DeleteAWebhook(ctx context.Context, axmName string, id string) error {
+	path := "/v1/webhooks/" + id
+	url := BaseURL + path
+	return c.Do(ctx, axmName, "DELETE", url, nil, nil, 204, []int{400, 401, 403, 404, 429})
+}
+
+// GetWebhookInformation executes an HTTP GET /v1/webhooks/{id}
+//
+// Get information about a specific webhook in an organization.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/get-webhook-information
+func (c *Client) GetWebhookInformation(ctx context.Context, axmName string, id string, v url.Values) (*WebhookResponse, error) {
+	var q string
+	if v != nil {
+		q = "?" + v.Encode()
+	}
+	path := "/v1/webhooks/" + id + q
+	url := BaseURL + path
+	out := new(WebhookResponse)
+	return out, c.Do(ctx, axmName, "GET", url, nil, out, 0, []int{400, 401, 403, 404, 429})
+}
+
+// UpdateAWebhook executes an HTTP PATCH /v1/webhooks/{id}
+//
+// Update an existing webhook in an organization.
+//
+// > **Note:** Only the fields included in the request are updated. Any omitted
+// fields retain their existing values.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/update-a-webhook
+func (c *Client) UpdateAWebhook(ctx context.Context, axmName string, id string, req *WebhookUpdateRequest) (*WebhookResponse, error) {
+	path := "/v1/webhooks/" + id
+	url := BaseURL + path
+	out := new(WebhookResponse)
+	return out, c.Do(ctx, axmName, "PATCH", url, req, out, 0, []int{400, 401, 403, 404, 409, 422, 429})
+}
+
+// GetAllDeliveriesForAWebhook executes an HTTP GET /v1/webhooks/{id}/deliveries
+//
+// Get a list of deliveries for a webhook.
+//
+// See https://developer.apple.com/documentation/applebusinessapi/get-all-deliveries-for-a-webhook
+func (c *Client) GetAllDeliveriesForAWebhook(ctx context.Context, axmName string, id string, v url.Values) (*WebhookDeliveriesResponse, error) {
+	var q string
+	if v != nil {
+		q = "?" + v.Encode()
+	}
+	path := "/v1/webhooks/" + id + "/deliveries" + q
+	url := BaseURL + path
+	out := new(WebhookDeliveriesResponse)
 	return out, c.Do(ctx, axmName, "GET", url, nil, out, 0, []int{400, 401, 403, 404, 429})
 }

@@ -6,8 +6,6 @@ import "time"
 
 // The data structure that represents the Activation Lock status of an organization
 // device.
-//
-// Apple Business API 2.6+
 type ActivationLockStatus struct {
 	// The resource’s attributes.
 	Attributes *ActivationLockStatusAttributes `json:"attributes,omitempty"`
@@ -21,8 +19,6 @@ type ActivationLockStatus struct {
 
 // Attributes for an organization device’s Activation Lock status.
 //
-// Apple Business API 2.6+
-//
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
 type ActivationLockStatusAttributes struct {
@@ -35,8 +31,6 @@ type ActivationLockStatusAttributes struct {
 }
 
 // A response that contains the Activation Lock status of an organization device.
-//
-// Apple Business API 2.6+
 type ActivationLockStatusResponse struct {
 	// The resource data.
 	Data ActivationLockStatus `json:"data"`
@@ -53,8 +47,6 @@ const ActivationLockTypeUSER ActivationLockType = "USER"
 
 // Additional metadata for an organization device activity, used by device
 // management service migration activity types.
-//
-// Apple Business API 2.6+
 type ActivityTypeMetadata struct {
 	// The deadline, in ISO 8601 format, by which a device needs to complete its
 	// device management service migration.
@@ -62,8 +54,6 @@ type ActivityTypeMetadata struct {
 }
 
 // The data structure that represents an app resource.
-//
-// Apple Business API 2.6+
 type App struct {
 	// The resource’s attributes.
 	Attributes *AppAttributes `json:"attributes,omitempty"`
@@ -79,8 +69,6 @@ type App struct {
 }
 
 // Attributes that describe an app resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -110,8 +98,6 @@ type AppAttributes struct {
 }
 
 // A response that contains information about an app resource.
-//
-// Apple Business API 2.6+
 type AppResponse struct {
 	// The resource data.
 	Data App `json:"data"`
@@ -122,8 +108,6 @@ type AppResponse struct {
 
 // The data structure that represents an AppleCare coverage resource that belongs
 // to an organization device.
-//
-// Apple Business API 2.6+
 type AppleCareCoverage struct {
 	// The resource’s attributes.
 	Attributes *AppleCareCoverageAttributes `json:"attributes,omitempty"`
@@ -136,8 +120,6 @@ type AppleCareCoverage struct {
 }
 
 // Attributes for an organization device’s AppleCare coverage resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -186,8 +168,6 @@ const AppleCareCoveragePaymentTypeSUBSCRIPTION AppleCareCoveragePaymentType = "S
 
 // A response that contains a list of AppleCare coverage resources that belongs to
 // an organization device.
-//
-// Apple Business API 2.6+
 type AppleCareCoverageResponse struct {
 	// The resource data.
 	Data []AppleCareCoverage `json:"data"`
@@ -205,8 +185,6 @@ const AppleCareCoverageStatusACTIVE AppleCareCoverageStatus = "ACTIVE"
 const AppleCareCoverageStatusINACTIVE AppleCareCoverageStatus = "INACTIVE"
 
 // A response that contains a list of app resources.
-//
-// Apple Business API 2.6+
 type AppsResponse struct {
 	// The resource data.
 	Data []App `json:"data"`
@@ -219,8 +197,6 @@ type AppsResponse struct {
 }
 
 // The data structure that represents an audit event resource.
-//
-// Apple Business API 2.6+
 type AuditEvent struct {
 	// A polymorphic audit event resource’s attributes. Depending upon the type of
 	// event, attributes may vary.
@@ -235,13 +211,9 @@ type AuditEvent struct {
 
 // The data structure that represents the event data for an account added audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountAdded map[string]interface{}
 
 // The attributes for an account added audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountAddedAttributes struct {
 	// The event data for this audit event type.
 	EventDataAccountAdded AuditEventAccountAdded `json:"eventDataAccountAdded,omitempty"`
@@ -249,13 +221,9 @@ type AuditEventAccountAddedAttributes struct {
 
 // The data structure that represents the event data for an account deleted audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountDeleted map[string]interface{}
 
 // The attributes for an account deleted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountDeletedAttributes struct {
 	// The event data for this audit event type.
 	EventDataAccountDeleted AuditEventAccountDeleted `json:"eventDataAccountDeleted,omitempty"`
@@ -263,13 +231,9 @@ type AuditEventAccountDeletedAttributes struct {
 
 // The data structure that represents the event data for an account image removed
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountImageRemoved map[string]interface{}
 
 // The attributes for an account image removed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountImageRemovedAttributes struct {
 	// The event data for this audit event type.
 	EventDataAccountImageRemoved AuditEventAccountImageRemoved `json:"eventDataAccountImageRemoved,omitempty"`
@@ -277,13 +241,9 @@ type AuditEventAccountImageRemovedAttributes struct {
 
 // The data structure that represents the event data for an account image replaced
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountImageReplaced map[string]interface{}
 
 // The attributes for an account image replaced audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountImageReplacedAttributes struct {
 	// The event data for this audit event type.
 	EventDataAccountImageReplaced AuditEventAccountImageReplaced `json:"eventDataAccountImageReplaced,omitempty"`
@@ -291,13 +251,9 @@ type AuditEventAccountImageReplacedAttributes struct {
 
 // The data structure that represents the event data for an account image set audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountImageSet map[string]interface{}
 
 // The attributes for an account image set audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountImageSetAttributes struct {
 	// The event data for this audit event type.
 	EventDataAccountImageSet AuditEventAccountImageSet `json:"eventDataAccountImageSet,omitempty"`
@@ -305,24 +261,18 @@ type AuditEventAccountImageSetAttributes struct {
 
 // The data structure that represents the event data for an account password
 // changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountPasswordChanged struct {
 	// The unique identifier for the password change activity.
 	ActivityID *string `json:"activityId,omitempty"`
 }
 
 // The attributes for an account password changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountPasswordChangedAttributes struct {
 	// The event data for this audit event type.
 	EventDataAccountPasswordChanged *AuditEventAccountPasswordChanged `json:"eventDataAccountPasswordChanged,omitempty"`
 }
 
 // The data structure that represents a role and location assignment.
-//
-// Apple Business API 2.6+
 type AuditEventAccountRoleLocation struct {
 	// The unique identifier of a location (a user may have different roles at
 	// different locations).
@@ -335,16 +285,12 @@ type AuditEventAccountRoleLocation struct {
 
 // The data structure that represents the event data for an account role location
 // changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountRoleLocationChanged struct {
 	// The list of role and location assignments for the account.
 	AccountRoleLocationList []AuditEventAccountRoleLocation `json:"accountRoleLocationList,omitempty"`
 }
 
 // The attributes for an account role location changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAccountRoleLocationChangedAttributes struct {
 	// The event data for this audit event type.
 	EventDataAccountRoleLocationChanged *AuditEventAccountRoleLocationChanged `json:"eventDataAccountRoleLocationChanged,omitempty"`
@@ -358,16 +304,12 @@ const AuditEventActorTypeUSER AuditEventActorType = "USER"
 
 // The data structure that represents the event data for an API account created
 // with key audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountCreatedWithKey struct {
 	// The identifier of the public key generated for the API Account.
 	KeyID *string `json:"keyId,omitempty"`
 }
 
 // The attributes for an API account created with key audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountCreatedWithKeyAttributes struct {
 	// The event data for this audit event type.
 	EventDataApiAccountCreatedWithKey *AuditEventApiAccountCreatedWithKey `json:"eventDataApiAccountCreatedWithKey,omitempty"`
@@ -375,13 +317,9 @@ type AuditEventApiAccountCreatedWithKeyAttributes struct {
 
 // The data structure that represents the event data for an API account created
 // without key audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountCreatedWithoutKey map[string]interface{}
 
 // The attributes for an API account created without key audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountCreatedWithoutKeyAttributes struct {
 	// The event data for this audit event type.
 	EventDataApiAccountCreatedWithoutKey AuditEventApiAccountCreatedWithoutKey `json:"eventDataApiAccountCreatedWithoutKey,omitempty"`
@@ -389,13 +327,9 @@ type AuditEventApiAccountCreatedWithoutKeyAttributes struct {
 
 // The data structure that represents the event data for an API account deleted
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountDeleted map[string]interface{}
 
 // The attributes for an API account deleted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountDeletedAttributes struct {
 	// The event data for this audit event type.
 	EventDataApiAccountDeleted AuditEventApiAccountDeleted `json:"eventDataApiAccountDeleted,omitempty"`
@@ -403,16 +337,12 @@ type AuditEventApiAccountDeletedAttributes struct {
 
 // The data structure that represents the event data for an API account key
 // generated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountKeyGenerated struct {
 	// The identifier of the public key generated for the API Account.
 	KeyID *string `json:"keyId,omitempty"`
 }
 
 // The attributes for an API account key generated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountKeyGeneratedAttributes struct {
 	// The event data for this audit event type.
 	EventDataApiAccountKeyGenerated *AuditEventApiAccountKeyGenerated `json:"eventDataApiAccountKeyGenerated,omitempty"`
@@ -420,16 +350,12 @@ type AuditEventApiAccountKeyGeneratedAttributes struct {
 
 // The data structure that represents the event data for an API account key revoked
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountKeyRevoked struct {
 	// The identifier of the public key generated for the API Account.
 	KeyID *string `json:"keyId,omitempty"`
 }
 
 // The attributes for an API account key revoked audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountKeyRevokedAttributes struct {
 	// The event data for this audit event type.
 	EventDataApiAccountKeyRevoked *AuditEventApiAccountKeyRevoked `json:"eventDataApiAccountKeyRevoked,omitempty"`
@@ -437,16 +363,12 @@ type AuditEventApiAccountKeyRevokedAttributes struct {
 
 // The data structure that represents the event data for an API account name
 // changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountNameChanged struct {
 	// The new name provided to the API Account.
 	NewName *string `json:"newName,omitempty"`
 }
 
 // The attributes for an API account name changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountNameChangedAttributes struct {
 	// The event data for this audit event type.
 	EventDataApiAccountNameChanged *AuditEventApiAccountNameChanged `json:"eventDataApiAccountNameChanged,omitempty"`
@@ -454,16 +376,12 @@ type AuditEventApiAccountNameChangedAttributes struct {
 
 // The data structure that represents the event data for an API account role
 // location changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountRoleLocationChanged struct {
 	// The list of role and location assignments for the API account.
 	ApiAccountRoleLocationList []AuditEventAccountRoleLocation `json:"apiAccountRoleLocationList,omitempty"`
 }
 
 // The attributes for an API account role location changed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventApiAccountRoleLocationChangedAttributes struct {
 	// The event data for this audit event type.
 	EventDataApiAccountRoleLocationChanged *AuditEventApiAccountRoleLocationChanged `json:"eventDataApiAccountRoleLocationChanged,omitempty"`
@@ -471,8 +389,6 @@ type AuditEventApiAccountRoleLocationChangedAttributes struct {
 
 // The data structure that represents the event data for an Apple services settings
 // updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAppleServicesSettingsUpdated struct {
 	// The list of Apple services settings that were disabled.
 	SettingsDisabled []string `json:"settingsDisabled,omitempty"`
@@ -482,8 +398,6 @@ type AuditEventAppleServicesSettingsUpdated struct {
 }
 
 // The attributes for an Apple services settings updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventAppleServicesSettingsUpdatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataAppleServicesSettingsUpdated *AuditEventAppleServicesSettingsUpdated `json:"eventDataAppleServicesSettingsUpdated,omitempty"`
@@ -491,16 +405,12 @@ type AuditEventAppleServicesSettingsUpdatedAttributes struct {
 
 // The data structure that represents the event data for a batch password reset
 // initiated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventBatchPasswordResetInitiated struct {
 	// The unique identifier for the batch password reset activity.
 	ActivityID *string `json:"activityId,omitempty"`
 }
 
 // The attributes for a batch password reset initiated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventBatchPasswordResetInitiatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataBatchPasswordResetInitiated *AuditEventBatchPasswordResetInitiated `json:"eventDataBatchPasswordResetInitiated,omitempty"`
@@ -508,16 +418,16 @@ type AuditEventBatchPasswordResetInitiatedAttributes struct {
 
 type AuditEventCategory string
 
+const AuditEventCategoryACCESSMANAGEMENT AuditEventCategory = "ACCESS_MANAGEMENT"
 const AuditEventCategoryACCOUNTACTIVITY AuditEventCategory = "ACCOUNT_ACTIVITY"
 const AuditEventCategoryDEVICEINVENTORY AuditEventCategory = "DEVICE_INVENTORY"
 const AuditEventCategoryDEVICEMANAGEMENT AuditEventCategory = "DEVICE_MANAGEMENT"
 const AuditEventCategoryORGANIZATION AuditEventCategory = "ORGANIZATION"
 const AuditEventCategoryPURCHASING AuditEventCategory = "PURCHASING"
+const AuditEventCategoryWEBHOOKACTIVITY AuditEventCategory = "WEBHOOK_ACTIVITY"
 
 // The data structure that represents the event data for a collection created audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventCollectionCreated struct {
 	// Description of the collection given by admin who created the collection.
 	Description *string `json:"description,omitempty"`
@@ -527,8 +437,6 @@ type AuditEventCollectionCreated struct {
 }
 
 // The attributes for a collection created audit event.
-//
-// Apple Business API 2.6+
 type AuditEventCollectionCreatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataCollectionCreated *AuditEventCollectionCreated `json:"eventDataCollectionCreated,omitempty"`
@@ -536,8 +444,6 @@ type AuditEventCollectionCreatedAttributes struct {
 
 // The data structure that represents the event data for a collection deleted audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventCollectionDeleted struct {
 	// Description of the collection given by admin who created the collection.
 	Description *string `json:"description,omitempty"`
@@ -547,8 +453,6 @@ type AuditEventCollectionDeleted struct {
 }
 
 // The attributes for a collection deleted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventCollectionDeletedAttributes struct {
 	// The event data for this audit event type.
 	EventDataCollectionDeleted *AuditEventCollectionDeleted `json:"eventDataCollectionDeleted,omitempty"`
@@ -556,8 +460,6 @@ type AuditEventCollectionDeletedAttributes struct {
 
 // The data structure that represents the event data for a collection updated audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventCollectionUpdated struct {
 	// Description of the collection given by admin who created the collection.
 	Description *string `json:"description,omitempty"`
@@ -567,16 +469,12 @@ type AuditEventCollectionUpdated struct {
 }
 
 // The attributes for a collection updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventCollectionUpdatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataCollectionUpdated *AuditEventCollectionUpdated `json:"eventDataCollectionUpdated,omitempty"`
 }
 
 // The common attributes for all audit events.
-//
-// Apple Business API 2.6+
 type AuditEventCommonAttributes struct {
 	// Unique identifier of the actor.
 	ActorID *string `json:"actorId,omitempty"`
@@ -618,8 +516,6 @@ type AuditEventCommonAttributes struct {
 
 // The data structure that represents the event data for a config settings created
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventConfigSettingsCreated struct {
 	// The unique identifier of an instance of an admin-created Configuration.
 	ConfigID *string `json:"configId,omitempty"`
@@ -632,8 +528,6 @@ type AuditEventConfigSettingsCreated struct {
 }
 
 // The attributes for a configuration settings created audit event.
-//
-// Apple Business API 2.6+
 type AuditEventConfigSettingsCreatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataConfigSettingsCreated *AuditEventConfigSettingsCreated `json:"eventDataConfigSettingsCreated,omitempty"`
@@ -641,8 +535,6 @@ type AuditEventConfigSettingsCreatedAttributes struct {
 
 // The data structure that represents the event data for a config settings deleted
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventConfigSettingsDeleted struct {
 	// The unique identifier of an instance of an admin-created Configuration.
 	ConfigID *string `json:"configId,omitempty"`
@@ -655,8 +547,6 @@ type AuditEventConfigSettingsDeleted struct {
 }
 
 // The attributes for a configuration settings deleted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventConfigSettingsDeletedAttributes struct {
 	// The event data for this audit event type.
 	EventDataConfigSettingsDeleted *AuditEventConfigSettingsDeleted `json:"eventDataConfigSettingsDeleted,omitempty"`
@@ -664,8 +554,6 @@ type AuditEventConfigSettingsDeletedAttributes struct {
 
 // The data structure that represents the event data for a config settings updated
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventConfigSettingsUpdated struct {
 	// The unique identifier of an instance of an admin-created Configuration.
 	ConfigID *string `json:"configId,omitempty"`
@@ -678,8 +566,6 @@ type AuditEventConfigSettingsUpdated struct {
 }
 
 // The attributes for a configuration settings updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventConfigSettingsUpdatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataConfigSettingsUpdated *AuditEventConfigSettingsUpdated `json:"eventDataConfigSettingsUpdated,omitempty"`
@@ -687,8 +573,6 @@ type AuditEventConfigSettingsUpdatedAttributes struct {
 
 // The data structure that represents the event data for a device added to
 // organization audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceAddedToOrg struct {
 	// The unique id for the purchase source.
 	PurchaseSourceID *string `json:"purchaseSourceId,omitempty"`
@@ -701,8 +585,6 @@ type AuditEventDeviceAddedToOrg struct {
 }
 
 // The attributes for a device added to organization audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceAddedToOrgAttributes struct {
 	// The event data for this audit event type.
 	EventDataDeviceAddedToOrg *AuditEventDeviceAddedToOrg `json:"eventDataDeviceAddedToOrg,omitempty"`
@@ -710,8 +592,6 @@ type AuditEventDeviceAddedToOrgAttributes struct {
 
 // The data structure that represents the event data for a device assigned to
 // server audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceAssignedToServer struct {
 	// Serial number of the device, unique to that device.
 	SerialNumber *string `json:"serialNumber,omitempty"`
@@ -721,8 +601,6 @@ type AuditEventDeviceAssignedToServer struct {
 }
 
 // The attributes for a device assigned to server audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceAssignedToServerAttributes struct {
 	// The event data for this audit event type.
 	EventDataDeviceAssignedToServer *AuditEventDeviceAssignedToServer `json:"eventDataDeviceAssignedToServer,omitempty"`
@@ -730,13 +608,9 @@ type AuditEventDeviceAssignedToServerAttributes struct {
 
 // The data structure that represents the event data for a device is erased audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceIsErased map[string]interface{}
 
 // The attributes for a device is erased audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceIsErasedAttributes struct {
 	// The event data for this audit event type.
 	EventDataDeviceIsErased AuditEventDeviceIsErased `json:"eventDataDeviceIsErased,omitempty"`
@@ -744,8 +618,6 @@ type AuditEventDeviceIsErasedAttributes struct {
 
 // The data structure that represents the event data for a device removed from
 // organization audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceRemovedFromOrg struct {
 	// The unique id of the releasing entity. In the case of releaseEntityType == USER
 	// this property is intentionally not populated since it’s already given by
@@ -760,8 +632,6 @@ type AuditEventDeviceRemovedFromOrg struct {
 }
 
 // The attributes for a device removed from organization audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceRemovedFromOrgAttributes struct {
 	// The event data for this audit event type.
 	EventDataDeviceRemovedFromOrg *AuditEventDeviceRemovedFromOrg `json:"eventDataDeviceRemovedFromOrg,omitempty"`
@@ -769,16 +639,12 @@ type AuditEventDeviceRemovedFromOrgAttributes struct {
 
 // The data structure that represents the event data for a device unassigned from
 // server audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceUnassignedFromServer struct {
 	// Serial number of the device, unique to that device.
 	SerialNumber *string `json:"serialNumber,omitempty"`
 }
 
 // The attributes for a device unassigned from server audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDeviceUnassignedFromServerAttributes struct {
 	// The event data for this audit event type.
 	EventDataDeviceUnassignedFromServer *AuditEventDeviceUnassignedFromServer `json:"eventDataDeviceUnassignedFromServer,omitempty"`
@@ -786,13 +652,9 @@ type AuditEventDeviceUnassignedFromServerAttributes struct {
 
 // The data structure that represents the event data for a domain added audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainAdded map[string]interface{}
 
 // The attributes for a domain added audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainAddedAttributes struct {
 	// The event data for this audit event type.
 	EventDataDomainAdded AuditEventDomainAdded `json:"eventDataDomainAdded,omitempty"`
@@ -800,16 +662,12 @@ type AuditEventDomainAddedAttributes struct {
 
 // The data structure that represents the event data for a domain federation
 // disabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainFederationDisabled struct {
 	// The unique identifier for the domain federation activity.
 	ActivityID *string `json:"activityId,omitempty"`
 }
 
 // The attributes for a domain federation disabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainFederationDisabledAttributes struct {
 	// The event data for this audit event type.
 	EventDataDomainFederationDisabled *AuditEventDomainFederationDisabled `json:"eventDataDomainFederationDisabled,omitempty"`
@@ -817,8 +675,6 @@ type AuditEventDomainFederationDisabledAttributes struct {
 
 // The data structure that represents the event data for a domain federation
 // enabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainFederationEnabled struct {
 	// The unique identifier for the domain federation activity.
 	ActivityID *string `json:"activityId,omitempty"`
@@ -828,8 +684,6 @@ type AuditEventDomainFederationEnabled struct {
 }
 
 // The attributes for a domain federation enabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainFederationEnabledAttributes struct {
 	// The event data for this audit event type.
 	EventDataDomainFederationEnabled *AuditEventDomainFederationEnabled `json:"eventDataDomainFederationEnabled,omitempty"`
@@ -837,13 +691,9 @@ type AuditEventDomainFederationEnabledAttributes struct {
 
 // The data structure that represents the event data for a domain removed audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainRemoved map[string]interface{}
 
 // The attributes for a domain removed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainRemovedAttributes struct {
 	// The event data for this audit event type.
 	EventDataDomainRemoved AuditEventDomainRemoved `json:"eventDataDomainRemoved,omitempty"`
@@ -851,13 +701,9 @@ type AuditEventDomainRemovedAttributes struct {
 
 // The data structure that represents the event data for a domain verified audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainVerified map[string]interface{}
 
 // The attributes for a domain verified audit event.
-//
-// Apple Business API 2.6+
 type AuditEventDomainVerifiedAttributes struct {
 	// The event data for this audit event type.
 	EventDataDomainVerified AuditEventDomainVerified `json:"eventDataDomainVerified,omitempty"`
@@ -865,13 +711,9 @@ type AuditEventDomainVerifiedAttributes struct {
 
 // The data structure that represents the event data for an external account
 // associated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventExternalAccountAssociated map[string]interface{}
 
 // The attributes for an external account associated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventExternalAccountAssociatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataExternalAccountAssociated AuditEventExternalAccountAssociated `json:"eventDataExternalAccountAssociated,omitempty"`
@@ -879,13 +721,9 @@ type AuditEventExternalAccountAssociatedAttributes struct {
 
 // The data structure that represents the event data for an external account
 // disassociated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventExternalAccountDisassociated map[string]interface{}
 
 // The attributes for an external account disassociated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventExternalAccountDisassociatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataExternalAccountDisassociated AuditEventExternalAccountDisassociated `json:"eventDataExternalAccountDisassociated,omitempty"`
@@ -893,13 +731,9 @@ type AuditEventExternalAccountDisassociatedAttributes struct {
 
 // The data structure that represents the event data for an external account
 // invited audit event.
-//
-// Apple Business API 2.6+
 type AuditEventExternalAccountInvited map[string]interface{}
 
 // The attributes for an external account invited audit event.
-//
-// Apple Business API 2.6+
 type AuditEventExternalAccountInvitedAttributes struct {
 	// The event data for this audit event type.
 	EventDataExternalAccountInvited AuditEventExternalAccountInvited `json:"eventDataExternalAccountInvited,omitempty"`
@@ -907,8 +741,6 @@ type AuditEventExternalAccountInvitedAttributes struct {
 
 // The data structure that represents the event data for an identity provider
 // account sync disabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpAccountSyncDisabled struct {
 	// The unique identifier for the account sync activity.
 	ActivityID *string `json:"activityId,omitempty"`
@@ -918,8 +750,6 @@ type AuditEventIdpAccountSyncDisabled struct {
 }
 
 // The attributes for an identity provider account sync disabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpAccountSyncDisabledAttributes struct {
 	// The event data for this audit event type.
 	EventDataIdpAccountSyncDisabled *AuditEventIdpAccountSyncDisabled `json:"eventDataIdpAccountSyncDisabled,omitempty"`
@@ -927,8 +757,6 @@ type AuditEventIdpAccountSyncDisabledAttributes struct {
 
 // The data structure that represents the event data for an identity provider
 // account sync enabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpAccountSyncEnabled struct {
 	// The unique identifier for the account sync activity.
 	ActivityID *string `json:"activityId,omitempty"`
@@ -938,8 +766,6 @@ type AuditEventIdpAccountSyncEnabled struct {
 }
 
 // The attributes for an identity provider account sync enabled audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpAccountSyncEnabledAttributes struct {
 	// The event data for this audit event type.
 	EventDataIdpAccountSyncEnabled *AuditEventIdpAccountSyncEnabled `json:"eventDataIdpAccountSyncEnabled,omitempty"`
@@ -947,8 +773,6 @@ type AuditEventIdpAccountSyncEnabledAttributes struct {
 
 // The data structure that represents the event data for an identity provider
 // created audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpCreated struct {
 	// The federation protocol used by the identity provider.
 	Protocol *AuditEventIdpProtocol `json:"protocol,omitempty"`
@@ -958,8 +782,6 @@ type AuditEventIdpCreated struct {
 }
 
 // The attributes for an identity provider created audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpCreatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataIdpCreated *AuditEventIdpCreated `json:"eventDataIdpCreated,omitempty"`
@@ -967,16 +789,12 @@ type AuditEventIdpCreatedAttributes struct {
 
 // The data structure that represents the event data for an identity provider
 // deleted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpDeleted struct {
 	// The identity provider vendor.
 	VendorName *AuditEventIdpVendorName `json:"vendorName,omitempty"`
 }
 
 // The attributes for an identity provider deleted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpDeletedAttributes struct {
 	// The event data for this audit event type.
 	EventDataIdpDeleted *AuditEventIdpDeleted `json:"eventDataIdpDeleted,omitempty"`
@@ -989,16 +807,12 @@ const AuditEventIdpProtocolSAML AuditEventIdpProtocol = "SAML"
 
 // The data structure that represents the event data for an identity provider
 // updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpUpdated struct {
 	// The identity provider vendor.
 	VendorName *AuditEventIdpVendorName `json:"vendorName,omitempty"`
 }
 
 // The attributes for an identity provider updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventIdpUpdatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataIdpUpdated *AuditEventIdpUpdated `json:"eventDataIdpUpdated,omitempty"`
@@ -1032,16 +846,12 @@ const AuditEventReleaseEntityTypeUSER AuditEventReleaseEntityType = "USER"
 
 // The data structure that represents the event data for a role created audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventRoleCreated struct {
 	// The permissions granted to the role.
 	Privileges []string `json:"privileges,omitempty"`
 }
 
 // The attributes for a role created audit event.
-//
-// Apple Business API 2.6+
 type AuditEventRoleCreatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataRoleCreated *AuditEventRoleCreated `json:"eventDataRoleCreated,omitempty"`
@@ -1049,8 +859,6 @@ type AuditEventRoleCreatedAttributes struct {
 
 // The data structure that represents the event data for a role updated audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventRoleUpdated struct {
 	// The permissions added to the role.
 	PrivilegesAdded []string `json:"privilegesAdded,omitempty"`
@@ -1060,8 +868,6 @@ type AuditEventRoleUpdated struct {
 }
 
 // The attributes for a role updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventRoleUpdatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataRoleUpdated *AuditEventRoleUpdated `json:"eventDataRoleUpdated,omitempty"`
@@ -1069,8 +875,6 @@ type AuditEventRoleUpdatedAttributes struct {
 
 // The data structure that represents the event data for a subject has AppleCare
 // purchase added audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasAppleCarePurchaseAdded struct {
 	// The unique identifier for the subscription or assignment operation executed
 	// from the Apple Business UI.
@@ -1079,8 +883,6 @@ type AuditEventSubjectHasAppleCarePurchaseAdded struct {
 
 // The data structure that represents the event data for a subject has AppleCare
 // purchase removed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasAppleCarePurchaseRemoved struct {
 	// The unique identifier for the subscription or assignment operation executed
 	// from the Apple Business UI.
@@ -1088,16 +890,12 @@ type AuditEventSubjectHasAppleCarePurchaseRemoved struct {
 }
 
 // The attributes for a subject has AppleCare purchase added audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasApplecarePurchaseAddedAttributes struct {
 	// The event data for this audit event type.
 	EventDataSubjectHasAppleCarePurchaseAdded *AuditEventSubjectHasAppleCarePurchaseAdded `json:"eventDataSubjectHasAppleCarePurchaseAdded,omitempty"`
 }
 
 // The attributes for a subject has AppleCare purchase removed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasApplecarePurchaseRemovedAttributes struct {
 	// The event data for this audit event type.
 	EventDataSubjectHasAppleCarePurchaseRemoved *AuditEventSubjectHasAppleCarePurchaseRemoved `json:"eventDataSubjectHasAppleCarePurchaseRemoved,omitempty"`
@@ -1105,8 +903,6 @@ type AuditEventSubjectHasApplecarePurchaseRemovedAttributes struct {
 
 // The data structure that represents the event data for a subject has iCloud
 // storage purchase added audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasICloudStoragePurchaseAdded struct {
 	// The unique identifier for the subscription or assignment operation executed
 	// from the Apple Business UI.
@@ -1115,8 +911,6 @@ type AuditEventSubjectHasICloudStoragePurchaseAdded struct {
 
 // The data structure that represents the event data for a subject has iCloud
 // storage purchase removed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasICloudStoragePurchaseRemoved struct {
 	// The unique identifier for the subscription or assignment operation executed
 	// from the Apple Business UI.
@@ -1124,16 +918,12 @@ type AuditEventSubjectHasICloudStoragePurchaseRemoved struct {
 }
 
 // The attributes for a subject has iCloud storage purchase added audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasIcloudStoragePurchaseAddedAttributes struct {
 	// The event data for this audit event type.
 	EventDataSubjectHasICloudStoragePurchaseAdded *AuditEventSubjectHasICloudStoragePurchaseAdded `json:"eventDataSubjectHasICloudStoragePurchaseAdded,omitempty"`
 }
 
 // The attributes for a subject has iCloud storage purchase removed audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubjectHasIcloudStoragePurchaseRemovedAttributes struct {
 	// The event data for this audit event type.
 	EventDataSubjectHasICloudStoragePurchaseRemoved *AuditEventSubjectHasICloudStoragePurchaseRemoved `json:"eventDataSubjectHasICloudStoragePurchaseRemoved,omitempty"`
@@ -1146,15 +936,17 @@ const AuditEventSubjectTypeCOLLECTION AuditEventSubjectType = "COLLECTION"
 const AuditEventSubjectTypeDEVICE AuditEventSubjectType = "DEVICE"
 const AuditEventSubjectTypeDEVICEMANAGEMENTSETTING AuditEventSubjectType = "DEVICE_MANAGEMENT_SETTING"
 const AuditEventSubjectTypeDOMAIN AuditEventSubjectType = "DOMAIN"
+const AuditEventSubjectTypeIDP AuditEventSubjectType = "IDP"
+const AuditEventSubjectTypeINVITATION AuditEventSubjectType = "INVITATION"
 const AuditEventSubjectTypeLOCATION AuditEventSubjectType = "LOCATION"
 const AuditEventSubjectTypeORGANIZATION AuditEventSubjectType = "ORGANIZATION"
+const AuditEventSubjectTypeROLE AuditEventSubjectType = "ROLE"
 const AuditEventSubjectTypeSUBSCRIPTION AuditEventSubjectType = "SUBSCRIPTION"
 const AuditEventSubjectTypeUSER AuditEventSubjectType = "USER"
+const AuditEventSubjectTypeWEBHOOK AuditEventSubjectType = "WEBHOOK"
 
 // The data structure that represents the event data for a subscription created
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubscriptionCreated struct {
 	// A terse friendly name given by AMP for the plan select. (For example, ‘1 Device
 	// 2TB iCloud Storage’).
@@ -1162,8 +954,6 @@ type AuditEventSubscriptionCreated struct {
 }
 
 // The attributes for a subscription created audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubscriptionCreatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataSubscriptionCreated *AuditEventSubscriptionCreated `json:"eventDataSubscriptionCreated,omitempty"`
@@ -1171,8 +961,6 @@ type AuditEventSubscriptionCreatedAttributes struct {
 
 // The data structure that represents the event data for a subscription deleted
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubscriptionDeleted struct {
 	// A terse friendly name given by AMP for the plan select. (For example, ‘1 Device
 	// 2TB iCloud Storage’).
@@ -1180,8 +968,6 @@ type AuditEventSubscriptionDeleted struct {
 }
 
 // The attributes for a subscription deleted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubscriptionDeletedAttributes struct {
 	// The event data for this audit event type.
 	EventDataSubscriptionDeleted *AuditEventSubscriptionDeleted `json:"eventDataSubscriptionDeleted,omitempty"`
@@ -1189,8 +975,6 @@ type AuditEventSubscriptionDeletedAttributes struct {
 
 // The data structure that represents the event data for a subscription updated
 // audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubscriptionUpdated struct {
 	// A terse friendly name given by AMP for the plan select. (For example, ‘1 Device
 	// 2TB iCloud Storage’).
@@ -1198,8 +982,6 @@ type AuditEventSubscriptionUpdated struct {
 }
 
 // The attributes for a subscription updated audit event.
-//
-// Apple Business API 2.6+
 type AuditEventSubscriptionUpdatedAttributes struct {
 	// The event data for this audit event type.
 	EventDataSubscriptionUpdated *AuditEventSubscriptionUpdated `json:"eventDataSubscriptionUpdated,omitempty"`
@@ -1207,16 +989,12 @@ type AuditEventSubscriptionUpdatedAttributes struct {
 
 // The data structure that represents the event data for a terms accepted audit
 // event.
-//
-// Apple Business API 2.6+
 type AuditEventTermsAccepted struct {
 	// The name of the terms that were accepted.
 	TermsName *string `json:"termsName,omitempty"`
 }
 
 // The attributes for a terms accepted audit event.
-//
-// Apple Business API 2.6+
 type AuditEventTermsAcceptedAttributes struct {
 	// The event data for this audit event type.
 	EventDataTermsAccepted *AuditEventTermsAccepted `json:"eventDataTermsAccepted,omitempty"`
@@ -1274,10 +1052,65 @@ const AuditEventTypeSUBSCRIPTIONCREATED AuditEventType = "SUBSCRIPTION_CREATED"
 const AuditEventTypeSUBSCRIPTIONDELETED AuditEventType = "SUBSCRIPTION_DELETED"
 const AuditEventTypeSUBSCRIPTIONUPDATED AuditEventType = "SUBSCRIPTION_UPDATED"
 const AuditEventTypeTERMSACCEPTED AuditEventType = "TERMS_ACCEPTED"
+const AuditEventTypeWEBHOOKCREATED AuditEventType = "WEBHOOK_CREATED"
+const AuditEventTypeWEBHOOKDELETED AuditEventType = "WEBHOOK_DELETED"
+const AuditEventTypeWEBHOOKUPDATED AuditEventType = "WEBHOOK_UPDATED"
+
+// The data structure that represents the event data for a webhook created audit
+// event.
+type AuditEventWebhookCreated struct {
+	// Indicates whether the webhook is enabled.
+	Enabled *string `json:"enabled,omitempty"`
+
+	// The event types that the webhook subscribes to.
+	EventTypes []string `json:"eventTypes,omitempty"`
+
+	// The name of the webhook.
+	Name *string `json:"name,omitempty"`
+
+	// The URL that receives webhook event notifications.
+	URL *string `json:"url,omitempty"`
+}
+
+// The attributes for a webhook created audit event.
+type AuditEventWebhookCreatedAttributes struct {
+	// The event data for this audit event type.
+	EventDataWebhookCreated *AuditEventWebhookCreated `json:"eventDataWebhookCreated,omitempty"`
+}
+
+// The data structure that represents the event data for a webhook deleted audit
+// event.
+type AuditEventWebhookDeleted map[string]interface{}
+
+// The attributes for a webhook deleted audit event.
+type AuditEventWebhookDeletedAttributes struct {
+	// The event data for this audit event type.
+	EventDataWebhookDeleted AuditEventWebhookDeleted `json:"eventDataWebhookDeleted,omitempty"`
+}
+
+// The data structure that represents the event data for a webhook updated audit
+// event.
+type AuditEventWebhookUpdated struct {
+	// Indicates whether the webhook is enabled.
+	Enabled *string `json:"enabled,omitempty"`
+
+	// The event types that the webhook subscribes to.
+	EventTypes []string `json:"eventTypes,omitempty"`
+
+	// The name of the webhook.
+	Name *string `json:"name,omitempty"`
+
+	// The URL that receives webhook event notifications.
+	URL *string `json:"url,omitempty"`
+}
+
+// The attributes for a webhook updated audit event.
+type AuditEventWebhookUpdatedAttributes struct {
+	// The event data for this audit event type.
+	EventDataWebhookUpdated *AuditEventWebhookUpdated `json:"eventDataWebhookUpdated,omitempty"`
+}
 
 // The response containing a list of audit events.
-//
-// Apple Business API 2.6+
 type AuditEventsResponse struct {
 	// The list of audit event resources.
 	Data []AuditEvent `json:"data"`
@@ -1290,8 +1123,6 @@ type AuditEventsResponse struct {
 }
 
 // The data structure that represents a Blueprint resource.
-//
-// Apple Business API 2.6+
 type Blueprint struct {
 	// The resource’s attributes.
 	Attributes *BlueprintAttributes `json:"attributes,omitempty"`
@@ -1310,14 +1141,11 @@ type Blueprint struct {
 }
 
 // A request to get a list of app resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintAppsLinkagesRequest struct {
 	// The resource data with updated attributes.
 	Data []BlueprintAppsLinkagesRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintAppsLinkagesRequestData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1327,8 +1155,6 @@ type BlueprintAppsLinkagesRequestData struct {
 }
 
 // A response that contains a list of app resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintAppsLinkagesResponse struct {
 	// The resource linkage data containing type and id for each related app.
 	Data []BlueprintAppsLinkagesResponseData `json:"data"`
@@ -1340,7 +1166,6 @@ type BlueprintAppsLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintAppsLinkagesResponseData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1350,8 +1175,6 @@ type BlueprintAppsLinkagesResponseData struct {
 }
 
 // Attributes that describe a Blueprint resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -1379,14 +1202,11 @@ type BlueprintAttributes struct {
 }
 
 // A request to get a list of Configuration resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintConfigurationsLinkagesRequest struct {
 	// The resource data with updated attributes.
 	Data []BlueprintConfigurationsLinkagesRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintConfigurationsLinkagesRequestData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1397,8 +1217,6 @@ type BlueprintConfigurationsLinkagesRequestData struct {
 
 // A response that contains a list of Configuration resource linkages for a
 // Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintConfigurationsLinkagesResponse struct {
 	// The resource linkage data containing type and id for each related
 	// Configuration.
@@ -1411,7 +1229,6 @@ type BlueprintConfigurationsLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintConfigurationsLinkagesResponseData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1421,14 +1238,11 @@ type BlueprintConfigurationsLinkagesResponseData struct {
 }
 
 // A request to create a new Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintCreateRequest struct {
 	// The resource data for the new Blueprint.
 	Data BlueprintCreateRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestData struct {
 	// Attributes corresponds to the JSON schema field "attributes".
 	Attributes BlueprintCreateRequestDataAttributes `json:"attributes"`
@@ -1440,7 +1254,6 @@ type BlueprintCreateRequestData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataAttributes struct {
 	// Description corresponds to the JSON schema field "description".
 	Description *string `json:"description,omitempty"`
@@ -1449,7 +1262,6 @@ type BlueprintCreateRequestDataAttributes struct {
 	Name string `json:"name"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationships struct {
 	// Apps corresponds to the JSON schema field "apps".
 	Apps *BlueprintCreateRequestDataRelationshipsApps `json:"apps,omitempty"`
@@ -1470,13 +1282,11 @@ type BlueprintCreateRequestDataRelationships struct {
 	Users *BlueprintCreateRequestDataRelationshipsUsers `json:"users,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsApps struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintCreateRequestDataRelationshipsAppsData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsAppsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1485,13 +1295,11 @@ type BlueprintCreateRequestDataRelationshipsAppsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsConfigurations struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintCreateRequestDataRelationshipsConfigurationsData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsConfigurationsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1500,13 +1308,11 @@ type BlueprintCreateRequestDataRelationshipsConfigurationsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsOrgDevices struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintCreateRequestDataRelationshipsOrgDevicesData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsOrgDevicesData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1515,13 +1321,11 @@ type BlueprintCreateRequestDataRelationshipsOrgDevicesData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsPackages struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintCreateRequestDataRelationshipsPackagesData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsPackagesData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1530,13 +1334,11 @@ type BlueprintCreateRequestDataRelationshipsPackagesData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsUserGroups struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintCreateRequestDataRelationshipsUserGroupsData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsUserGroupsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1545,13 +1347,11 @@ type BlueprintCreateRequestDataRelationshipsUserGroupsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsUsers struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintCreateRequestDataRelationshipsUsersData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintCreateRequestDataRelationshipsUsersData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1561,14 +1361,11 @@ type BlueprintCreateRequestDataRelationshipsUsersData struct {
 }
 
 // A request to get a list of device resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintOrgDevicesLinkagesRequest struct {
 	// The resource data with updated attributes.
 	Data []BlueprintOrgDevicesLinkagesRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintOrgDevicesLinkagesRequestData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1578,8 +1375,6 @@ type BlueprintOrgDevicesLinkagesRequestData struct {
 }
 
 // A response that contains a list of device resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintOrgDevicesLinkagesResponse struct {
 	// The resource linkage data containing type and id for each related device.
 	Data []BlueprintOrgDevicesLinkagesResponseData `json:"data"`
@@ -1591,7 +1386,6 @@ type BlueprintOrgDevicesLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintOrgDevicesLinkagesResponseData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1601,14 +1395,11 @@ type BlueprintOrgDevicesLinkagesResponseData struct {
 }
 
 // A request to get a list of package resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintPackagesLinkagesRequest struct {
 	// The resource data with updated attributes.
 	Data []BlueprintPackagesLinkagesRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintPackagesLinkagesRequestData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1618,8 +1409,6 @@ type BlueprintPackagesLinkagesRequestData struct {
 }
 
 // A response that contains a list of package resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintPackagesLinkagesResponse struct {
 	// The resource linkage data containing type and id for each related package.
 	Data []BlueprintPackagesLinkagesResponseData `json:"data"`
@@ -1631,7 +1420,6 @@ type BlueprintPackagesLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintPackagesLinkagesResponseData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1641,8 +1429,6 @@ type BlueprintPackagesLinkagesResponseData struct {
 }
 
 // Relationships that link a Blueprint to related resources.
-//
-// Apple Business API 2.6+
 type BlueprintRelationships struct {
 	// The apps associated with this Blueprint.
 	Apps *BlueprintRelationshipsApps `json:"apps,omitempty"`
@@ -1663,7 +1449,6 @@ type BlueprintRelationships struct {
 	Users *BlueprintRelationshipsUsers `json:"users,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsApps struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintRelationshipsAppsData `json:"data,omitempty"`
@@ -1675,7 +1460,6 @@ type BlueprintRelationshipsApps struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsAppsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1684,7 +1468,6 @@ type BlueprintRelationshipsAppsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsConfigurations struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintRelationshipsConfigurationsData `json:"data,omitempty"`
@@ -1696,7 +1479,6 @@ type BlueprintRelationshipsConfigurations struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsConfigurationsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1705,7 +1487,6 @@ type BlueprintRelationshipsConfigurationsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsOrgDevices struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintRelationshipsOrgDevicesData `json:"data,omitempty"`
@@ -1717,7 +1498,6 @@ type BlueprintRelationshipsOrgDevices struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsOrgDevicesData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1726,7 +1506,6 @@ type BlueprintRelationshipsOrgDevicesData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsPackages struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintRelationshipsPackagesData `json:"data,omitempty"`
@@ -1738,7 +1517,6 @@ type BlueprintRelationshipsPackages struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsPackagesData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1747,7 +1525,6 @@ type BlueprintRelationshipsPackagesData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsUserGroups struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintRelationshipsUserGroupsData `json:"data,omitempty"`
@@ -1759,7 +1536,6 @@ type BlueprintRelationshipsUserGroups struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsUserGroupsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1768,7 +1544,6 @@ type BlueprintRelationshipsUserGroupsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsUsers struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintRelationshipsUsersData `json:"data,omitempty"`
@@ -1780,7 +1555,6 @@ type BlueprintRelationshipsUsers struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintRelationshipsUsersData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1790,8 +1564,6 @@ type BlueprintRelationshipsUsersData struct {
 }
 
 // A response that contains information about a Blueprint resource.
-//
-// Apple Business API 2.6+
 type BlueprintResponse struct {
 	// The resource data.
 	Data Blueprint `json:"data"`
@@ -1809,14 +1581,11 @@ const BlueprintStatusACTIVE BlueprintStatus = "ACTIVE"
 const BlueprintStatusTOBEDELETED BlueprintStatus = "TO_BE_DELETED"
 
 // A request to update an existing Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintUpdateRequest struct {
 	// The resource data with updated attributes.
 	Data BlueprintUpdateRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestData struct {
 	// Attributes corresponds to the JSON schema field "attributes".
 	Attributes *BlueprintUpdateRequestDataAttributes `json:"attributes,omitempty"`
@@ -1831,7 +1600,6 @@ type BlueprintUpdateRequestData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataAttributes struct {
 	// Description corresponds to the JSON schema field "description".
 	Description *string `json:"description,omitempty"`
@@ -1840,7 +1608,6 @@ type BlueprintUpdateRequestDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationships struct {
 	// Apps corresponds to the JSON schema field "apps".
 	Apps *BlueprintUpdateRequestDataRelationshipsApps `json:"apps,omitempty"`
@@ -1861,13 +1628,11 @@ type BlueprintUpdateRequestDataRelationships struct {
 	Users *BlueprintUpdateRequestDataRelationshipsUsers `json:"users,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsApps struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintUpdateRequestDataRelationshipsAppsData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsAppsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1876,13 +1641,11 @@ type BlueprintUpdateRequestDataRelationshipsAppsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsConfigurations struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintUpdateRequestDataRelationshipsConfigurationsData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsConfigurationsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1891,13 +1654,11 @@ type BlueprintUpdateRequestDataRelationshipsConfigurationsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsOrgDevices struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintUpdateRequestDataRelationshipsOrgDevicesData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsOrgDevicesData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1906,13 +1667,11 @@ type BlueprintUpdateRequestDataRelationshipsOrgDevicesData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsPackages struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintUpdateRequestDataRelationshipsPackagesData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsPackagesData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1921,13 +1680,11 @@ type BlueprintUpdateRequestDataRelationshipsPackagesData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsUserGroups struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintUpdateRequestDataRelationshipsUserGroupsData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsUserGroupsData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1936,13 +1693,11 @@ type BlueprintUpdateRequestDataRelationshipsUserGroupsData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsUsers struct {
 	// Data corresponds to the JSON schema field "data".
 	Data []BlueprintUpdateRequestDataRelationshipsUsersData `json:"data,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUpdateRequestDataRelationshipsUsersData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1952,14 +1707,11 @@ type BlueprintUpdateRequestDataRelationshipsUsersData struct {
 }
 
 // A request to get a list of user group resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintUserGroupsLinkagesRequest struct {
 	// The resource data with updated attributes.
 	Data []BlueprintUserGroupsLinkagesRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUserGroupsLinkagesRequestData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1969,8 +1721,6 @@ type BlueprintUserGroupsLinkagesRequestData struct {
 }
 
 // A response that contains a list of user group resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintUserGroupsLinkagesResponse struct {
 	// The resource linkage data containing type and id for each related user group.
 	Data []BlueprintUserGroupsLinkagesResponseData `json:"data"`
@@ -1982,7 +1732,6 @@ type BlueprintUserGroupsLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUserGroupsLinkagesResponseData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -1992,14 +1741,11 @@ type BlueprintUserGroupsLinkagesResponseData struct {
 }
 
 // A request to get a list of user resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintUsersLinkagesRequest struct {
 	// The resource data with updated attributes.
 	Data []BlueprintUsersLinkagesRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUsersLinkagesRequestData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -2009,8 +1755,6 @@ type BlueprintUsersLinkagesRequestData struct {
 }
 
 // A response that contains a list of user resource linkages for a Blueprint.
-//
-// Apple Business API 2.6+
 type BlueprintUsersLinkagesResponse struct {
 	// The resource linkage data containing type and id for each related user.
 	Data []BlueprintUsersLinkagesResponseData `json:"data"`
@@ -2022,7 +1766,6 @@ type BlueprintUsersLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type BlueprintUsersLinkagesResponseData struct {
 	// ID corresponds to the JSON schema field "id".
 	ID string `json:"id"`
@@ -2032,8 +1775,6 @@ type BlueprintUsersLinkagesResponseData struct {
 }
 
 // A response that contains a list of Blueprint resources.
-//
-// Apple Business API 2.6+
 type BlueprintsResponse struct {
 	// The resource data.
 	Data []Blueprint `json:"data"`
@@ -2049,8 +1790,6 @@ type BlueprintsResponse struct {
 }
 
 // The data structure that represents a Configuration resource.
-//
-// Apple Business API 2.6+
 type Configuration struct {
 	// The resource’s attributes.
 	Attributes *ConfigurationCustomSetting `json:"attributes,omitempty"`
@@ -2068,7 +1807,6 @@ type Configuration struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type ConfigurationCommon struct {
 	// ConfiguredForPlatforms corresponds to the JSON schema field
 	// "configuredForPlatforms".
@@ -2088,14 +1826,11 @@ type ConfigurationCommon struct {
 }
 
 // A request to create a new Configuration.
-//
-// Apple Business API 2.6+
 type ConfigurationCreateRequest struct {
 	// The resource data for the new Configuration.
 	Data ConfigurationCreateRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type ConfigurationCreateRequestData struct {
 	// Attributes corresponds to the JSON schema field "attributes".
 	Attributes ConfigurationCreateRequestDataAttributes `json:"attributes"`
@@ -2104,7 +1839,6 @@ type ConfigurationCreateRequestData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type ConfigurationCreateRequestDataAttributes struct {
 	// ConfiguredForPlatforms corresponds to the JSON schema field
 	// "configuredForPlatforms".
@@ -2121,7 +1855,6 @@ type ConfigurationCreateRequestDataAttributes struct {
 	Type ConfigurationType `json:"type"`
 }
 
-// Apple Business API 2.6+
 type ConfigurationCustomSetting struct {
 	// CustomSettingsValues corresponds to the JSON schema field
 	// "customSettingsValues".
@@ -2136,8 +1869,6 @@ const ConfigurationPlatformPLATFORMTVOS ConfigurationPlatform = "PLATFORM_TVOS"
 const ConfigurationPlatformPLATFORMVISIONOS ConfigurationPlatform = "PLATFORM_VISIONOS"
 
 // A response that contains information about a Configuration resource.
-//
-// Apple Business API 2.6+
 type ConfigurationResponse struct {
 	// The resource data.
 	Data Configuration `json:"data"`
@@ -2173,14 +1904,11 @@ const ConfigurationTypeWEBFILTER ConfigurationType = "WEB_FILTER"
 const ConfigurationTypeWiFi ConfigurationType = "WIFI"
 
 // A request to update an existing Configuration.
-//
-// Apple Business API 2.6+
 type ConfigurationUpdateRequest struct {
 	// The resource data with updated attributes.
 	Data ConfigurationUpdateRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type ConfigurationUpdateRequestData struct {
 	// Attributes corresponds to the JSON schema field "attributes".
 	Attributes *ConfigurationUpdateRequestDataAttributes `json:"attributes,omitempty"`
@@ -2192,7 +1920,6 @@ type ConfigurationUpdateRequestData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type ConfigurationUpdateRequestDataAttributes struct {
 	// ConfiguredForPlatforms corresponds to the JSON schema field
 	// "configuredForPlatforms".
@@ -2207,8 +1934,6 @@ type ConfigurationUpdateRequestDataAttributes struct {
 }
 
 // A response that contains a list of Configuration resources.
-//
-// Apple Business API 2.6+
 type ConfigurationsResponse struct {
 	// The resource data.
 	Data []Configuration `json:"data"`
@@ -2221,8 +1946,6 @@ type ConfigurationsResponse struct {
 }
 
 // The custom settings payload for a Configuration of type `CUSTOM_SETTING`.
-//
-// Apple Business API 2.6+
 type CustomSettingsValues struct {
 	// The XML content of the Configuration profile in Apple .plist format.
 	ConfigurationProfile *string `json:"configurationProfile,omitempty"`
@@ -2243,14 +1966,11 @@ const DeviceLockStatusLOCKED DeviceLockStatus = "LOCKED"
 const DeviceLockStatusUNLOCKED DeviceLockStatus = "UNLOCKED"
 
 // Self-links to documents that can contain information for one or more resources.
-//
-// Apple Business API 2.6+
 type DocumentLinks struct {
 	// The link that produces the current document.
 	Self string `json:"self"`
 }
 
-// Apple Business API 2.6+
 type ErrorLinks struct {
 	// About corresponds to the JSON schema field "about".
 	About *string `json:"about,omitempty"`
@@ -2259,7 +1979,6 @@ type ErrorLinks struct {
 	Associated *string `json:"associated,omitempty"`
 }
 
-// Apple Business API 2.6+
 type ErrorLinksAssociated struct {
 	// HREF corresponds to the JSON schema field "href".
 	HREF *string `json:"href,omitempty"`
@@ -2268,7 +1987,6 @@ type ErrorLinksAssociated struct {
 	Meta *ErrorLinksAssociatedMeta `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
 type ErrorLinksAssociatedMeta struct {
 	// Source corresponds to the JSON schema field "source".
 	Source *string `json:"source,omitempty"`
@@ -2276,16 +1994,12 @@ type ErrorLinksAssociatedMeta struct {
 
 // The error details that an API returns in the response body whenever the API
 // request isn’t successful.
-//
-// Apple Business API 2.6+
 type ErrorResponse struct {
 	// An array of one or more errors.
 	Errors []ErrorResponseErrors `json:"errors,omitempty"`
 }
 
 // The details about an error that returns when an API request isn’t successful.
-//
-// Apple Business API 2.6+
 type ErrorResponseErrors struct {
 	// A machine-readable code indicating the type of error. The code is a
 	// hierarchical value with levels of specificity separated by a period (.). This
@@ -2320,16 +2034,12 @@ type ErrorResponseErrors struct {
 	Title string `json:"title"`
 }
 
-// Apple Business API 2.6+
 type ErrorResponseErrorsMeta map[string]ErrorResponseErrorsMetaAnyKey
 
-// Apple Business API 2.6+
 type ErrorResponseErrorsMetaAnyKey map[string]interface{}
 
 // An object that contains the JSON pointer that indicates the location of the
 // error.
-//
-// Apple Business API 2.6+
 //
 // In some cases, the JSON pointer may indicate an element that isn’t in the
 // request entity, but needs to be. For more information about JSON pointers, see
@@ -2346,8 +2056,6 @@ const LostModeStatusENABLED LostModeStatus = "ENABLED"
 
 // The data structure that represents a device management service enrolled device
 // resource.
-//
-// Apple Business API 2.6+
 type MDMDevice struct {
 	// The resource’s attributes.
 	Attributes *MDMDeviceAttributes `json:"attributes,omitempty"`
@@ -2366,8 +2074,6 @@ type MDMDevice struct {
 }
 
 // The attributes for a device management service enrolled device resource.
-//
-// Apple Business API 2.6+
 type MDMDeviceAttributes struct {
 	// The name of the device.
 	DeviceName *string `json:"deviceName,omitempty"`
@@ -2384,8 +2090,6 @@ type MDMDeviceAttributes struct {
 
 // The data structure that represents the detailed information for a device
 // management service enrolled device resource.
-//
-// Apple Business API 2.6+
 type MDMDeviceDetail struct {
 	// The resource’s attributes.
 	Attributes *MDMDeviceDetailAttributes `json:"attributes,omitempty"`
@@ -2401,8 +2105,6 @@ type MDMDeviceDetail struct {
 }
 
 // The attributes for a device management service enrolled device detail resource.
-//
-// Apple Business API 2.6+
 type MDMDeviceDetailAttributes struct {
 	// The Bluetooth MAC address of the device.
 	BluetoothMACAddress *string `json:"bluetoothMacAddress,omitempty"`
@@ -2461,8 +2163,6 @@ type MDMDeviceDetailAttributes struct {
 
 // A response that contains the detailed information for an Apple device enrolled
 // in a device management service.
-//
-// Apple Business API 2.6+
 type MDMDeviceDetailResponse struct {
 	// The resource data.
 	Data MDMDeviceDetail `json:"data"`
@@ -2471,13 +2171,11 @@ type MDMDeviceDetailResponse struct {
 	Links DocumentLinks `json:"links"`
 }
 
-// Apple Business API 2.6+
 type MDMDeviceRelationships struct {
 	// Details corresponds to the JSON schema field "details".
 	Details *MDMDeviceRelationshipsDetails `json:"details,omitempty"`
 }
 
-// Apple Business API 2.6+
 type MDMDeviceRelationshipsDetails struct {
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinks `json:"links,omitempty"`
@@ -2485,8 +2183,6 @@ type MDMDeviceRelationshipsDetails struct {
 
 // A response that contains a list of Apple devices enrolled in a device management
 // service.
-//
-// Apple Business API 2.6+
 type MDMDeviceResponse struct {
 	// The resource data.
 	Data MDMDevice `json:"data"`
@@ -2497,8 +2193,6 @@ type MDMDeviceResponse struct {
 
 // A response that contains a list of Apple devices enrolled in a device management
 // service.
-//
-// Apple Business API 2.6+
 type MDMDevicesResponse struct {
 	// The resource data.
 	Data []MDMDevice `json:"data"`
@@ -2519,8 +2213,6 @@ const MDMMigrationStatusSUCCESS MDMMigrationStatus = "SUCCESS"
 
 // The data structure that represents a device management service resource in an
 // organization.
-//
-// Apple Business API 2.6+
 type MDMServer struct {
 	// The resource’s attributes.
 	Attributes *MDMServerAttributes `json:"attributes,omitempty"`
@@ -2539,8 +2231,6 @@ type MDMServer struct {
 }
 
 // Attributes that describe a device management service resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** You can add new attributes to a resource without a newer version of
 // an API.
@@ -2585,8 +2275,6 @@ type MDMServerAttributes struct {
 }
 
 // The X.509 certificate to associate with a device management service.
-//
-// Apple Business API 2.6+
 type MDMServerCertificate struct {
 	// The Base64-encoded certificate data.
 	Data string `json:"data"`
@@ -2596,14 +2284,11 @@ type MDMServerCertificate struct {
 }
 
 // A request to create a new device management service.
-//
-// Apple Business API 2.6+
 type MDMServerCreateRequest struct {
 	// The resource data for the new device management service.
 	Data MDMServerCreateRequestData `json:"data"`
 }
 
-// Apple Business API 2.6+
 type MDMServerCreateRequestData struct {
 	// Attributes corresponds to the JSON schema field "attributes".
 	Attributes MDMServerCreateRequestDataAttributes `json:"attributes"`
@@ -2612,7 +2297,6 @@ type MDMServerCreateRequestData struct {
 	Type interface{} `json:"type"`
 }
 
-// Apple Business API 2.6+
 type MDMServerCreateRequestDataAttributes struct {
 	// EnableMDMDisownFlag corresponds to the JSON schema field "enableMdmDisownFlag".
 	EnableMDMDisownFlag *bool `json:"enableMdmDisownFlag,omitempty"`
@@ -2625,8 +2309,6 @@ type MDMServerCreateRequestDataAttributes struct {
 }
 
 // The data and links that describe the relationship between the resources.
-//
-// Apple Business API 2.6+
 type MDMServerDevicesLinkagesResponse struct {
 	// The resource data.
 	Data []MDMServerDevicesLinkagesResponseData `json:"data"`
@@ -2639,8 +2321,6 @@ type MDMServerDevicesLinkagesResponse struct {
 }
 
 // The type and ID of a related resource.
-//
-// Apple Business API 2.6+
 type MDMServerDevicesLinkagesResponseData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -2649,181 +2329,109 @@ type MDMServerDevicesLinkagesResponseData struct {
 	Type interface{} `json:"type"`
 }
 
-type AuditEventAttributes_37 = AuditEventDomainFederationDisabledAttributes
-
-type AuditEventAttributes_49 = AuditEventAccountPasswordChangedAttributes
-
-type AuditEventAttributes_33 = AuditEventRoleCreatedAttributes
-
-type AuditEventAttributes_32 = AuditEventApiAccountNameChangedAttributes
-
-type AuditEventAttributes_31 = AuditEventApiAccountRoleLocationChangedAttributes
-
-type AuditEventAttributes_30 = AuditEventApiAccountKeyGeneratedAttributes
-
-type AuditEventAttributes_29 = AuditEventApiAccountKeyRevokedAttributes
-
-type AuditEventAttributes_28 = AuditEventApiAccountDeletedAttributes
-
-type AuditEventAttributes_27 = AuditEventApiAccountCreatedWithoutKeyAttributes
-
-type AuditEventAttributes_26 = AuditEventApiAccountCreatedWithKeyAttributes
-
-type AuditEventAttributes_25 = AuditEventDomainVerifiedAttributes
-
-type AuditEventAttributes_24 = AuditEventDomainRemovedAttributes
-
-type AuditEventAttributes_23 = AuditEventDomainAddedAttributes
-
-type AuditEventAttributes_22 = AuditEventExternalAccountDisassociatedAttributes
-
-type AuditEventAttributes_21 = AuditEventExternalAccountAssociatedAttributes
-
-type AuditEventAttributes_44 = AuditEventIdpUpdatedAttributes
-
-type AuditEventAttributes_45 = AuditEventIdpDeletedAttributes
-
-type AuditEventAttributes_46 = AuditEventIdpAccountSyncEnabledAttributes
-
-type AuditEventAttributes_47 = AuditEventIdpAccountSyncDisabledAttributes
-
-type AuditEventAttributes_48 = AuditEventAppleServicesSettingsUpdatedAttributes
-
-type AuditEventAttributes_20 = AuditEventAccountDeletedAttributes
-
-type AuditEventAttributes_19 = AuditEventAccountAddedAttributes
-
-type AuditEventAttributes_18 = AuditEventAccountRoleLocationChangedAttributes
-
-type AuditEventAttributes_17 = AuditEventSubscriptionDeletedAttributes
-
-type AuditEventAttributes_16 = AuditEventSubscriptionUpdatedAttributes
-
-type AuditEventAttributes_15 = AuditEventSubscriptionCreatedAttributes
-
-type AuditEventAttributes_14 = AuditEventCollectionDeletedAttributes
-
-type AuditEventAttributes_13 = AuditEventCollectionUpdatedAttributes
-
-type AuditEventAttributes_12 = AuditEventCollectionCreatedAttributes
-
-type AuditEventAttributes_11 = AuditEventConfigSettingsDeletedAttributes
-
-type AuditEventAttributes_10 = AuditEventConfigSettingsUpdatedAttributes
-
-type AuditEventAttributes_9 = AuditEventConfigSettingsCreatedAttributes
-
-type ErrorLinksAssociated_1 = ErrorLinksAssociated
-
-type AuditEventAttributes_8 = AuditEventDeviceIsErasedAttributes
-
-type AuditEventAttributes_7 = AuditEventSubjectHasApplecarePurchaseRemovedAttributes
-
-type AuditEventAttributes_6 = AuditEventSubjectHasApplecarePurchaseAddedAttributes
-
-type AuditEventAttributes_5 = AuditEventSubjectHasIcloudStoragePurchaseRemovedAttributes
-
-// An object that contains the query parameter that produces the error.
-//
-// Apple Business API 2.6+
-type Parameter struct {
-	// The query parameter that produces the error.
-	Parameter string `json:"parameter"`
-}
-
-type ErrorResponseErrorsSource_0 = JSONPointer
-
-type ErrorResponseErrorsSource_1 = Parameter
-
-type AuditEventAttributes_4 = AuditEventSubjectHasIcloudStoragePurchaseAddedAttributes
-
-type AuditEventAttributes_3 = AuditEventDeviceUnassignedFromServerAttributes
-
-type AuditEventAttributes_2 = AuditEventDeviceAssignedToServerAttributes
-
-type AuditEventAttributes_1 = AuditEventDeviceRemovedFromOrgAttributes
-
-type AuditEventAttributes_0 = AuditEventDeviceAddedToOrgAttributes
-
-// Paging information for data responses.
-//
-// Apple Business API 2.6+
-type PagingInformation struct {
-	// The paging information details.
-	Paging PagingInformationPaging `json:"paging"`
-}
-
-// Paging details, such as the total number of resources and the per-page limit.
-//
-// Apple Business API 2.6+
-type PagingInformationPaging struct {
-	// The maximum number of resources to return per page.
-	Limit int `json:"limit"`
-
-	// The cursor to use for the next request, in case of pagination.
-	NextCursor *string `json:"nextCursor,omitempty"`
-
-	// **(Optional)** The total number of resources to return.
-	Total *int `json:"total,omitempty"`
-}
-
-// Links related to the response document, including paging links.
-//
-// Apple Business API 2.6+
-type PagedDocumentLinks struct {
-	// The link to the first page of documents.
-	First *string `json:"first,omitempty"`
-
-	// The link to the next page of documents.
-	Next *string `json:"next,omitempty"`
-
-	// The link that produces the current document.
-	Self string `json:"self"`
-}
-
-// Self-links to requested resources.
-//
-// Apple Business API 2.6+
-type ResourceLinks struct {
-	// The link to the resource.
-	Self *string `json:"self,omitempty"`
-}
-
-const SupportedOSSUPPORTEDOSVISIONOS SupportedOS = "SUPPORTED_OS_VISIONOS"
-const SupportedOSSUPPORTEDOSWATCHOS SupportedOS = "SUPPORTED_OS_WATCHOS"
-const SupportedOSSUPPORTEDOSTVOS SupportedOS = "SUPPORTED_OS_TVOS"
-const SupportedOSSUPPORTEDOSMACOS SupportedOS = "SUPPORTED_OS_MACOS"
-const SupportedOSSUPPORTEDOSIOS SupportedOS = "SUPPORTED_OS_IOS"
-const SupportedOSSUPPORTEDOSIPADOS SupportedOS = "SUPPORTED_OS_IPADOS"
-const SupportedOSSUPPORTEDOSUNSPECIFIED SupportedOS = "SUPPORTED_OS_UNSPECIFIED"
-
-// Links related to the response document, including self-links.
-//
-// Apple Business API 2.6+
-type RelationshipLinks struct {
-	// Include corresponds to the JSON schema field "include".
-	Include *string `json:"include,omitempty"`
-
-	// The link to the related documents (if applicable).
-	Related *string `json:"related,omitempty"`
-
-	// The link that produces the current document (if applicable).
-	Self *string `json:"self,omitempty"`
-}
-
-type AuditEventAttributes_42 = AuditEventAccountImageRemovedAttributes
-
-type SupportedOS string
-
 type MDMServerProductFamily string
 
 const MDMServerProductFamilyAPPLETV MDMServerProductFamily = "APPLE_TV"
 const MDMServerProductFamilyIPAD MDMServerProductFamily = "IPAD"
 const MDMServerProductFamilyIPHONE MDMServerProductFamily = "IPHONE"
+const MDMServerProductFamilyIPOD MDMServerProductFamily = "IPOD"
+const MDMServerProductFamilyMAC MDMServerProductFamily = "MAC"
+const MDMServerProductFamilyVISION MDMServerProductFamily = "VISION"
+const MDMServerProductFamilyWATCH MDMServerProductFamily = "WATCH"
+
+// The relationships you include in the request, and those that you can operate on.
+type MDMServerRelationships struct {
+	// The devices in the device management service.
+	Devices *MDMServerRelationshipsDevices `json:"devices,omitempty"`
+}
+
+// The data and links that describe the relationship between the resources.
+type MDMServerRelationshipsDevices struct {
+	// Data corresponds to the JSON schema field "data".
+	Data []MDMServerRelationshipsDevicesData `json:"data,omitempty"`
+
+	// Links corresponds to the JSON schema field "links".
+	Links *RelationshipLinks `json:"links,omitempty"`
+
+	// Meta corresponds to the JSON schema field "meta".
+	Meta *PagingInformation `json:"meta,omitempty"`
+}
+
+// The type and ID of a related resource.
+type MDMServerRelationshipsDevicesData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// A response that contains a single device management service resource.
+type MDMServerResponse struct {
+	// The resource data.
+	Data MDMServer `json:"data"`
+
+	// Included corresponds to the JSON schema field "included".
+	Included []OrgDevice `json:"included,omitempty"`
+
+	// Navigational links that include the self-link.
+	Links DocumentLinks `json:"links"`
+}
+
+type MDMServerStatus string
+
+const MDMServerStatusACTIVE MDMServerStatus = "ACTIVE"
+const MDMServerStatusDELETED MDMServerStatus = "DELETED"
+const MDMServerStatusINACTIVE MDMServerStatus = "INACTIVE"
+
+// A request to update an existing device management service.
+type MDMServerUpdateRequest struct {
+	// The resource data with the updates to apply to the device management service.
+	Data MDMServerUpdateRequestData `json:"data"`
+}
+
+type MDMServerUpdateRequestData struct {
+	// Attributes corresponds to the JSON schema field "attributes".
+	Attributes *MDMServerUpdateRequestDataAttributes `json:"attributes,omitempty"`
+
+	// ID corresponds to the JSON schema field "id".
+	ID string `json:"id"`
+
+	// Type corresponds to the JSON schema field "type".
+	Type interface{} `json:"type"`
+}
+
+type MDMServerUpdateRequestDataAttributes struct {
+	// DefaultProductFamilies corresponds to the JSON schema field
+	// "defaultProductFamilies".
+	DefaultProductFamilies []MDMServerProductFamily `json:"defaultProductFamilies,omitempty"`
+
+	// EnableMDMDisownFlag corresponds to the JSON schema field "enableMdmDisownFlag".
+	EnableMDMDisownFlag *bool `json:"enableMdmDisownFlag,omitempty"`
+
+	// ServerCertificate corresponds to the JSON schema field "serverCertificate".
+	ServerCertificate *MDMServerCertificate `json:"serverCertificate,omitempty"`
+
+	// ServerName corresponds to the JSON schema field "serverName".
+	ServerName *string `json:"serverName,omitempty"`
+}
+
+// A response that contains a list of device management service resources.
+type MDMServersResponse struct {
+	// The resource data.
+	Data []MDMServer `json:"data"`
+
+	// Included corresponds to the JSON schema field "included".
+	Included []OrgDevice `json:"included,omitempty"`
+
+	// Navigational links that include the self-link.
+	Links PagedDocumentLinks `json:"links"`
+
+	// Paging information.
+	Meta *PagingInformation `json:"meta,omitempty"`
+}
 
 // The data structure that represents an organization device resource.
-//
-// Apple Business API 2.6+
 type OrgDevice struct {
 	// The resource’s attributes.
 	Attributes *OrgDeviceAttributes `json:"attributes,omitempty"`
@@ -2841,22 +2449,113 @@ type OrgDevice struct {
 	Type interface{} `json:"type"`
 }
 
-const MDMServerProductFamilyMAC MDMServerProductFamily = "MAC"
-const MDMServerProductFamilyVISION MDMServerProductFamily = "VISION"
-const MDMServerProductFamilyWATCH MDMServerProductFamily = "WATCH"
+// The data structure that represents an organization device activity resource.
+type OrgDeviceActivity struct {
+	// The resource’s attributes.
+	Attributes *OrgDeviceActivityAttributes `json:"attributes,omitempty"`
 
-type MDMServerStatus string
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
 
-const MDMServerStatusACTIVE MDMServerStatus = "ACTIVE"
-const MDMServerStatusDELETED MDMServerStatus = "DELETED"
-const MDMServerStatusINACTIVE MDMServerStatus = "INACTIVE"
+	// Navigational links that include the self-link.
+	Links *ResourceLinks `json:"links,omitempty"`
 
-type AuditEventAttributes_41 = AuditEventAccountImageReplacedAttributes
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// Attributes that describe an organization device activity resource.
+//
+// > **Note:** You can add new attributes to a resource without a newer version of
+// an API.
+type OrgDeviceActivityAttributes struct {
+	// **(Optional)** The date and time of the completion of organization device
+	// activity. This is available only when an activity is in a `COMPLETED` status.
+	CompletedDateTime *time.Time `json:"completedDateTime,omitempty"`
+
+	// The date and time of the creation of organization device activity.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+
+	// **(Optional)**  A presigned URL for downloading activity logs in a CSV format.
+	// This is available only when an activity is in a `COMPLETED` status.
+	DownloadURL *string `json:"downloadUrl,omitempty"`
+
+	// The top-level status of an activity. For more details, see the table below.
+	// Possible values: `COMPLETED`,  `IN_PROGRESS`, `STOPPED`, `FAILED`
+	Status *OrgDeviceActivityAttributesStatus `json:"status,omitempty"`
+
+	// The low-level status of an activity. For more details, see the table below.
+	// Possible values:
+	// `SUBMITTED`,`PRE_PROCESSING`,`PENDING`,`PROCESSING`,`POST_PROCESSING`,
+	// `STOPPING`,`COMPLETED_WITH_SUCCESS`,`COMPLETED_WITH_ERROR`,`COMPLETED_WITH_FAILURE`,`COMPLETED_POST_PROCESSING_FAILED`
+	SubStatus *OrgDeviceActivityAttributesSubStatus `json:"subStatus,omitempty"`
+}
+
+type OrgDeviceActivityAttributesStatus string
+
+const OrgDeviceActivityAttributesStatusCOMPLETED OrgDeviceActivityAttributesStatus = "COMPLETED"
+const OrgDeviceActivityAttributesStatusFAILED OrgDeviceActivityAttributesStatus = "FAILED"
+const OrgDeviceActivityAttributesStatusINPROGRESS OrgDeviceActivityAttributesStatus = "IN_PROGRESS"
+const OrgDeviceActivityAttributesStatusSTOPPED OrgDeviceActivityAttributesStatus = "STOPPED"
+
+type OrgDeviceActivityAttributesSubStatus string
+
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDPOSTPROCESSINGFAILED OrgDeviceActivityAttributesSubStatus = "COMPLETED_POST_PROCESSING_FAILED"
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHERROR OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_ERROR"
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHFAILURE OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_FAILURE"
+const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHSUCCESS OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_SUCCESS"
+const OrgDeviceActivityAttributesSubStatusPENDING OrgDeviceActivityAttributesSubStatus = "PENDING"
+const OrgDeviceActivityAttributesSubStatusPOSTPROCESSING OrgDeviceActivityAttributesSubStatus = "POST_PROCESSING"
+const OrgDeviceActivityAttributesSubStatusPREPROCESSING OrgDeviceActivityAttributesSubStatus = "PRE_PROCESSING"
+const OrgDeviceActivityAttributesSubStatusPROCESSING OrgDeviceActivityAttributesSubStatus = "PROCESSING"
+const OrgDeviceActivityAttributesSubStatusSTOPPING OrgDeviceActivityAttributesSubStatus = "STOPPING"
+const OrgDeviceActivityAttributesSubStatusSUBMITTED OrgDeviceActivityAttributesSubStatus = "SUBMITTED"
+
+// The request body you use to update the device management service for a device.
+type OrgDeviceActivityCreateRequest struct {
+	// The resource data.
+	Data OrgDeviceActivityCreateRequestData `json:"data"`
+}
+
+// The data element of the request body.
+type OrgDeviceActivityCreateRequestData struct {
+	// The resource’s attributes.
+	Attributes OrgDeviceActivityCreateRequestDataAttributes `json:"attributes"`
+
+	// The types and IDs of the related data to update.
+	Relationships OrgDeviceActivityCreateRequestDataRelationships `json:"relationships"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// Attributes with values that you’re changing as part of the create request.
+type OrgDeviceActivityCreateRequestDataAttributes struct {
+	// The type of activity you want to create.
+	ActivityType OrgDeviceActivityType `json:"activityType"`
+
+	// ActivityTypeMetadata corresponds to the JSON schema field
+	// "activityTypeMetadata".
+	ActivityTypeMetadata *ActivityTypeMetadata `json:"activityTypeMetadata,omitempty"`
+}
+
+// The relationships you include in the request, and those that you can operate on.
+type OrgDeviceActivityCreateRequestDataRelationships struct {
+	// Devices corresponds to the JSON schema field "devices".
+	Devices OrgDeviceActivityCreateRequestDataRelationshipsDevices `json:"devices"`
+
+	// MDMServer corresponds to the JSON schema field "mdmServer".
+	MDMServer *OrgDeviceActivityCreateRequestDataRelationshipsMDMServer `json:"mdmServer,omitempty"`
+}
+
+// The data that describe the relationship between the resources.
+type OrgDeviceActivityCreateRequestDataRelationshipsDevices struct {
+	// Data corresponds to the JSON schema field "data".
+	Data []OrgDeviceActivityCreateRequestDataRelationshipsDevicesData `json:"data"`
+}
 
 // The type and ID of a related resource.
-//
-// Apple Business API 2.6+
-type MDMServerRelationshipsDevicesData struct {
+type OrgDeviceActivityCreateRequestDataRelationshipsDevicesData struct {
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
 
@@ -2864,58 +2563,58 @@ type MDMServerRelationshipsDevicesData struct {
 	Type interface{} `json:"type"`
 }
 
-// The data and links that describe the relationship between the resources.
-//
-// Apple Business API 2.6+
-type MDMServerRelationshipsDevices struct {
+// The data that describe the relationship between the resources.
+type OrgDeviceActivityCreateRequestDataRelationshipsMDMServer struct {
 	// Data corresponds to the JSON schema field "data".
-	Data []MDMServerRelationshipsDevicesData `json:"data,omitempty"`
-
-	// Links corresponds to the JSON schema field "links".
-	Links *RelationshipLinks `json:"links,omitempty"`
-
-	// Meta corresponds to the JSON schema field "meta".
-	Meta *PagingInformation `json:"meta,omitempty"`
+	Data OrgDeviceActivityCreateRequestDataRelationshipsMDMServerData `json:"data"`
 }
 
-// The relationships you include in the request, and those that you can operate on.
-//
-// Apple Business API 2.6+
-type MDMServerRelationships struct {
-	// The devices in the device management service.
-	Devices *MDMServerRelationshipsDevices `json:"devices,omitempty"`
+// The type and ID of a related resource.
+type OrgDeviceActivityCreateRequestDataRelationshipsMDMServerData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
 }
 
-type AuditEventAttributes_40 = AuditEventAccountImageSetAttributes
+// A response that contains a single organization device activity resource.
+type OrgDeviceActivityResponse struct {
+	// The resource data.
+	Data OrgDeviceActivity `json:"data"`
 
-type AuditEventAttributes_39 = AuditEventExternalAccountInvitedAttributes
-
-type AuditEventAttributes_38 = AuditEventBatchPasswordResetInitiatedAttributes
-
-// The relationships you include in the request, and those that you can operate on.
-//
-// Apple Business API 2.6+
-type OrgDeviceRelationships struct {
-	// The relationship representing a device and its Activation Lock status.
-	ActivationLockStatus *OrgDeviceRelationshipsActivationLockStatus `json:"activationLockStatus,omitempty"`
-
-	// The relationship representing a device and its AppleCare coverage.
-	AppleCareCoverage *OrgDeviceRelationshipsAppleCareCoverage `json:"appleCareCoverage,omitempty"`
-
-	// The relationship representing a device and its assigned device management
-	// service.
-	AssignedServer *OrgDeviceRelationshipsAssignedServer `json:"assignedServer,omitempty"`
+	// Navigational links that include the self-link.
+	Links DocumentLinks `json:"links"`
 }
 
-type AuditEventAttributes_36 = AuditEventDomainFederationEnabledAttributes
+type OrgDeviceActivityType string
 
-type AuditEventAttributes_34 = AuditEventRoleUpdatedAttributes
+const OrgDeviceActivityTypeASSIGNDEVICES OrgDeviceActivityType = "ASSIGN_DEVICES"
+const OrgDeviceActivityTypeASSIGNDEVICESWITHMDMMIGRATIONDEADLINE OrgDeviceActivityType = "ASSIGN_DEVICES_WITH_MDM_MIGRATION_DEADLINE"
+const OrgDeviceActivityTypeCANCELMDMMIGRATION OrgDeviceActivityType = "CANCEL_MDM_MIGRATION"
+const OrgDeviceActivityTypeRELEASEDEVICES OrgDeviceActivityType = "RELEASE_DEVICES"
+const OrgDeviceActivityTypeUNASSIGNDEVICES OrgDeviceActivityType = "UNASSIGN_DEVICES"
+const OrgDeviceActivityTypeUPDATEMDMMIGRATIONDEADLINE OrgDeviceActivityType = "UPDATE_MDM_MIGRATION_DEADLINE"
 
-type AuditEventAttributes_35 = AuditEventTermsAcceptedAttributes
+// The data and links that describe the relationship between the resources.
+type OrgDeviceAssignedServerLinkageResponse struct {
+	// The resource data.
+	Data OrgDeviceAssignedServerLinkageResponseData `json:"data"`
+
+	// Navigational links that include the self-link.
+	Links DocumentLinks `json:"links"`
+}
+
+// The type and ID of a related resource.
+type OrgDeviceAssignedServerLinkageResponseData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
 
 // Attributes that describe an organization device resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -3002,53 +2701,48 @@ type OrgDeviceAttributes struct {
 	WiFiMACAddress *string `json:"wifiMacAddress,omitempty"`
 }
 
-// Apple Business API 2.6+
+// The relationships you include in the request, and those that you can operate on.
+type OrgDeviceRelationships struct {
+	// The relationship representing a device and its Activation Lock status.
+	ActivationLockStatus *OrgDeviceRelationshipsActivationLockStatus `json:"activationLockStatus,omitempty"`
+
+	// The relationship representing a device and its AppleCare coverage.
+	AppleCareCoverage *OrgDeviceRelationshipsAppleCareCoverage `json:"appleCareCoverage,omitempty"`
+
+	// The relationship representing a device and its assigned device management
+	// service.
+	AssignedServer *OrgDeviceRelationshipsAssignedServer `json:"assignedServer,omitempty"`
+}
+
 type OrgDeviceRelationshipsActivationLockStatus struct {
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinks `json:"links,omitempty"`
 }
 
-// Apple Business API 2.6+
 type OrgDeviceRelationshipsAppleCareCoverage struct {
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinks `json:"links,omitempty"`
 }
 
-const MDMServerProductFamilyIPOD MDMServerProductFamily = "IPOD"
-
-type AuditEventAttributes_43 = AuditEventIdpCreatedAttributes
-
 // The links that describe the relationship between the resources.
-//
-// Apple Business API 2.6+
 type OrgDeviceRelationshipsAssignedServer struct {
 	// Links corresponds to the JSON schema field "links".
 	Links *RelationshipLinks `json:"links,omitempty"`
 }
 
-// A response that contains a single device management service resource.
-//
-// Apple Business API 2.6+
-type MDMServerResponse struct {
+// A response that contains a single organization device resource.
+type OrgDeviceResponse struct {
 	// The resource data.
-	Data MDMServer `json:"data"`
-
-	// Included corresponds to the JSON schema field "included".
-	Included []OrgDevice `json:"included,omitempty"`
+	Data OrgDevice `json:"data"`
 
 	// Navigational links that include the self-link.
 	Links DocumentLinks `json:"links"`
 }
 
-// A response that contains a list of device management service resources.
-//
-// Apple Business API 2.6+
-type MDMServersResponse struct {
+// A response that contains a list of organization device resources.
+type OrgDevicesResponse struct {
 	// The resource data.
-	Data []MDMServer `json:"data"`
-
-	// Included corresponds to the JSON schema field "included".
-	Included []OrgDevice `json:"included,omitempty"`
+	Data []OrgDevice `json:"data"`
 
 	// Navigational links that include the self-link.
 	Links PagedDocumentLinks `json:"links"`
@@ -3057,79 +2751,7 @@ type MDMServersResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-// Apple Business API 2.6+
-type MDMServerUpdateRequestDataAttributes struct {
-	// DefaultProductFamilies corresponds to the JSON schema field
-	// "defaultProductFamilies".
-	DefaultProductFamilies []MDMServerProductFamily `json:"defaultProductFamilies,omitempty"`
-
-	// EnableMDMDisownFlag corresponds to the JSON schema field "enableMdmDisownFlag".
-	EnableMDMDisownFlag *bool `json:"enableMdmDisownFlag,omitempty"`
-
-	// ServerCertificate corresponds to the JSON schema field "serverCertificate".
-	ServerCertificate *MDMServerCertificate `json:"serverCertificate,omitempty"`
-
-	// ServerName corresponds to the JSON schema field "serverName".
-	ServerName *string `json:"serverName,omitempty"`
-}
-
-// Apple Business API 2.6+
-type MDMServerUpdateRequestData struct {
-	// Attributes corresponds to the JSON schema field "attributes".
-	Attributes *MDMServerUpdateRequestDataAttributes `json:"attributes,omitempty"`
-
-	// ID corresponds to the JSON schema field "id".
-	ID string `json:"id"`
-
-	// Type corresponds to the JSON schema field "type".
-	Type interface{} `json:"type"`
-}
-
-// A request to update an existing device management service.
-//
-// Apple Business API 2.6+
-type MDMServerUpdateRequest struct {
-	// The resource data with the updates to apply to the device management service.
-	Data MDMServerUpdateRequestData `json:"data"`
-}
-
-// Attributes that describe an organizational unit resource.
-//
-// Apple Business API 2.6+
-//
-// > **Note:** When additional attributes are added by Apple, they appear
-// automatically, without requiring a newer version of the API.
-type OrganizationalUnitAttributes struct {
-	// The date and time the organizational unit was created.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-
-	// A description of the organizational unit.
-	Description *string `json:"description,omitempty"`
-
-	// The name of the organizational unit.
-	Name *string `json:"name,omitempty"`
-
-	// The date and time the organizational unit was last modified.
-	UpdatedDateTime *time.Time `json:"updatedDateTime,omitempty"`
-}
-
-// Apple Business API 2.6+
-type OrganizationalUnitRelationshipsUsers struct {
-	// Links corresponds to the JSON schema field "links".
-	Links *RelationshipLinks `json:"links,omitempty"`
-}
-
-// The relationships you include in the request, and those that you can operate on.
-//
-// Apple Business API 2.6+
-type OrganizationalUnitRelationships struct {
-	// The relationship representing an organizational unit and its users.
-	Users *OrganizationalUnitRelationshipsUsers `json:"users,omitempty"`
-}
-
 // The data structure that represents an organizational unit resource.
-//
-// Apple Business API 2.6+
 type OrganizationalUnit struct {
 	// The resource’s attributes.
 	Attributes *OrganizationalUnitAttributes `json:"attributes,omitempty"`
@@ -3147,9 +2769,36 @@ type OrganizationalUnit struct {
 	Type interface{} `json:"type"`
 }
 
-// A response that contains a single organizational unit resource.
+// Attributes that describe an organizational unit resource.
 //
-// Apple Business API 2.6+
+// > **Note:** When additional attributes are added by Apple, they appear
+// automatically, without requiring a newer version of the API.
+type OrganizationalUnitAttributes struct {
+	// The date and time the organizational unit was created.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+
+	// A description of the organizational unit.
+	Description *string `json:"description,omitempty"`
+
+	// The name of the organizational unit.
+	Name *string `json:"name,omitempty"`
+
+	// The date and time the organizational unit was last modified.
+	UpdatedDateTime *time.Time `json:"updatedDateTime,omitempty"`
+}
+
+// The relationships you include in the request, and those that you can operate on.
+type OrganizationalUnitRelationships struct {
+	// The relationship representing an organizational unit and its users.
+	Users *OrganizationalUnitRelationshipsUsers `json:"users,omitempty"`
+}
+
+type OrganizationalUnitRelationshipsUsers struct {
+	// Links corresponds to the JSON schema field "links".
+	Links *RelationshipLinks `json:"links,omitempty"`
+}
+
+// A response that contains a single organizational unit resource.
 type OrganizationalUnitResponse struct {
 	// The resource data.
 	Data OrganizationalUnit `json:"data"`
@@ -3158,32 +2807,7 @@ type OrganizationalUnitResponse struct {
 	Links DocumentLinks `json:"links"`
 }
 
-// A response that contains a list of organizational unit resources.
-//
-// Apple Business API 2.6+
-type OrganizationalUnitsResponse struct {
-	// The resource data.
-	Data []OrganizationalUnit `json:"data"`
-
-	// Navigational links that include the self-link.
-	Links PagedDocumentLinks `json:"links"`
-
-	// Paging information.
-	Meta *PagingInformation `json:"meta,omitempty"`
-}
-
-// Apple Business API 2.6+
-type OrganizationalUnitUsersLinkagesResponseData struct {
-	// ID corresponds to the JSON schema field "id".
-	ID string `json:"id"`
-
-	// Type corresponds to the JSON schema field "type".
-	Type interface{} `json:"type"`
-}
-
 // A response that contains a list of user IDs for an organizational unit.
-//
-// Apple Business API 2.6+
 type OrganizationalUnitUsersLinkagesResponse struct {
 	// The resource data containing user IDs.
 	Data []OrganizationalUnitUsersLinkagesResponseData `json:"data"`
@@ -3195,61 +2819,30 @@ type OrganizationalUnitUsersLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-type OrgDeviceActivityAttributesStatus string
+type OrganizationalUnitUsersLinkagesResponseData struct {
+	// ID corresponds to the JSON schema field "id".
+	ID string `json:"id"`
 
-const OrgDeviceActivityAttributesStatusCOMPLETED OrgDeviceActivityAttributesStatus = "COMPLETED"
-const OrgDeviceActivityAttributesStatusINPROGRESS OrgDeviceActivityAttributesStatus = "IN_PROGRESS"
-const OrgDeviceActivityAttributesStatusSTOPPED OrgDeviceActivityAttributesStatus = "STOPPED"
-const OrgDeviceActivityAttributesStatusFAILED OrgDeviceActivityAttributesStatus = "FAILED"
-
-type OrgDeviceActivityAttributesSubStatus string
-
-const OrgDeviceActivityAttributesSubStatusSUBMITTED OrgDeviceActivityAttributesSubStatus = "SUBMITTED"
-const OrgDeviceActivityAttributesSubStatusPREPROCESSING OrgDeviceActivityAttributesSubStatus = "PRE_PROCESSING"
-const OrgDeviceActivityAttributesSubStatusPENDING OrgDeviceActivityAttributesSubStatus = "PENDING"
-const OrgDeviceActivityAttributesSubStatusPROCESSING OrgDeviceActivityAttributesSubStatus = "PROCESSING"
-const OrgDeviceActivityAttributesSubStatusPOSTPROCESSING OrgDeviceActivityAttributesSubStatus = "POST_PROCESSING"
-const OrgDeviceActivityAttributesSubStatusSTOPPING OrgDeviceActivityAttributesSubStatus = "STOPPING"
-const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHSUCCESS OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_SUCCESS"
-const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHERROR OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_ERROR"
-const OrgDeviceActivityAttributesSubStatusCOMPLETEDWITHFAILURE OrgDeviceActivityAttributesSubStatus = "COMPLETED_WITH_FAILURE"
-const OrgDeviceActivityAttributesSubStatusCOMPLETEDPOSTPROCESSINGFAILED OrgDeviceActivityAttributesSubStatus = "COMPLETED_POST_PROCESSING_FAILED"
-
-// Attributes that describe an organization device activity resource.
-//
-// Apple Business API 2.6+
-//
-// > **Note:** You can add new attributes to a resource without a newer version of
-// an API.
-type OrgDeviceActivityAttributes struct {
-	// **(Optional)** The date and time of the completion of organization device
-	// activity. This is available only when an activity is in a `COMPLETED` status.
-	CompletedDateTime *time.Time `json:"completedDateTime,omitempty"`
-
-	// The date and time of the creation of organization device activity.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-
-	// **(Optional)**  A presigned URL for downloading activity logs in a CSV format.
-	// This is available only when an activity is in a `COMPLETED` status.
-	DownloadURL *string `json:"downloadUrl,omitempty"`
-
-	// The top-level status of an activity. For more details, see the table below.
-	// Possible values: `COMPLETED`,  `IN_PROGRESS`, `STOPPED`, `FAILED`
-	Status *OrgDeviceActivityAttributesStatus `json:"status,omitempty"`
-
-	// The low-level status of an activity. For more details, see the table below.
-	// Possible values:
-	// `SUBMITTED`,`PRE_PROCESSING`,`PENDING`,`PROCESSING`,`POST_PROCESSING`,
-	// `STOPPING`,`COMPLETED_WITH_SUCCESS`,`COMPLETED_WITH_ERROR`,`COMPLETED_WITH_FAILURE`,`COMPLETED_POST_PROCESSING_FAILED`
-	SubStatus *OrgDeviceActivityAttributesSubStatus `json:"subStatus,omitempty"`
+	// Type corresponds to the JSON schema field "type".
+	Type interface{} `json:"type"`
 }
 
-// The data structure that represents an organization device activity resource.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivity struct {
+// A response that contains a list of organizational unit resources.
+type OrganizationalUnitsResponse struct {
+	// The resource data.
+	Data []OrganizationalUnit `json:"data"`
+
+	// Navigational links that include the self-link.
+	Links PagedDocumentLinks `json:"links"`
+
+	// Paging information.
+	Meta *PagingInformation `json:"meta,omitempty"`
+}
+
+// The data structure that represents a package resource.
+type Package struct {
 	// The resource’s attributes.
-	Attributes *OrgDeviceActivityAttributes `json:"attributes,omitempty"`
+	Attributes *PackageAttributes `json:"attributes,omitempty"`
 
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -3261,159 +2854,7 @@ type OrgDeviceActivity struct {
 	Type interface{} `json:"type"`
 }
 
-type OrgDeviceActivityType string
-
-const OrgDeviceActivityTypeASSIGNDEVICES OrgDeviceActivityType = "ASSIGN_DEVICES"
-const OrgDeviceActivityTypeUNASSIGNDEVICES OrgDeviceActivityType = "UNASSIGN_DEVICES"
-const OrgDeviceActivityTypeASSIGNDEVICESWITHMDMMIGRATIONDEADLINE OrgDeviceActivityType = "ASSIGN_DEVICES_WITH_MDM_MIGRATION_DEADLINE"
-const OrgDeviceActivityTypeUPDATEMDMMIGRATIONDEADLINE OrgDeviceActivityType = "UPDATE_MDM_MIGRATION_DEADLINE"
-const OrgDeviceActivityTypeCANCELMDMMIGRATION OrgDeviceActivityType = "CANCEL_MDM_MIGRATION"
-const OrgDeviceActivityTypeRELEASEDEVICES OrgDeviceActivityType = "RELEASE_DEVICES"
-
-// Attributes with values that you’re changing as part of the create request.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequestDataAttributes struct {
-	// The type of activity you want to create.
-	ActivityType OrgDeviceActivityType `json:"activityType"`
-
-	// ActivityTypeMetadata corresponds to the JSON schema field
-	// "activityTypeMetadata".
-	ActivityTypeMetadata *ActivityTypeMetadata `json:"activityTypeMetadata,omitempty"`
-}
-
-// The type and ID of a related resource.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequestDataRelationshipsDevicesData struct {
-	// The opaque resource ID that uniquely identifies the resource.
-	ID string `json:"id"`
-
-	// The resource type.
-	Type interface{} `json:"type"`
-}
-
-// The data that describe the relationship between the resources.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequestDataRelationshipsDevices struct {
-	// Data corresponds to the JSON schema field "data".
-	Data []OrgDeviceActivityCreateRequestDataRelationshipsDevicesData `json:"data"`
-}
-
-// The type and ID of a related resource.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequestDataRelationshipsMDMServerData struct {
-	// The opaque resource ID that uniquely identifies the resource.
-	ID string `json:"id"`
-
-	// The resource type.
-	Type interface{} `json:"type"`
-}
-
-// The data that describe the relationship between the resources.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequestDataRelationshipsMDMServer struct {
-	// Data corresponds to the JSON schema field "data".
-	Data OrgDeviceActivityCreateRequestDataRelationshipsMDMServerData `json:"data"`
-}
-
-// The relationships you include in the request, and those that you can operate on.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequestDataRelationships struct {
-	// Devices corresponds to the JSON schema field "devices".
-	Devices OrgDeviceActivityCreateRequestDataRelationshipsDevices `json:"devices"`
-
-	// MDMServer corresponds to the JSON schema field "mdmServer".
-	MDMServer *OrgDeviceActivityCreateRequestDataRelationshipsMDMServer `json:"mdmServer,omitempty"`
-}
-
-// The data element of the request body.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequestData struct {
-	// The resource’s attributes.
-	Attributes OrgDeviceActivityCreateRequestDataAttributes `json:"attributes"`
-
-	// The types and IDs of the related data to update.
-	Relationships OrgDeviceActivityCreateRequestDataRelationships `json:"relationships"`
-
-	// The resource type.
-	Type interface{} `json:"type"`
-}
-
-// The request body you use to update the device management service for a device.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityCreateRequest struct {
-	// The resource data.
-	Data OrgDeviceActivityCreateRequestData `json:"data"`
-}
-
-// A response that contains a single organization device activity resource.
-//
-// Apple Business API 2.6+
-type OrgDeviceActivityResponse struct {
-	// The resource data.
-	Data OrgDeviceActivity `json:"data"`
-
-	// Navigational links that include the self-link.
-	Links DocumentLinks `json:"links"`
-}
-
-// The type and ID of a related resource.
-//
-// Apple Business API 2.6+
-type OrgDeviceAssignedServerLinkageResponseData struct {
-	// The opaque resource ID that uniquely identifies the resource.
-	ID string `json:"id"`
-
-	// The resource type.
-	Type interface{} `json:"type"`
-}
-
-// The data and links that describe the relationship between the resources.
-//
-// Apple Business API 2.6+
-type OrgDeviceAssignedServerLinkageResponse struct {
-	// The resource data.
-	Data OrgDeviceAssignedServerLinkageResponseData `json:"data"`
-
-	// Navigational links that include the self-link.
-	Links DocumentLinks `json:"links"`
-}
-
-// A response that contains a single organization device resource.
-//
-// Apple Business API 2.6+
-type OrgDeviceResponse struct {
-	// The resource data.
-	Data OrgDevice `json:"data"`
-
-	// Navigational links that include the self-link.
-	Links DocumentLinks `json:"links"`
-}
-
-// A response that contains a list of organization device resources.
-//
-// Apple Business API 2.6+
-type OrgDevicesResponse struct {
-	// The resource data.
-	Data []OrgDevice `json:"data"`
-
-	// Navigational links that include the self-link.
-	Links PagedDocumentLinks `json:"links"`
-
-	// Paging information.
-	Meta *PagingInformation `json:"meta,omitempty"`
-}
-
 // Attributes that describe a package resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -3443,26 +2884,7 @@ type PackageAttributes struct {
 	Version *string `json:"version,omitempty"`
 }
 
-// The data structure that represents a package resource.
-//
-// Apple Business API 2.6+
-type Package struct {
-	// The resource’s attributes.
-	Attributes *PackageAttributes `json:"attributes,omitempty"`
-
-	// The opaque resource ID that uniquely identifies the resource.
-	ID string `json:"id"`
-
-	// Navigational links that include the self-link.
-	Links *ResourceLinks `json:"links,omitempty"`
-
-	// The resource type.
-	Type interface{} `json:"type"`
-}
-
 // A response that contains information about a package resource.
-//
-// Apple Business API 2.6+
 type PackageResponse struct {
 	// The resource data.
 	Data Package `json:"data"`
@@ -3472,8 +2894,6 @@ type PackageResponse struct {
 }
 
 // A response that contains a list of package resources.
-//
-// Apple Business API 2.6+
 type PackagesResponse struct {
 	// The resource data.
 	Data []Package `json:"data"`
@@ -3485,49 +2905,86 @@ type PackagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
-type UserPhoneNumberType string
+// Links related to the response document, including paging links.
+type PagedDocumentLinks struct {
+	// The link to the first page of documents.
+	First *string `json:"first,omitempty"`
 
-const UserPhoneNumberTypeWORK UserPhoneNumberType = "WORK"
-const UserPhoneNumberTypeHOME UserPhoneNumberType = "HOME"
-const UserPhoneNumberTypeMOBILE UserPhoneNumberType = "MOBILE"
+	// The link to the next page of documents.
+	Next *string `json:"next,omitempty"`
 
-// The data structure that represents a user’s phone number.
-//
-// Apple Business API 2.6+
-type UserPhoneNumber struct {
-	// The phone number.
-	PhoneNumber *string `json:"phoneNumber,omitempty"`
-
-	// The type of phone number. See
-	// [UserPhoneNumberType](https://developer.apple.com/documentation/applebusinessapi/userphonenumbertype)
-	// for possible values.
-	Type *UserPhoneNumberType `json:"type,omitempty"`
+	// The link that produces the current document.
+	Self string `json:"self"`
 }
 
-// The data structure that represents a user’s role and organizational unit
-// mapping.
-//
-// Apple Business API 2.6+
-type UserRoleOuMapping struct {
-	// The identifier of the organizational unit.
-	OuID *string `json:"ouId,omitempty"`
-
-	// The name of the role.
-	RoleName *string `json:"roleName,omitempty"`
+// Paging information for data responses.
+type PagingInformation struct {
+	// The paging information details.
+	Paging PagingInformationPaging `json:"paging"`
 }
 
-type UserStatus string
+// Paging details, such as the total number of resources and the per-page limit.
+type PagingInformationPaging struct {
+	// The maximum number of resources to return per page.
+	Limit int `json:"limit"`
 
-const UserStatusNEW UserStatus = "NEW"
-const UserStatusRELEASED UserStatus = "RELEASED"
-const UserStatusACTIVE UserStatus = "ACTIVE"
-const UserStatusDEACTIVATED UserStatus = "DEACTIVATED"
-const UserStatusLOCKED UserStatus = "LOCKED"
-const UserStatusLOCKEDFORSHAREDIPAD UserStatus = "LOCKED_FOR_SHARED_IPAD"
+	// The cursor to use for the next request, in case of pagination.
+	NextCursor *string `json:"nextCursor,omitempty"`
+
+	// **(Optional)** The total number of resources to return.
+	Total *int `json:"total,omitempty"`
+}
+
+// An object that contains the query parameter that produces the error.
+type Parameter struct {
+	// The query parameter that produces the error.
+	Parameter string `json:"parameter"`
+}
+
+// Links related to the response document, including self-links.
+type RelationshipLinks struct {
+	// Include corresponds to the JSON schema field "include".
+	Include *string `json:"include,omitempty"`
+
+	// The link to the related documents (if applicable).
+	Related *string `json:"related,omitempty"`
+
+	// The link that produces the current document (if applicable).
+	Self *string `json:"self,omitempty"`
+}
+
+// Self-links to requested resources.
+type ResourceLinks struct {
+	// The link to the resource.
+	Self *string `json:"self,omitempty"`
+}
+
+type SupportedOS string
+
+const SupportedOSSUPPORTEDOSIOS SupportedOS = "SUPPORTED_OS_IOS"
+const SupportedOSSUPPORTEDOSIPADOS SupportedOS = "SUPPORTED_OS_IPADOS"
+const SupportedOSSUPPORTEDOSMACOS SupportedOS = "SUPPORTED_OS_MACOS"
+const SupportedOSSUPPORTEDOSTVOS SupportedOS = "SUPPORTED_OS_TVOS"
+const SupportedOSSUPPORTEDOSUNSPECIFIED SupportedOS = "SUPPORTED_OS_UNSPECIFIED"
+const SupportedOSSUPPORTEDOSVISIONOS SupportedOS = "SUPPORTED_OS_VISIONOS"
+const SupportedOSSUPPORTEDOSWATCHOS SupportedOS = "SUPPORTED_OS_WATCHOS"
+
+// The data structure that represents a user resource.
+type User struct {
+	// The resource’s attributes.
+	Attributes *UserAttributes `json:"attributes,omitempty"`
+
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// Navigational links that include the self-link.
+	Links *ResourceLinks `json:"links,omitempty"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
 
 // Attributes that describe a user resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -3588,12 +3045,10 @@ type UserAttributes struct {
 	UpdatedDateTime *time.Time `json:"updatedDateTime,omitempty"`
 }
 
-// The data structure that represents a user resource.
-//
-// Apple Business API 2.6+
-type User struct {
+// The data structure that represents a user group resource.
+type UserGroup struct {
 	// The resource’s attributes.
-	Attributes *UserAttributes `json:"attributes,omitempty"`
+	Attributes *UserGroupAttributes `json:"attributes,omitempty"`
 
 	// The opaque resource ID that uniquely identifies the resource.
 	ID string `json:"id"`
@@ -3601,22 +3056,14 @@ type User struct {
 	// Navigational links that include the self-link.
 	Links *ResourceLinks `json:"links,omitempty"`
 
+	// Navigational links to related data and included resource types and IDs.
+	Relationships *UserGroupRelationships `json:"relationships,omitempty"`
+
 	// The resource type.
 	Type interface{} `json:"type"`
 }
 
-type UserGroupStatus string
-
-const UserGroupStatusACTIVE UserGroupStatus = "ACTIVE"
-
-type UserGroupType string
-
-const UserGroupTypeSTANDARD UserGroupType = "STANDARD"
-const UserGroupTypeSMART UserGroupType = "SMART"
-
 // Attributes that describe a user group resource.
-//
-// Apple Business API 2.6+
 //
 // > **Note:** When additional attributes are added by Apple, they appear
 // automatically, without requiring a newer version of the API.
@@ -3647,43 +3094,18 @@ type UserGroupAttributes struct {
 	UpdatedDateTime *time.Time `json:"updatedDateTime,omitempty"`
 }
 
-// Apple Business API 2.6+
-type UserGroupRelationshipsUsers struct {
-	// Links corresponds to the JSON schema field "links".
-	Links *RelationshipLinks `json:"links,omitempty"`
-}
-
 // The relationships you include in the request, and those that you can operate on.
-//
-// Apple Business API 2.6+
 type UserGroupRelationships struct {
 	// The relationship representing a user group and its users.
 	Users *UserGroupRelationshipsUsers `json:"users,omitempty"`
 }
 
-// The data structure that represents a user group resource.
-//
-// Apple Business API 2.6+
-type UserGroup struct {
-	// The resource’s attributes.
-	Attributes *UserGroupAttributes `json:"attributes,omitempty"`
-
-	// The opaque resource ID that uniquely identifies the resource.
-	ID string `json:"id"`
-
-	// Navigational links that include the self-link.
-	Links *ResourceLinks `json:"links,omitempty"`
-
-	// Navigational links to related data and included resource types and IDs.
-	Relationships *UserGroupRelationships `json:"relationships,omitempty"`
-
-	// The resource type.
-	Type interface{} `json:"type"`
+type UserGroupRelationshipsUsers struct {
+	// Links corresponds to the JSON schema field "links".
+	Links *RelationshipLinks `json:"links,omitempty"`
 }
 
 // A response that contains a single user group resource.
-//
-// Apple Business API 2.6+
 type UserGroupResponse struct {
 	// The resource data.
 	Data UserGroup `json:"data"`
@@ -3692,32 +3114,16 @@ type UserGroupResponse struct {
 	Links DocumentLinks `json:"links"`
 }
 
-// A response that contains a list of user group resources.
-//
-// Apple Business API 2.6+
-type UserGroupsResponse struct {
-	// The resource data.
-	Data []UserGroup `json:"data"`
+type UserGroupStatus string
 
-	// Navigational links that include the self-link.
-	Links PagedDocumentLinks `json:"links"`
+const UserGroupStatusACTIVE UserGroupStatus = "ACTIVE"
 
-	// Paging information.
-	Meta *PagingInformation `json:"meta,omitempty"`
-}
+type UserGroupType string
 
-// Apple Business API 2.6+
-type UserGroupUsersLinkagesResponseData struct {
-	// ID corresponds to the JSON schema field "id".
-	ID string `json:"id"`
-
-	// Type corresponds to the JSON schema field "type".
-	Type interface{} `json:"type"`
-}
+const UserGroupTypeSMART UserGroupType = "SMART"
+const UserGroupTypeSTANDARD UserGroupType = "STANDARD"
 
 // A response that contains a list of user IDs for a user group.
-//
-// Apple Business API 2.6+
 type UserGroupUsersLinkagesResponse struct {
 	// The resource data containing user IDs.
 	Data []UserGroupUsersLinkagesResponseData `json:"data"`
@@ -3729,9 +3135,44 @@ type UserGroupUsersLinkagesResponse struct {
 	Meta *PagingInformation `json:"meta,omitempty"`
 }
 
+type UserGroupUsersLinkagesResponseData struct {
+	// ID corresponds to the JSON schema field "id".
+	ID string `json:"id"`
+
+	// Type corresponds to the JSON schema field "type".
+	Type interface{} `json:"type"`
+}
+
+// A response that contains a list of user group resources.
+type UserGroupsResponse struct {
+	// The resource data.
+	Data []UserGroup `json:"data"`
+
+	// Navigational links that include the self-link.
+	Links PagedDocumentLinks `json:"links"`
+
+	// Paging information.
+	Meta *PagingInformation `json:"meta,omitempty"`
+}
+
+// The data structure that represents a user’s phone number.
+type UserPhoneNumber struct {
+	// The phone number.
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+
+	// The type of phone number. See
+	// [UserPhoneNumberType](https://developer.apple.com/documentation/applebusinessapi/userphonenumbertype)
+	// for possible values.
+	Type *UserPhoneNumberType `json:"type,omitempty"`
+}
+
+type UserPhoneNumberType string
+
+const UserPhoneNumberTypeHOME UserPhoneNumberType = "HOME"
+const UserPhoneNumberTypeMOBILE UserPhoneNumberType = "MOBILE"
+const UserPhoneNumberTypeWORK UserPhoneNumberType = "WORK"
+
 // A response that contains a single user resource.
-//
-// Apple Business API 2.6+
 type UserResponse struct {
 	// The resource data.
 	Data User `json:"data"`
@@ -3740,9 +3181,144 @@ type UserResponse struct {
 	Links DocumentLinks `json:"links"`
 }
 
+// The data structure that represents a user’s role and organizational unit
+// mapping.
+type UserRoleOuMapping struct {
+	// The identifier of the organizational unit.
+	OuID *string `json:"ouId,omitempty"`
+
+	// The name of the role.
+	RoleName *string `json:"roleName,omitempty"`
+}
+
+type UserStatus string
+
+const UserStatusACTIVE UserStatus = "ACTIVE"
+
+type AuditEventAttributes_36 = AuditEventRoleCreatedAttributes
+
+type AuditEventAttributes_15 = AuditEventSubscriptionCreatedAttributes
+
+type AuditEventAttributes_14 = AuditEventCollectionDeletedAttributes
+
+type AuditEventAttributes_13 = AuditEventCollectionUpdatedAttributes
+
+type AuditEventAttributes_12 = AuditEventCollectionCreatedAttributes
+
+type AuditEventAttributes_11 = AuditEventConfigSettingsDeletedAttributes
+
+type AuditEventAttributes_10 = AuditEventConfigSettingsUpdatedAttributes
+
+type AuditEventAttributes_9 = AuditEventConfigSettingsCreatedAttributes
+
+type AuditEventAttributes_8 = AuditEventDeviceIsErasedAttributes
+
+type AuditEventAttributes_7 = AuditEventSubjectHasApplecarePurchaseRemovedAttributes
+
+type AuditEventAttributes_6 = AuditEventSubjectHasApplecarePurchaseAddedAttributes
+
+type AuditEventAttributes_5 = AuditEventSubjectHasIcloudStoragePurchaseRemovedAttributes
+
+type AuditEventAttributes_4 = AuditEventSubjectHasIcloudStoragePurchaseAddedAttributes
+
+type AuditEventAttributes_3 = AuditEventDeviceUnassignedFromServerAttributes
+
+type AuditEventAttributes_2 = AuditEventDeviceAssignedToServerAttributes
+
+type AuditEventAttributes_1 = AuditEventDeviceRemovedFromOrgAttributes
+
+type AuditEventAttributes_0 = AuditEventDeviceAddedToOrgAttributes
+
+type AuditEventAttributes_45 = AuditEventAccountImageRemovedAttributes
+
+type AuditEventAttributes_46 = AuditEventIdpCreatedAttributes
+
+type AuditEventAttributes_47 = AuditEventIdpUpdatedAttributes
+
+type AuditEventAttributes_17 = AuditEventSubscriptionDeletedAttributes
+
+type AuditEventAttributes_18 = AuditEventAccountRoleLocationChangedAttributes
+
+type AuditEventAttributes_19 = AuditEventAccountAddedAttributes
+
+type AuditEventAttributes_20 = AuditEventAccountDeletedAttributes
+
+type AuditEventAttributes_21 = AuditEventExternalAccountAssociatedAttributes
+
+type AuditEventAttributes_51 = AuditEventAppleServicesSettingsUpdatedAttributes
+
+type AuditEventAttributes_22 = AuditEventExternalAccountDisassociatedAttributes
+
+type AuditEventAttributes_23 = AuditEventDomainAddedAttributes
+
+type AuditEventAttributes_52 = AuditEventAccountPasswordChangedAttributes
+
+type AuditEventAttributes_48 = AuditEventIdpDeletedAttributes
+
+type AuditEventAttributes_49 = AuditEventIdpAccountSyncEnabledAttributes
+
+type AuditEventAttributes_50 = AuditEventIdpAccountSyncDisabledAttributes
+
+type AuditEventAttributes_24 = AuditEventDomainRemovedAttributes
+
+type AuditEventAttributes_25 = AuditEventDomainVerifiedAttributes
+
+type AuditEventAttributes_42 = AuditEventExternalAccountInvitedAttributes
+
+type AuditEventAttributes_26 = AuditEventApiAccountCreatedWithKeyAttributes
+
+// Information about the request that was sent to the webhook URL.
+type WebhookDeliveryAttributesRequest struct {
+	// The URL that the request was sent to.
+	URL *string `json:"url,omitempty"`
+}
+
+type AuditEventAttributes_44 = AuditEventAccountImageReplacedAttributes
+
+type AuditEventAttributes_27 = AuditEventApiAccountCreatedWithoutKeyAttributes
+
+const UserStatusNEW UserStatus = "NEW"
+const UserStatusRELEASED UserStatus = "RELEASED"
+
+type AuditEventAttributes_28 = AuditEventApiAccountDeletedAttributes
+
+const UserStatusDEACTIVATED UserStatus = "DEACTIVATED"
+const UserStatusLOCKED UserStatus = "LOCKED"
+const UserStatusLOCKEDFORSHAREDIPAD UserStatus = "LOCKED_FOR_SHARED_IPAD"
+
+type AuditEventAttributes_29 = AuditEventApiAccountKeyRevokedAttributes
+
+type AuditEventAttributes_30 = AuditEventApiAccountKeyGeneratedAttributes
+
+type AuditEventAttributes_31 = AuditEventApiAccountRoleLocationChangedAttributes
+
+type AuditEventAttributes_32 = AuditEventApiAccountNameChangedAttributes
+
+type AuditEventAttributes_33 = AuditEventWebhookCreatedAttributes
+
+type AuditEventAttributes_34 = AuditEventWebhookUpdatedAttributes
+
+type AuditEventAttributes_35 = AuditEventWebhookDeletedAttributes
+
+type AuditEventAttributes_16 = AuditEventSubscriptionUpdatedAttributes
+
+type AuditEventAttributes_37 = AuditEventRoleUpdatedAttributes
+
+type ErrorLinksAssociated_1 = ErrorLinksAssociated
+
+type AuditEventAttributes_38 = AuditEventTermsAcceptedAttributes
+
+type AuditEventAttributes_39 = AuditEventDomainFederationEnabledAttributes
+
+type AuditEventAttributes_40 = AuditEventDomainFederationDisabledAttributes
+
+type AuditEventAttributes_41 = AuditEventBatchPasswordResetInitiatedAttributes
+
+type AuditEventAttributes_43 = AuditEventAccountImageSetAttributes
+
+type ErrorResponseErrorsSource_0 = JSONPointer
+
 // A response that contains a list of user resources.
-//
-// Apple Business API 2.6+
 type UsersResponse struct {
 	// The resource data.
 	Data []User `json:"data"`
@@ -3752,4 +3328,384 @@ type UsersResponse struct {
 
 	// Paging information.
 	Meta *PagingInformation `json:"meta,omitempty"`
+}
+
+type WebhookEventType string
+
+const WebhookEventTypeORGDEVICEATTRIBUTECHANGED WebhookEventType = "ORG_DEVICE_ATTRIBUTE_CHANGED"
+const WebhookEventTypeORGDEVICEATTRIBUTEMIGRATIONDETAILSCHANGED WebhookEventType = "ORG_DEVICE_ATTRIBUTE_MIGRATION_DETAILS_CHANGED"
+const WebhookEventTypeORGDEVICERELATIONSHIPASSIGNEDSERVERCHANGED WebhookEventType = "ORG_DEVICE_RELATIONSHIP_ASSIGNED_SERVER_CHANGED"
+const WebhookEventTypeORGDEVICERELATIONSHIPWARRANTYCHANGED WebhookEventType = "ORG_DEVICE_RELATIONSHIP_WARRANTY_CHANGED"
+
+// Attributes that describe a webhook resource.
+type WebhookAttributes struct {
+	// The date and time that the webhook was created.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+
+	// A Boolean value that indicates whether the webhook is enabled.
+	Enabled *bool `json:"enabled,omitempty"`
+
+	// The event types that the webhook subscribes to. See
+	// [WebhookEventType](https://developer.apple.com/documentation/applebusinessapi/webhookeventtype)
+	// for possible values.
+	EventTypes []WebhookEventType `json:"eventTypes,omitempty"`
+
+	// The name of the webhook.
+	Name *string `json:"name,omitempty"`
+
+	// The date and time that the webhook was last updated.
+	UpdatedDateTime *time.Time `json:"updatedDateTime,omitempty"`
+
+	// The URL that receives webhook event notifications.
+	URL *string `json:"url,omitempty"`
+}
+
+// The relationship between a webhook and its deliveries.
+type WebhookRelationshipsDeliveries struct {
+	// Navigational links to the related deliveries.
+	Links *RelationshipLinks `json:"links,omitempty"`
+}
+
+// Relationships that link a webhook to related resources.
+type WebhookRelationships struct {
+	// The deliveries associated with this webhook.
+	Deliveries *WebhookRelationshipsDeliveries `json:"deliveries,omitempty"`
+}
+
+// The data structure that represents a webhook resource.
+type Webhook struct {
+	// The resource’s attributes.
+	Attributes *WebhookAttributes `json:"attributes,omitempty"`
+
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// Navigational links that include the self-link.
+	Links *ResourceLinks `json:"links,omitempty"`
+
+	// Navigational links to related data and resource linkages.
+	Relationships *WebhookRelationships `json:"relationships,omitempty"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// Attributes that describe the webhook you’re creating.
+type WebhookCreateRequestDataAttributes struct {
+	// A Boolean value that indicates whether the webhook is enabled.
+	Enabled bool `json:"enabled"`
+
+	// The event types that the webhook subscribes to. See
+	// [WebhookEventType](https://developer.apple.com/documentation/applebusinessapi/webhookeventtype)
+	// for possible values.
+	EventTypes []WebhookEventType `json:"eventTypes"`
+
+	// The name of the webhook.
+	Name string `json:"name"`
+
+	// The secret for the webhook. The API doesn’t return this value in responses.
+	Secret string `json:"secret"`
+
+	// The URL that receives webhook event notifications.
+	URL string `json:"url"`
+}
+
+// The data element of the request body.
+type WebhookCreateRequestData struct {
+	// The attributes for the new webhook.
+	Attributes WebhookCreateRequestDataAttributes `json:"attributes"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// A request to create a new webhook.
+type WebhookCreateRequest struct {
+	// The resource data for the new webhook.
+	Data WebhookCreateRequestData `json:"data"`
+}
+
+type WebhookDeliveryAttributesDeliveryState string
+
+const WebhookDeliveryAttributesDeliveryStateSUCCEEDED WebhookDeliveryAttributesDeliveryState = "SUCCEEDED"
+const WebhookDeliveryAttributesDeliveryStateFAILED WebhookDeliveryAttributesDeliveryState = "FAILED"
+const WebhookDeliveryAttributesDeliveryStatePENDING WebhookDeliveryAttributesDeliveryState = "PENDING"
+
+type ErrorResponseErrorsSource_1 = Parameter
+
+// Information about the response that the webhook URL returned.
+type WebhookDeliveryAttributesResponse struct {
+	// The body of the response.
+	Body *string `json:"body,omitempty"`
+
+	// The HTTP status code of the response.
+	HttpStatusCode *int `json:"httpStatusCode,omitempty"`
+}
+
+// Attributes that describe a webhook delivery resource.
+type WebhookDeliveryAttributes struct {
+	// The date and time that the delivery was created.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+
+	// The state of the delivery. Possible values: `SUCCEEDED`, `FAILED`, `PENDING`.
+	DeliveryState *WebhookDeliveryAttributesDeliveryState `json:"deliveryState,omitempty"`
+
+	// A message that describes the error if the delivery failed.
+	ErrorMessage *string `json:"errorMessage,omitempty"`
+
+	// A Boolean value that indicates whether the delivery is a redelivery.
+	Redelivery *bool `json:"redelivery,omitempty"`
+
+	// Information about the request that was sent to the webhook URL.
+	Request *WebhookDeliveryAttributesRequest `json:"request,omitempty"`
+
+	// Information about the response that the webhook URL returned.
+	Response *WebhookDeliveryAttributesResponse `json:"response,omitempty"`
+
+	// The date and time that the delivery was sent.
+	SentDateTime *time.Time `json:"sentDateTime,omitempty"`
+}
+
+// The type and ID of a related resource.
+type WebhookDeliveryRelationshipsEventData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// The relationship between a webhook delivery and its event.
+type WebhookDeliveryRelationshipsEvent struct {
+	// The type and ID of the related event.
+	Data *WebhookDeliveryRelationshipsEventData `json:"data,omitempty"`
+
+	// Navigational links to the related event.
+	Links *RelationshipLinks `json:"links,omitempty"`
+}
+
+// Relationships that link a webhook delivery to related resources.
+type WebhookDeliveryRelationships struct {
+	// The webhook event that the delivery sent.
+	Event *WebhookDeliveryRelationshipsEvent `json:"event,omitempty"`
+}
+
+// The data structure that represents a webhook delivery resource.
+type WebhookDelivery struct {
+	// The resource’s attributes.
+	Attributes *WebhookDeliveryAttributes `json:"attributes,omitempty"`
+
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// Navigational links to related data and resource linkages.
+	Relationships *WebhookDeliveryRelationships `json:"relationships,omitempty"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// Attributes that describe a webhook event resource.
+type WebhookEventAttributes struct {
+	// The date and time that the event was created.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+
+	// The type of event. See
+	// [WebhookEventType](https://developer.apple.com/documentation/applebusinessapi/webhookeventtype)
+	// for possible values.
+	EventType *WebhookEventType `json:"eventType,omitempty"`
+
+	// A Boolean value that indicates whether the event is a ping event.
+	IsPingEvent *bool `json:"isPingEvent,omitempty"`
+
+	// The payload of the event.
+	Payload *string `json:"payload,omitempty"`
+}
+
+// The data structure that represents a webhook event resource.
+type WebhookEvent struct {
+	// The resource’s attributes.
+	Attributes *WebhookEventAttributes `json:"attributes,omitempty"`
+
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// A response that contains a list of webhook delivery resources.
+type WebhookDeliveriesResponse struct {
+	// The resource data.
+	Data []WebhookDelivery `json:"data"`
+
+	// Related resources included in the response.
+	Included []WebhookEvent `json:"included,omitempty"`
+
+	// Navigational links that include the self-link.
+	Links PagedDocumentLinks `json:"links"`
+
+	// Paging information.
+	Meta *PagingInformation `json:"meta,omitempty"`
+}
+
+// The type and ID of a related resource.
+type WebhookDeliveryCreateRequestDataRelationshipsTemplateData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// The data that describe the relationship between the resources.
+type WebhookDeliveryCreateRequestDataRelationshipsTemplate struct {
+	// The type and ID of the related delivery.
+	Data WebhookDeliveryCreateRequestDataRelationshipsTemplateData `json:"data"`
+}
+
+// The relationships you include in the request.
+type WebhookDeliveryCreateRequestDataRelationships struct {
+	// The existing delivery that the new delivery is based on.
+	Template WebhookDeliveryCreateRequestDataRelationshipsTemplate `json:"template"`
+}
+
+// The data element of the request body.
+type WebhookDeliveryCreateRequestData struct {
+	// The relationships you include in the request.
+	Relationships WebhookDeliveryCreateRequestDataRelationships `json:"relationships"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// A request to create a new webhook delivery.
+type WebhookDeliveryCreateRequest struct {
+	// The resource data for the new delivery.
+	Data WebhookDeliveryCreateRequestData `json:"data"`
+}
+
+// A response that contains information about a webhook delivery resource.
+type WebhookDeliveryResponse struct {
+	// The resource data.
+	Data WebhookDelivery `json:"data"`
+
+	// Related resources included in the response.
+	Included []WebhookEvent `json:"included,omitempty"`
+
+	// Navigational links that include the self-link.
+	Links DocumentLinks `json:"links"`
+}
+
+// The data structure that represents a webhook ping resource.
+type WebhookPing struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// The type and ID of a related resource.
+type WebhookPingCreateRequestDataRelationshipsWebhookData struct {
+	// The opaque resource ID that uniquely identifies the resource.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// The data that describe the relationship between the resources.
+type WebhookPingCreateRequestDataRelationshipsWebhook struct {
+	// The type and ID of the related webhook.
+	Data WebhookPingCreateRequestDataRelationshipsWebhookData `json:"data"`
+}
+
+// The relationships you include in the request.
+type WebhookPingCreateRequestDataRelationships struct {
+	// The webhook to send the ping to.
+	Webhook WebhookPingCreateRequestDataRelationshipsWebhook `json:"webhook"`
+}
+
+// The data element of the request body.
+type WebhookPingCreateRequestData struct {
+	// The relationships you include in the request.
+	Relationships WebhookPingCreateRequestDataRelationships `json:"relationships"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// A request to create a new webhook ping.
+type WebhookPingCreateRequest struct {
+	// The resource data for the new ping.
+	Data WebhookPingCreateRequestData `json:"data"`
+}
+
+// A response that contains information about a webhook ping resource.
+type WebhookPingResponse struct {
+	// The resource data.
+	Data WebhookPing `json:"data"`
+
+	// Navigational links that include the self-link.
+	Links DocumentLinks `json:"links"`
+}
+
+// A response that contains information about a webhook resource.
+type WebhookResponse struct {
+	// The resource data.
+	Data Webhook `json:"data"`
+
+	// Navigational links that include the self-link.
+	Links DocumentLinks `json:"links"`
+}
+
+// A response that contains a list of webhook resources.
+type WebhooksResponse struct {
+	// The resource data.
+	Data []Webhook `json:"data"`
+
+	// Navigational links that include the self-link.
+	Links PagedDocumentLinks `json:"links"`
+
+	// Paging information.
+	Meta *PagingInformation `json:"meta,omitempty"`
+}
+
+// Attributes with values that you’re changing as part of the update request.
+type WebhookUpdateRequestDataAttributes struct {
+	// A Boolean value that indicates whether the webhook is enabled.
+	Enabled *bool `json:"enabled,omitempty"`
+
+	// The event types that the webhook subscribes to. See
+	// [WebhookEventType](https://developer.apple.com/documentation/applebusinessapi/webhookeventtype)
+	// for possible values.
+	EventTypes []WebhookEventType `json:"eventTypes,omitempty"`
+
+	// The name of the webhook.
+	Name *string `json:"name,omitempty"`
+
+	// The secret for the webhook. The API doesn’t return this value in responses.
+	Secret *string `json:"secret,omitempty"`
+
+	// The URL that receives webhook event notifications.
+	URL *string `json:"url,omitempty"`
+}
+
+// The data element of the request body.
+type WebhookUpdateRequestData struct {
+	// The attributes to update.
+	Attributes *WebhookUpdateRequestDataAttributes `json:"attributes,omitempty"`
+
+	// The unique identifier of the webhook to update.
+	ID string `json:"id"`
+
+	// The resource type.
+	Type interface{} `json:"type"`
+}
+
+// A request to update an existing webhook.
+type WebhookUpdateRequest struct {
+	// The resource data with updated attributes.
+	Data WebhookUpdateRequestData `json:"data"`
 }

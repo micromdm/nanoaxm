@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -xeou
+set -xeou pipefail
 
 # using fork github.com/jessepeterson/go-jsonschema (micromdm branch)
 
